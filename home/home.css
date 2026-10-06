@@ -178,6 +178,22 @@ h1 em::after {
 .mini { flex: 1; display: flex; height: 5px; border-radius: 3px; overflow: hidden; background: var(--surface-2); }
 .mini .ok { background: var(--ok); } .mini .cond { background: var(--cond); } .mini .no { background: var(--no); }
 
+.essays { border-top: 1px solid var(--line); }
+.essay {
+  display: grid; grid-template-columns: 9rem 1fr auto; gap: 8px 28px; align-items: baseline;
+  padding: 26px 4px; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit;
+}
+.essay-date { font-family: var(--mono); font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.essay-main { display: grid; gap: 8px; }
+.essay-title { font-family: var(--serif); font-size: clamp(24px, 2.6vw, 32px); line-height: 1.15; letter-spacing: -0.005em; color: var(--ink); text-wrap: balance; }
+:lang(ko) .essay-title { font-family: var(--sans); font-weight: 650; letter-spacing: -0.02em; font-size: clamp(21px, 2.2vw, 26px); line-height: 1.35; }
+.essay-desc { color: var(--ink-2); max-width: 46em; }
+.essay-tags { display: flex; flex-wrap: wrap; gap: 6px 14px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+:lang(ko) .essay-date { font-family: var(--sans); letter-spacing: 0.02em; }
+.essay-go { font-size: 20px; color: var(--muted); transition: transform 200ms ease, color 200ms ease; }
+.essay:hover .essay-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
+.essay:hover .essay-go { transform: translateX(4px); color: var(--accent); }
+
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); overflow: hidden; }
 .step { padding: 24px 22px; border-left: 1px solid var(--line); }
 .step:first-child { border-left: 0; }
@@ -204,6 +220,8 @@ footer .grow { flex: 1; }
   .step:nth-child(n+3) { border-top: 1px solid var(--line); }
 }
 @media (max-width: 560px) {
+  .essay { grid-template-columns: 1fr; }
+  .essay-go { display: none; }
   footer .grow { order: 3; flex-basis: 100%; }
   .bar nav .hide-sm { display: none; }
   .bar .wrap { gap: 12px; }

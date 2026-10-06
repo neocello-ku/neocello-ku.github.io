@@ -98,6 +98,22 @@
     if (facts.length) checker(facts);
   }
 
+  // ---------- essays ----------
+  fetch(ROOT + "home/essays.json", { cache: "no-cache" })
+    .then((r) => r.json())
+    .then((all) => {
+      const list = $("#essays-list");
+      const items = all.filter((e) => e[LANG]).sort((a, b) => b.date.localeCompare(a.date));
+      if (!list || !items.length) { list?.closest("section")?.setAttribute("hidden", ""); return; }
+      list.innerHTML = items.slice(0, 5).map((e) => `<a class="essay" href="${ROOT}${SITE}essays/${e.id}">
+        <span class="essay-date">${fmtDate(e.date)}</span>
+        <span class="essay-main"><span class="essay-title">${esc(e[LANG].title)}</span>
+        <span class="essay-desc">${esc(e[LANG].description)}</span>
+        <span class="essay-tags">${(e.tags || []).map((t) => `<span>${esc(t)}</span>`).join("")}</span></span>
+        <span class="essay-go" aria-hidden="true">→</span></a>`).join("");
+    })
+    .catch(() => {});
+
   function countUp(el, n) {
     // 타이머 방식: 미리보기·스크린샷에서도 최종 숫자로 끝난다
     if (!el) return;

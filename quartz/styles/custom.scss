@@ -114,3 +114,23 @@
   .v-cond { color: #e2b04a; }
   .v-no { color: #ee7b70; }
 }
+
+// ---------- 에세이 (essays/) ----------
+// 원문 첫 줄의 "# 제목"은 그대로 두고 화면에서만 숨긴다 (Quartz 제목과 겹침)
+body[data-slug^="essays/"] article .markdown-rendered > h1:first-of-type { display: none; }
+html[lang^="ko"] body[data-slug^="essays/"] article { word-break: keep-all; }
+body[data-slug^="essays/"] article {
+  font-size: 1.06rem;
+  line-height: 1.85;
+  p, li { max-width: 40em; }
+  blockquote { border-left: 2px solid var(--secondary); color: var(--darkgray); }
+}
+.lang-switch {
+  margin: 0 0 1.5rem;
+  font-size: 0.9rem;
+  a {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    padding: 0.15rem 0.7rem; border: 1px solid var(--lightgray); border-radius: 999px;
+    color: var(--secondary); background: var(--highlight); font-weight: 600; text-decoration: none;
+  }
+}

@@ -4,7 +4,7 @@ set -euo pipefail
 OUT="${1:-public}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 mkdir -p "$OUT/home" "$OUT/ko"
-cp "$HERE/home.css" "$HERE/home.js" "$HERE/notes.json" "$OUT/home/"
+cp "$HERE/home.css" "$HERE/home.js" "$HERE/notes.json" "$HERE/essays.json" "$OUT/home/"
 cp "$HERE/index.html" "$OUT/index.html"
 cp "$HERE/ko.html" "$OUT/ko/index.html"
 echo "landing installed into $OUT"

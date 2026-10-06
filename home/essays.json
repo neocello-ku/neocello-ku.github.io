@@ -1,0 +1,11 @@
+[
+ {
+  "id": "sumerian-to-llm",
+  "date": "2026-10-06",
+  "tags": ["Philology", "LLM", "Orientalism", "Multilingual"],
+  "en": {"title": "Notes from Between Sumerian and LLMs — Crossing Two Corpora",
+         "description": "A notebook on corpus, etymology, hegemony, and orientalism, from someone who has crossed between comparative philology and LLM work."},
+  "ko": {"title": "수메르어와 LLM 사이에서 — 두 코퍼스를 횡단하며",
+         "description": "비교종교학과 LLM 작업을 횡단하며 본 코퍼스·어원·헤게모니·오리엔탈리즘에 대한 노트"}
+ }
+]
