@@ -131,8 +131,8 @@ h1 em::after {
 .check-body.swap { animation: swap 420ms ease; }
 @keyframes swap { from { opacity: 0; transform: translateY(6px); } }
 .check-foot { display: flex; align-items: center; gap: 10px; padding-top: 14px; border-top: 1px solid var(--line); }
-.dots { display: flex; gap: 6px; flex: 1; flex-wrap: wrap; }
-.dots button { width: 22px; height: 6px; padding: 0; border: 0; border-radius: 3px; background: var(--surface-2); cursor: pointer; }
+.dots { display: flex; gap: 2px; flex: 1; min-width: 0; }
+.dots button { flex: 1 1 0; min-width: 0; max-width: 22px; height: 6px; padding: 0; border: 0; border-radius: 2px; background: var(--surface-2); cursor: pointer; }
 .dots button.ok[aria-current="true"] { background: var(--ok); }
 .dots button.cond[aria-current="true"] { background: var(--cond); }
 .dots button.no[aria-current="true"] { background: var(--no); }

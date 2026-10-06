@@ -59,7 +59,7 @@
   // ---------- data ----------
   fetch(ROOT + "home/notes.json", { cache: "no-cache" })
     .then((r) => r.json())
-    .then((all) => render(all.filter((n) => n[LANG]).sort((a, b) => b.date.localeCompare(a.date))))
+    .then((all) => render(all.filter((n) => n[LANG]).sort((a, b) => b.date.localeCompare(a.date) || (b.sourceDate || "").localeCompare(a.sourceDate || ""))))
     .catch(() => {});
 
   function render(notes) {
