@@ -100,6 +100,9 @@
         </div></a>`;
     }).join("");
 
+    // timeline rail
+    rail(notes);
+
     // live fact-check
     if (facts.length) checker(facts);
   }
@@ -119,6 +122,61 @@
         <span class="essay-go" aria-hidden="true">→</span></a>`).join("");
     })
     .catch(() => {});
+
+  // ---------- 타임라인 레일: 원문 날짜순 + 이어진 노트 곡선 + 분야 색 ----------
+  function rail(notes) {
+    const svg = $("#railsvg"); if (!svg || !notes.length) return;
+    const items = notes.filter((n) => n.sourceDate).map((n) => ({ ...n, L: n[LANG] }));
+    const byId = Object.fromEntries(items.map((n) => [n.id, n]));
+    const fields = [...new Set(items.map((n) => n.L.field))];
+    const color = (f) => `var(--f${(fields.indexOf(f) % 6) + 1})`;
+    $("#legend").innerHTML = fields.map((f) => `<span><i style="background:${color(f)}"></i>${esc(f)}</span>`).join("");
+    const W = 1000, L = 70, R = 70, base = 165, MAXGAP = 6;
+    const dates = [...new Set(items.map((n) => n.sourceDate))].sort();
+    const dayN = (d) => Date.parse(d) / 864e5;
+    const units = [0], breaks = [];
+    for (let k = 1; k < dates.length; k++) {
+      const gap = dayN(dates[k]) - dayN(dates[k - 1]);
+      if (gap > MAXGAP) breaks.push(k);
+      units.push(units[k - 1] + Math.min(gap, MAXGAP));
+    }
+    const span = Math.max(units[units.length - 1], 1);
+    const pos = Object.fromEntries(dates.map((d, k) => [d, L + (units[k] / span) * (W - L - R)]));
+    const fmtS = (d) => new Date(d + "T00:00:00").toLocaleDateString(LANG === "ko" ? "ko-KR" : "en-US", { month: "short", day: "numeric" });
+    let s = `<line x1="${L - 30}" x2="${W - R + 30}" y1="${base}" y2="${base}" stroke="var(--line)" stroke-width="2"/>`;
+    breaks.forEach((k) => {
+      const bx = (pos[dates[k - 1]] + pos[dates[k]]) / 2, days = Math.round(dayN(dates[k]) - dayN(dates[k - 1]));
+      s += `<rect x="${bx - 10}" y="${base - 9}" width="20" height="18" fill="var(--surface)"/>`;
+      s += `<path d="M${bx - 9} ${base + 6} l6 -12 M${bx + 3} ${base + 6} l6 -12" stroke="var(--muted)" stroke-width="2" fill="none"/>`;
+      s += `<text x="${bx}" y="${base + 30}" text-anchor="middle" font-size="12" fill="var(--muted)">${LANG === "ko" ? days + "일" : days + " days"}</text>`;
+    });
+    const seen = new Set();
+    items.forEach((a) => (a.related || []).forEach((rid) => {
+      const key = [a.id, rid].sort().join("|"); if (seen.has(key) || !byId[rid]) return; seen.add(key);
+      const x1 = pos[a.sourceDate], x2 = pos[byId[rid].sourceDate], h = Math.min(120, 30 + Math.abs(x2 - x1) * 0.35);
+      s += `<path class="arc" d="M${x1} ${base} C ${x1} ${base - h}, ${x2} ${base - h}, ${x2} ${base}" fill="none" stroke="var(--muted)" stroke-opacity=".5" stroke-width="1.5"/>`;
+    }));
+    const sorted = [...items].sort((a, b) => a.sourceDate.localeCompare(b.sourceDate));
+    const lastX = { up: -1e9, down: -1e9 }, tier = { up: 0, down: 0 };
+    sorted.forEach((it, idx) => {
+      const xx = pos[it.sourceDate], up = idx % 2 === 0, side = up ? "up" : "down";
+      tier[side] = xx - lastX[side] < 140 ? (tier[side] + 1) % 2 : 0;
+      lastX[side] = xx;
+      const ly = up ? base - 130 + tier[side] * 34 : base + 66 + tier[side] * 34;
+      const href = `${ROOT}${SITE}trends/${it.id}`;
+      // 양 끝 근처 라벨은 안쪽으로 정렬해 잘리지 않게
+      const anchor = xx > W - 150 ? "end" : xx < 150 ? "start" : "middle";
+      const tx = anchor === "end" ? xx + 14 : anchor === "start" ? xx - 14 : xx;
+      s += `<a href="${href}" class="node" aria-label="${esc(it.L.title)}, ${fmtS(it.sourceDate)}">
+        <line x1="${xx}" x2="${xx}" y1="${up ? ly + 6 : base + 9}" y2="${up ? base - 9 : ly - 15}" stroke="${color(it.L.field)}" stroke-opacity=".55" stroke-dasharray="2 3"/>
+        <circle class="dot" cx="${xx}" cy="${base}" r="8" fill="var(--surface)" stroke="${color(it.L.field)}" stroke-width="3"/>
+        <text x="${tx}" y="${ly}" text-anchor="${anchor}" font-size="14" font-weight="600" fill="var(--ink)">${esc(it.L.short || it.L.title)}</text>
+        <text x="${tx}" y="${ly + (up ? -18 : 18)}" text-anchor="${anchor}" font-size="12" fill="var(--muted)">${fmtS(it.sourceDate)}</text></a>`;
+    });
+    svg.setAttribute("viewBox", `0 0 ${W} ${base + 140}`);
+    svg.innerHTML = s;
+    const sc = svg.parentElement; requestAnimationFrame(() => { sc.scrollLeft = sc.scrollWidth; });
+  }
 
   function countUp(el, n) {
     // 타이머 방식: 미리보기·스크린샷에서도 최종 숫자로 끝난다

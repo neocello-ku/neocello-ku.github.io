@@ -125,7 +125,11 @@
      "v": "no"
     }
    ]
-  }
+  },
+  "related": [
+   "openai-dots",
+   "open-dot"
+  ]
  },
  {
   "id": "open-dot",
@@ -223,7 +227,10 @@
      "v": "no"
     }
    ]
-  }
+  },
+  "related": [
+   "openai-dots"
+  ]
  },
  {
   "id": "openai-dots",
@@ -321,7 +328,11 @@
      "v": "cond"
     }
    ]
-  }
+  },
+  "related": [
+   "strata",
+   "jev-local"
+  ]
  },
  {
   "id": "strata",
@@ -419,7 +430,8 @@
      "v": "cond"
     }
    ]
-  }
+  },
+  "related": []
  },
  {
   "id": "jev-local",
@@ -507,7 +519,10 @@
      "v": "no"
     }
    ]
-  }
+  },
+  "related": [
+   "strata"
+  ]
  },
  {
   "id": "longcat-avatar-15",
@@ -635,7 +650,11 @@
      "v": "cond"
     }
    ]
-  }
+  },
+  "related": [
+   "strata",
+   "image-blaster"
+  ]
  },
  {
   "id": "image-blaster",
@@ -743,6 +762,9 @@
      "v": "cond"
     }
    ]
-  }
+  },
+  "related": [
+   "strata"
+  ]
  }
 ]
