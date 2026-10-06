@@ -292,5 +292,103 @@
     }
    ]
   }
+ },
+ {
+  "id": "openai-dots",
+  "date": "2026-10-06",
+  "sourceDate": "2026-09-29",
+  "video": true,
+  "source": "https://openai.com/index/introducing-dots/",
+  "repo": null,
+  "en": {
+   "title": "OpenAI dots: an always-on agent inside the subscription",
+   "short": "OpenAI dots",
+   "field": "AI agents",
+   "type": "Official announcement",
+   "verdict": "The agent structure with a virtual computer is the same one ChatGPT agent shipped in July 2025. What changed is the move from a session to a resident agent, sold as a subscription that starts at 100 dollars a month, and Meta Muse made that move three weeks earlier. An outside test of 10 tasks right after launch averaged 8.8 of 10, with repeated output-format errors and approval friction.",
+   "summary": "OpenAI released dots at DevDay on 29 September 2026. Each dot gets its own cloud Linux computer and Chrome browser, and you reach the same dot from ChatGPT, Slack, Teams or a voice call. GPT-6 Astra drives it, and the first dot costs nothing extra on the Pro and Business Premium plans.",
+   "facts": [
+    {
+     "claim": "It runs on GPT-6 Astra and each dot has its own cloud computer",
+     "result": "The launch post and the safety post agree. An outside review opened that computer.",
+     "v": "ok"
+    },
+    {
+     "claim": "The first dot costs nothing extra",
+     "result": "True. The plan that includes it starts at 100 dollars a month. The extended allowance ends in late October 2026.",
+     "v": "ok"
+    },
+    {
+     "claim": "It connects to more than 4,000 apps",
+     "result": "Only the official figure exists. The list is not public, so nobody can check it.",
+     "v": "cond"
+    },
+    {
+     "claim": "Your dot is always within reach",
+     "result": "Pro excludes the EEA, Switzerland and the UK. First setup needs a desktop.",
+     "v": "cond"
+    },
+    {
+     "claim": "Dots can do nearly anything",
+     "result": "An outside test of 10 tasks averaged 8.8 of 10, with a low of 7.0. Format and formula errors repeated.",
+     "v": "no"
+    },
+    {
+     "claim": "You are always in control",
+     "result": "The design is detailed. In real use rules were rejected and approval requests repeated. Friction scored 2.5 of 5.",
+     "v": "cond"
+    },
+    {
+     "claim": "Proactive research is read-only and enforced in code",
+     "result": "OpenAI describes the structure. There is no way to check it from outside.",
+     "v": "cond"
+    }
+   ]
+  },
+  "ko": {
+   "title": "OpenAI dots: 상시 대기 에이전트가 요금제에 들어왔습니다",
+   "short": "OpenAI dots",
+   "field": "AI 에이전트",
+   "type": "공식 발표",
+   "verdict": "가상 컴퓨터를 쓰는 에이전트 구조는 2025년 7월 ChatGPT agent와 같습니다. 바뀐 것은 세션형을 상주형으로 돌리고 월 100달러짜리 구독으로 묶은 점이며, 그 전환은 Meta Muse가 3주 먼저 했습니다. 출시 직후 외부 실사용 10개 작업 평균은 8.8/10이었고 결과물 형식 오류와 승인 마찰이 반복됐습니다.",
+   "summary": "OpenAI가 2026년 9월 29일 DevDay에서 상시 대기 에이전트 dots를 냈습니다. dot 하나마다 전용 클라우드 리눅스 컴퓨터와 Chrome 브라우저가 붙고, ChatGPT·Slack·Teams·음성 통화에서 같은 dot을 부릅니다. GPT-6 Astra가 움직이며 첫 dot은 Pro와 Business Premium 요금제에 추가 비용 없이 들어갑니다.",
+   "facts": [
+    {
+     "claim": "GPT-6 Astra 기반이고 dot마다 자기 클라우드 컴퓨터가 있다",
+     "result": "발표문과 안전 문서가 일치합니다. 외부 리뷰도 그 컴퓨터 화면을 열어 확인했습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "첫 dot은 요금제에 추가 비용 없이 들어간다",
+     "result": "맞습니다. 단 들어가는 요금제가 Pro 월 100달러부터입니다. 깊은 작업 할당량 확장은 2026년 10월 말까지입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "4,000개 넘는 앱에 연결된다",
+     "result": "공식 수치뿐입니다. 목록이 공개되지 않아 독립 확인이 안 됩니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "언제 어디서나 손 닿는 곳에 있다",
+     "result": "Pro는 EEA, 스위스, 영국에서 못 씁니다. 첫 설정은 데스크톱에서만 됩니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "거의 모든 일을 맡아서 한다",
+     "result": "외부 10개 작업 평균 8.8/10, 최저 7.0입니다. 결과물 형식과 수식 오류가 반복됐습니다.",
+     "v": "no"
+    },
+    {
+     "claim": "사용자가 늘 통제한다",
+     "result": "설계는 자세합니다. 실사용에서는 규칙이 거부되고 승인 요청이 반복됐습니다. 일상 마찰 2.5/5.",
+     "v": "cond"
+    },
+    {
+     "claim": "선제 조사는 읽기 전용이며 코드로 막는다",
+     "result": "공식 문서가 구조를 밝힙니다. 외부에서 확인할 방법이 없습니다.",
+     "v": "cond"
+    }
+   ]
+  }
  }
 ]
