@@ -16,15 +16,15 @@ lang: "en"
 
 ## Summary
 
-Strata came out on 24 September 2026. It is an open-source engine that runs a 125B model on a 12 GB graphics card and ordinary PC memory. It collected 13,900 stars in 12 days.
+Strata is an open-source engine that runs a 125B model on a 12 GB graphics card and ordinary PC memory. It came out on 24 September 2026 and collected 13,900 stars in 12 days.
 
-Tools that do the same job have been around for three years. What is new is not the method. It is the install experience. One script does everything if you have a current driver.
+Tools that do the same job have been around for three years. Strata changes how you install it, not how it works. One script does everything if you have a current driver.
 
 New to these terms? Start with the "If you are new" section below.
 
 ## Where it fits: why this story now
 
-Ways to run a large model on a small graphics card already existed. The problem was the user. You had to know the command-line flags.
+Ways to run a large model on a small graphics card already existed, but you had to know the command-line flags.
 
 ```mermaid
 %%{init: {'themeVariables': {'cScale0': '#2F6FDB', 'cScaleLabel0': '#FFFFFF', 'cScale1': '#11806F', 'cScaleLabel1': '#FFFFFF', 'cScale2': '#5B6878', 'cScaleLabel2': '#FFFFFF', 'cScale3': '#2F6FDB', 'cScaleLabel3': '#FFFFFF', 'cScale4': '#11806F', 'cScaleLabel4': '#FFFFFF', 'cScale5': '#5B6878', 'cScaleLabel5': '#FFFFFF', 'cScale6': '#2F6FDB', 'cScaleLabel6': '#FFFFFF', 'cScale7': '#11806F', 'cScaleLabel7': '#FFFFFF', 'cScale8': '#5B6878', 'cScaleLabel8': '#FFFFFF', 'cScale9': '#2F6FDB', 'cScaleLabel9': '#FFFFFF', 'cScale10': '#11806F', 'cScaleLabel10': '#FFFFFF', 'cScale11': '#5B6878', 'cScaleLabel11': '#FFFFFF'}}}%%
@@ -37,7 +37,7 @@ timeline
   4 October 2026 : v0.1.39, 40 releases in 11 days
 ```
 
-Strata is the fifth step. It puts an installer on top of the method the first three steps built.
+Strata is the fifth step, and it puts an installer on top of the method the first three steps built.
 
 ### What is new here
 
@@ -47,7 +47,7 @@ Strata is the fifth step. It puts an installer on top of the method the first th
 | Own engine and kernels (infrastructure) | Medium | It uses part of ggml and writes the rest from scratch. The adaptive expert cache and KV streaming are its own. |
 | Double-click install and a local API (product) | High | One script checks the hardware, fetches the model, and starts the server. |
 
-So Strata is not a new invention. It is the first time a three-year-old method became a double-click product.
+So Strata is the first time this three-year-old method became a double-click product.
 
 ## If you are new: what is this about
 
@@ -69,10 +69,10 @@ Think of a large hospital. It can have 20,000 doctors, but one patient meets onl
 
 Strata uses this property. It keeps the most-used experts on the graphics card and the rest in PC memory.
 
-- **Graphics card (VRAM)**: the parts every token needs, plus a few thousand hot experts
-- **System RAM**: all 24,576 experts
-- **CPU**: computes the experts the card does not hold, at the same time as the GPU
-- **SSD**: a 28.8 GB lookup table. It reads a few rows per token
+- Graphics card (VRAM): the parts every token needs, plus a few thousand hot experts
+- System RAM: all 24,576 experts
+- CPU: computes the experts the card does not hold, at the same time as the GPU
+- SSD: a 28.8 GB lookup table. It reads a few rows per token
 
 Which experts stay on the card keeps changing while you chat.
 
@@ -146,7 +146,7 @@ So a long document reads at over 1,000 tokens per second. The first message take
 | Disk | 70-80 GB for the model plus about 6 GB for the draft layer. An NVMe SSD is advised |
 | Driver | NVIDIA 580 or newer, or a current AMD driver |
 
-There is one trap. The model loads into system RAM, not into VRAM. A 12 GB card will not help if the PC has under 32 GB of RAM.
+The model loads into system RAM, not into VRAM. So a 12 GB card will not help if the PC has under 32 GB of RAM.
 
 ## Install and run
 
@@ -212,7 +212,7 @@ The first line opens the menu. The second installs the coding model for 32 GB of
 
 ### How much does 2 bits cost
 
-This is the question that matters. ISTA-DASLab, which made the quantization, published the numbers.
+ISTA-DASLab, which made the quantization, published the numbers.
 
 | Size | Bits per weight | Size on disk | Task average | LiveCodeBench v6 |
 | --- | ---: | ---: | ---: | ---: |
@@ -222,15 +222,15 @@ This is the question that matters. ISTA-DASLab, which made the quantization, pub
 | IQ3_XXS | 3.00 | 75.8 GB | 92.57 | 86.29 |
 | IQ3_S | 3.50 | 83.6 GB | 93.26 | 86.86 |
 
-Read it this way. From 3 bits up the scores stay close to the original. The 2-bit sizes drop about 4 points, and more on code.
+From 3 bits up the scores stay close to the original. The 2-bit sizes drop about 4 points, and more on code.
 
 The installer recommends IQ2_XS on a 64 GB PC. So the default is the 89-point file, not the original. Pick IQ3_S if you have 96 GB of RAM.
 
-One caveat. The team that made the quantization also made this table. We found no independent measurement outside the repository.
+The team that made the quantization also made this table. We found no independent measurement outside the repository.
 
 ### Can you trust the speed numbers
 
-The repository states the machine, the engine version and the raw data path. That part is good.
+The repository does state the machine, the engine version and the raw data path.
 
 Two community reports also sit inside the repository. The RTX 5090 report shows a median decode of 179.4 tok/s with IQ2_XS. That is faster than the 5070 numbers in the README.
 
