@@ -18,7 +18,7 @@ lang: "en"
 
 TypeSafe released Jev on 15 September 2026. It is a closed model that makes decisions and writes no prose. Five days later, this X article rebuilt the same inference path on open models.
 
-In the larger story, this is the step from "make the LLM write well" to "make it choose well". The method itself matches how benchmarks scored choices around 2020. What is new is that the same calculation is now a built-in route in an inference server.
+In the larger story, this is the step from "make the LLM write well" to "make it choose well". The calculation is the same one benchmarks used around 2020. It now ships as a built-in route in an inference server.
 
 New to these terms? Start with the "If you are new" section below.
 
@@ -40,7 +40,7 @@ timeline
 
 This article sits in the fifth slot. In the week after Jev shipped, 1,865 new repositories appeared. Kev 4B, LLM2Jev and AnyJev are rebuilds from the same weeks.
 
-An earlier post here covers [Strata: a 125B model on a gaming PC](/trends/strata), dated 6 October 2026. That one was about fitting a large model onto your own machine. This one is the next question. Once the model is up, how should you call it?
+An earlier post here covers [Strata: a 125B model on a gaming PC](/trends/strata), dated 6 October 2026. That one was about fitting a large model onto your own machine. This one asks what comes after that: once the model is up, how should you call it?
 
 ### What is actually new here
 
@@ -50,7 +50,7 @@ An earlier post here covers [Strata: a 125B model on a gaming PC](/trends/strata
 | Jev, a decision-only model (product) | Medium | The math is old. The calibration and the dedicated training are new. The weights are closed, so nobody outside can check. |
 | `/v1/decisions` (infrastructure) | Medium | The server now does the label assignment and the single-token check. It landed 16 days after Jev shipped. |
 
-So this is not an invention. A benchmark calculation got a product name, and two weeks later it became a built-in server route. The lesson is not a new technique. It is the choice of call path.
+So nobody invented anything here. A benchmark calculation got a product name, and two weeks later it became a built-in server route. What changes for you is which call path you reach for.
 
 ## If you are new: what is this about
 
@@ -112,9 +112,9 @@ flowchart LR
   X --> R["billing 0.91 / technical 0.06 / account 0.03"]
 ```
 
-If the three logits are 8.2, 5.5 and 4.8, the shares are 0.91, 0.06 and 0.03. That is a split across the three choices. It is not the chance of being right.
+If the three logits are 8.2, 5.5 and 4.8, the shares are 0.91, 0.06 and 0.03. Those shares split the three choices against each other. They do not tell you how often the answer is right.
 
-Structured output is a different thing. It also constrains the shape, but it still emits the opening brace and then each token. Scoring skips that loop.
+Structured output works differently. It also constrains the shape, but it still emits the opening brace and then each token. Scoring skips that loop.
 
 ### Four rules to follow
 
@@ -253,11 +253,11 @@ r.raise_for_status()
 print(r.json()["answers"]["team"])
 ```
 
-The `choice` field holds the top option. The `probabilities` field holds the share per option. The `label_mass` field holds how much full-vocabulary probability the labels hold together. A low value means the model prefers something outside your list.
+The `choice` field gives the top option, and `probabilities` gives the share per option. `label_mass` tells you how much full-vocabulary probability the labels hold together. A low value means the model prefers something outside your list.
 
 There are three question types. `choice` takes 2 to 26 options, `score` takes 2 to 10 levels, and `yes_no` takes a yes or a no. The docs name only two validated models: Qwen3.8-27B and Qwen3.5-35B-A3B. For any other model the server checks each request and returns a 400 when a condition fails.
 
-One detail deserves a warning. The docs still tell you to install a nightly build until a release carries the route. The 0.5.21 wheel already carries it. The docs trail the release here.
+The docs still tell you to install a nightly build until a release carries the route. The 0.5.21 wheel already carries it, so the docs trail the release here.
 
 ## Fact check
 
@@ -271,15 +271,15 @@ One detail deserves a warning. The docs still tell you to install a nightly buil
 | Scoring beats generation on speed | The article gives no timing. Its comparison path emits 32 tokens | No numbers given |
 | The title: build your own Jev | The body states it rebuilds the inference path only | The title overstates |
 
-Speed depends on the comparison. Against a path that writes a long answer, scoring wins clearly. Against a path that emits one answer token, the picture changes.
+Speed depends on what you compare against. Scoring wins clearly against a path that writes a long answer. Against a path that emits one answer token, the two run close.
 
 LMSYS published an independent measurement on 25 September 2026. The setup was one H200, 16 candidates and low load. On Qwen3-8B, multi-item scoring took 20.6 ms. One-token generation took 54.1 ms and single-item scoring took 53.1 ms. Single-item scoring and one-token generation sit close together.
 
 The same post adds limits. The scoring advantage grows with load, and it is not always ahead at low load. With only two options, single-item scoring edges ahead of multi-item scoring on the smaller models.
 
-I checked one more thing in the source. The `/v1/decisions` route refuses a server started with `--enable-mis`. So the headline multi-item number is not what that route gives you today.
+The source code adds one limit. The `/v1/decisions` route refuses a server started with `--enable-mis`, so the headline multi-item number is not what that route gives you today.
 
-The firmest gain is the contract, not the clock. You always get a score for every label you asked for. One-token generation can drop a label from the top list.
+The contract is the firmest gain here. You always get a score for every label you asked for. One-token generation can drop a label from the top list.
 
 ## What to use when
 
