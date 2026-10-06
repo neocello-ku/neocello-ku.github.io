@@ -390,5 +390,103 @@
     }
    ]
   }
+ },
+ {
+  "id": "open-dot",
+  "date": "2026-10-06",
+  "sourceDate": "2026-09-30",
+  "video": true,
+  "source": "https://x.com/KaranVaidya6/status/2105334408932954604",
+  "repo": "https://github.com/composio-community/open-dot",
+  "en": {
+   "title": "Open Dot: running OpenAI Dots on your own Mac",
+   "short": "Open Dot",
+   "field": "AI agents",
+   "type": "GitHub repo",
+   "verdict": "Three open clones went up within seven hours of the launch, and Open Dot was the first. There is no new technology here: it assembles the OpenAI built-in tools, Composio, E2B and Playwright in one day. It removes the subscription but not the always-on part. The scheduler runs as croner inside your Mac, so routines skip when the app closes or the Mac sleeps. There is also no LICENSE file yet.",
+   "summary": "The Composio team published Open Dot on 29 September 2026, the day OpenAI shipped Dots. It is a Mac desktop app that does the same job, and it runs on your own OpenAI or OpenRouter key. Each dot gets its own Chrome profile and a password vault, and it links to 1,500 apps through Composio.",
+   "facts": [
+    {
+     "claim": "The same capabilities at 1/10th of the cost",
+     "result": "The README has no cost figure. One tenth of the 100 dollar Pro plan is 10 dollars a month. At gpt-5.5 rates that buys about 40,000 input tokens a day, or one or two short routines.",
+     "v": "cond"
+    },
+    {
+     "claim": "The same capabilities",
+     "result": "The scheduler runs as croner inside the Node process on your Mac. Routines and triggers skip when the app closes or the Mac sleeps. With OpenAI Dots the clock is in the cloud.",
+     "v": "no"
+    },
+    {
+     "claim": "Each dot has its own browser that stays logged in securely",
+     "result": "This matches the code. Each dot has a Chrome profile. Passwords use AES-256-GCM with the key in the macOS Keychain, and the model never sees plain text.",
+     "v": "ok"
+    },
+    {
+     "claim": "It sets triggers on Gmail, Calendar and 1,500 other apps",
+     "result": "The count matches the official Composio figure. But triggers need a separate project API key, and you reconnect the apps there.",
+     "v": "cond"
+    },
+    {
+     "claim": "You can call it and give it things to do",
+     "result": "voice.ts uses the OpenAI Realtime API. But voice calls need an OpenAI key. Open models cannot replace it.",
+     "v": "cond"
+    },
+    {
+     "claim": "It runs on your Mac",
+     "result": "True. But the only build target is macOS arm64. App links go through connect.composio.dev, and Composio holds the credentials for each app.",
+     "v": "cond"
+    },
+    {
+     "claim": "Free and open source",
+     "result": "There is no LICENSE file. The GitHub API reports the license as empty. The two clones from the same day both chose MIT.",
+     "v": "no"
+    }
+   ]
+  },
+  "ko": {
+   "title": "Open Dot: OpenAI Dots를 내 맥에서 돌리기",
+   "short": "Open Dot",
+   "field": "AI 에이전트",
+   "type": "GitHub 레포",
+   "verdict": "발표 당일 7시간 안에 오픈 클론 3개가 올라왔고 Open Dot이 그중 첫 번째입니다. 새 기술은 없고 OpenAI 내장 도구, Composio, E2B, Playwright를 하루 만에 조립했습니다. 구독비는 걷어냈지만 상시 대기는 못 걷어냈습니다. 스케줄러가 croner로 내 맥 안에서 돌아서 앱이 닫히거나 맥이 자면 루틴이 건너뜁니다. LICENSE 파일도 아직 없습니다.",
+   "summary": "Composio 팀이 OpenAI Dots 발표 당일인 2026년 9월 29일에 Open Dot을 올렸습니다. 같은 일을 하는 맥 데스크톱 앱이고, 모델은 내 OpenAI 키나 OpenRouter 키를 씁니다. dot마다 전용 Chrome 프로필과 암호 금고가 붙고, Composio로 1,500개 앱에 연결합니다.",
+   "facts": [
+    {
+     "claim": "같은 능력을 1/10 비용으로",
+     "result": "README에 비용 숫자가 없습니다. Pro 최저 월 100달러의 1/10은 월 10달러입니다. gpt-5.5 요금으로 환산하면 하루 입력 약 4만 토큰이고, 짧은 루틴 한두 번 분량입니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "같은 능력",
+     "result": "스케줄러가 croner로 내 맥의 Node 프로세스 안에서 돕니다. 앱이 닫히거나 맥이 자면 루틴과 트리거가 건너뜁니다. OpenAI Dots는 시계까지 클라우드에 있습니다.",
+     "v": "no"
+    },
+    {
+     "claim": "dot마다 전용 브라우저가 있고 로그인이 유지되며 안전하다",
+     "result": "코드와 일치합니다. dot별 Chrome 프로필이 있고, 비밀번호는 AES-256-GCM으로 암호화하며 키는 macOS 키체인에 둡니다. 평문은 모델에 가지 않습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "Gmail, 캘린더와 1,500개 앱에 트리거를 설정한다",
+     "result": "Composio 공식 수치와 맞습니다. 단 트리거는 별도 프로젝트 API 키가 필요하고, 앱도 거기서 다시 연결해야 합니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "전화를 걸어 말하면서 시킨다",
+     "result": "voice.ts가 OpenAI Realtime을 씁니다. 단 음성 통화는 OpenAI 키가 꼭 필요합니다. 오픈 모델로 대체되지 않습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "내 맥에서 돈다",
+     "result": "맞습니다. 단 빌드 타깃이 macOS arm64 하나뿐입니다. 앱 연결은 connect.composio.dev를 거치고 개별 앱 자격 증명은 Composio가 관리합니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "무료 오픈소스",
+     "result": "LICENSE 파일이 없습니다. GitHub API도 license를 비어 있다고 보고합니다. 같은 날 나온 다른 클론 둘은 MIT입니다.",
+     "v": "no"
+    }
+   ]
+  }
  }
 ]
