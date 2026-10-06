@@ -616,5 +616,133 @@
     }
    ]
   }
+ },
+ {
+  "id": "longcat-avatar-15",
+  "date": "2026-10-06",
+  "sourceDate": "2026-05-21",
+  "video": true,
+  "source": "https://x.com/Dontgiveup_26/status/2106524415353909566",
+  "repo": "https://github.com/meituan-longcat/LongCat-Video",
+  "en": {
+   "title": "LongCat-Video-Avatar 1.5: A Talking Video From One Photo",
+   "short": "Avatar 1.5",
+   "field": "Generative video",
+   "type": "X post",
+   "verdict": "There is no new technique. What matters is that a commercial-grade bundle went open, weights included, under MIT. It still needs two GPUs at about 33GB each.",
+   "summary": "Meituan released LongCat-Video-Avatar 1.5 on 21 May 2026. You give it one photo and an audio file, and it returns a video of that person speaking. Version 1.5 swaps the audio encoder for Whisper-large-v3 and adds 8-step distillation plus INT8 weights. The code and the weights carry the MIT license.",
+   "facts": [
+    {
+     "claim": "Zero color distortion",
+     "result": "The README says \"without color drifting or quality degradation\". There is no 0% figure and no measurement.",
+     "v": "no"
+    },
+    {
+     "claim": "Minutes-long video, extended forever",
+     "result": "The base demo defaults to 11 segments with the comment \"1 minute video\". Avatar segments run 3.2 seconds each.",
+     "v": "cond"
+    },
+    {
+     "claim": "T2V, I2V, and lip sync in one 13.6B model",
+     "result": "The 13.6B model unifies T2V, I2V, and continuation. Lip sync lives in separate weights of about 15.9B.",
+     "v": "no"
+    },
+    {
+     "claim": "Matches or beats Veo3, PixVerse, Wan 2.2",
+     "result": "In the README's own scoring, text-to-video is Veo3 3.48 against LongCat 3.38. Image-to-video puts LongCat last at 3.17. Those are 2025 base model numbers.",
+     "v": "no"
+    },
+    {
+     "claim": "Whisper-large-v3 as the audio encoder",
+     "result": "Correct. The code calls WhisperModel and the config audio_channel of 1280 matches.",
+     "v": "ok"
+    },
+    {
+     "claim": "Two-person conversation support",
+     "result": "Correct. There is an example JSON and two audio_type modes. No quality measurement backs it up.",
+     "v": "cond"
+    },
+    {
+     "claim": "Faster through 8-step distillation",
+     "result": "Steps drop from 50 to 8 and CFG turns off. By DiT evaluation count that is about 19x. No wall-clock figure exists.",
+     "v": "cond"
+    },
+    {
+     "claim": "INT8 cuts the VRAM load",
+     "result": "DiT weights drop from 31.71GB to 15.89GB. The text encoder and Whisper stay, so about 33GB per card remains.",
+     "v": "cond"
+    },
+    {
+     "claim": "MIT license, free for commercial use",
+     "result": "Correct. The LICENSE file is MIT and the README extends it to the weights.",
+     "v": "ok"
+    },
+    {
+     "claim": "Grab it from Hugging Face and integrate",
+     "result": "You can. You also need the base repo, and the two repositories total about 158GB.",
+     "v": "cond"
+    }
+   ]
+  },
+  "ko": {
+   "title": "LongCat-Video-Avatar 1.5: 사진 한 장과 음성으로 말하는 영상",
+   "short": "Avatar 1.5",
+   "field": "생성 영상",
+   "type": "X 게시물",
+   "verdict": "새 기법은 없습니다. 상용 서비스급 묶음이 가중치까지 MIT로 열린 것이 핵심입니다. 다만 GPU 2장에 장당 약 33GB가 필요합니다.",
+   "summary": "메이투안이 2026년 5월 21일 LongCat-Video-Avatar 1.5를 공개했습니다. 사진 한 장과 음성 파일을 넣으면 그 사람이 말하는 영상이 나옵니다. 오디오 인코더를 Whisper-large-v3로 바꾸고, 8스텝 증류와 INT8 가중치를 더했습니다. 코드와 가중치 모두 MIT 라이선스입니다.",
+   "facts": [
+    {
+     "claim": "색감 왜곡 0%",
+     "result": "README 문구는 \"without color drifting or quality degradation\"입니다. 0%라는 수치도, 측정값도 없습니다.",
+     "v": "no"
+    },
+    {
+     "claim": "수 분짜리 영상 무한 연장",
+     "result": "기반 모델 데모 기본값은 11세그먼트이고 주석은 \"1 minute video\"입니다. 아바타는 세그먼트당 3.2초입니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "T2V·I2V·립싱크를 13.6B 모델 하나로 통합",
+     "result": "13.6B가 통합한 것은 T2V·I2V·이어붙이기 셋입니다. 립싱크는 약 15.9B 별도 가중치입니다.",
+     "v": "no"
+    },
+    {
+     "claim": "Veo3·PixVerse·Wan 2.2와 대등하거나 능가",
+     "result": "README 자체 평가에서 텍스트→영상은 Veo3 3.48 > LongCat 3.38입니다. 이미지→영상은 3.17로 최저입니다. 게다가 2025년 기반 모델 수치입니다.",
+     "v": "no"
+    },
+    {
+     "claim": "Whisper-large-v3를 오디오 인코더로 채택",
+     "result": "맞습니다. 코드가 WhisperModel을 쓰고 설정의 audio_channel 1280도 일치합니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "2인 대화 지원",
+     "result": "맞습니다. 예제 JSON과 audio_type 두 가지가 있습니다. 다만 품질 측정값은 없습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "8스텝 증류로 속도 향상",
+     "result": "스텝이 50에서 8로 줄고 CFG도 꺼집니다. DiT 평가 횟수로 약 19배입니다. 초 단위 측정값은 없습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "INT8로 VRAM 부담 감소",
+     "result": "DiT 가중치가 31.71GB에서 15.89GB로 줍니다. 텍스트 인코더와 Whisper는 그대로라 장당 약 33GB가 남습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "MIT 라이선스로 상업적 이용 가능",
+     "result": "맞습니다. LICENSE가 MIT이고 README가 가중치도 MIT라고 밝힙니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "허깅페이스에서 바로 받아 통합",
+     "result": "받을 수는 있습니다. 다만 기반 레포까지 받아야 하고 두 저장소 합계가 약 158GB입니다.",
+     "v": "cond"
+    }
+   ]
+  }
  }
 ]
