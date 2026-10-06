@@ -12,7 +12,7 @@ lang: "ko"
 
 ![[strata.mp4]]
 
-[원문](https://github.com/Niko1221/Strata) · [레포](https://github.com/Niko1221/Strata) · [[en/trends/strata|English]]
+[원문](https://github.com/Niko1221/Strata) · [레포](https://github.com/Niko1221/Strata) · [English](https://neocello-ku.github.io/en/trends/strata)
 
 ## 요약
 
