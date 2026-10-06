@@ -18,7 +18,7 @@ lang: "en"
 
 OpenAI released dots on 29 September 2026 at DevDay. Each dot gets its own cloud computer and keeps working while you are away.
 
-In the wider story, this packages the 2025 agent parts into one subscription. The method is not new. What is new is that the agent is now resident, not a session. New to these terms? Start with the "If you are new" section below.
+In the wider story, this packages the 2025 agent parts into one subscription. The method is already known. The change is that the agent now stays resident between sessions. New to these terms? Start with the "If you are new" section below.
 
 ## Where this fits
 
@@ -35,7 +35,7 @@ timeline
   29 September 2026 : OpenAI dots (this post)
 ```
 
-This launch sits at the last step. An agent with its own computer arrived in July 2025 with ChatGPT agent. dots turned that agent into a resident one. Meta Muse made the same move three weeks earlier.
+dots is the last entry in that list. An agent with its own computer arrived in July 2025 with ChatGPT agent. dots made that agent resident. Meta Muse made the same move three weeks earlier.
 
 ### What is new here
 
@@ -45,11 +45,11 @@ This launch sits at the last step. An agent with its own computer arrived in Jul
 | Resident agent product (product) | Medium | Multi-channel, proactive research and voice calls. Muse came three weeks earlier. |
 | Approval and identity layer (infrastructure) | Medium | Auto-review plus enterprise identity. The same track as Agent 365. |
 
-So this is not an invention. It packages the 2025 parts into a subscription that starts at 100 dollars a month.
+The parts all existed in 2025. dots puts them in one subscription that starts at 100 dollars a month.
 
 ### Reading it with the earlier posts
 
-Two earlier posts in this archive sit at the opposite end. [Strata: a 125B model on a gaming PC](/trends/strata) is from 2026-10-06. It ran a large model on a 12 GB graphics card. [Scoring with a local LLM instead of writing](/trends/jev-local) is from the same day. It used a small model on a private server as a decision engine.
+Two earlier posts in this archive go the other way. [Strata: a 125B model on a gaming PC](/trends/strata) is from 2026-10-06. It ran a large model on a 12 GB graphics card. [Scoring with a local LLM instead of writing](/trends/jev-local) is from the same day. It used a small model on a private server as a decision engine.
 
 Both cut cost with your own hardware. dots does the opposite. It needs no hardware and charges a subscription from 100 dollars a month. Both directions are growing at the same time.
 
@@ -63,7 +63,7 @@ Think of an adviser against a proxy. An adviser says "file this form". A proxy f
 
 ### Session agents against resident agents
 
-Agents so far were session agents. You open a window, give a task, and close it when the task ends. It is like a call to a support line. The call ends and the relationship ends.
+Agents so far were session agents. You open a window, give a task, and close it when the task ends. It is like a call to a support line, where the relationship ends with the call.
 
 dots is a resident agent. It is closer to a colleague at the next desk. That colleague keeps working while you are out. Tomorrow it still remembers yesterday.
 
@@ -71,7 +71,7 @@ dots is a resident agent. It is closer to a colleague at the next desk. That col
 
 Each dot gets a Linux computer and a Chrome browser inside OpenAI servers. Your laptop stays separate. A dot cannot read your files until you connect it.
 
-This matters because it holds mistakes inside a box. If a dot runs a bad command, the damage stops there.
+The box also holds mistakes. If a dot runs a bad command, the damage stops there.
 
 ### Three good points
 
@@ -101,7 +101,7 @@ This matters because it holds mistakes inside a box. If a dot runs a bad command
 
 ## How it works
 
-The path of one dot has four boxes. You give a goal. The dot plans on its own computer. Auto-review checks the action. Only approved actions run.
+The work of one dot has four stages. You give a goal. The dot plans on its own computer. Auto-review checks the action. Only approved actions run.
 
 ```mermaid
 flowchart LR
@@ -114,9 +114,9 @@ flowchart LR
   B["proactive research<br/>read-only"] -.-> D
 ```
 
-Look at the dotted line apart from the rest. That background task uses read-only tools. It cannot send messages or change app content. OpenAI states that this limit is enforced in code.
+The dotted line is proactive research. That background task uses read-only tools. It cannot send messages or change app content. OpenAI states that this limit is enforced in code.
 
-The arrow back to you matters too. A dot asks first when it needs your approval. Tasks such as a password change always stay with you.
+The arrow back to you is the approval request. A dot asks first before some actions. Tasks such as a password change always stay with you.
 
 ## What you need
 
@@ -138,7 +138,7 @@ Open the ChatGPT desktop app. Then create a dot and give it a name. The mobile a
 
 Open the Plugins section in Settings and pick your apps. ChatGPT, ChatGPT Work and Codex share these connections.
 
-One point needs care. Disconnecting an app only stops new information. What the dot already read stays in its context.
+Disconnecting an app only stops new information. What the dot already read stays in its context.
 
 ### Step 3. Set Custom Rules
 
@@ -185,7 +185,7 @@ One review ran 10 business tasks on a ChatGPT Pro account over two days after la
 | Spreadsheet build | 7.5 |
 | Post-meeting follow-up | 7.0 |
 
-The average is 8.8 out of 10. Two failure types came back again and again.
+The average is 8.8 out of 10. Two failure types repeated.
 
 The first is the container of the output. The content was right but the format was wrong. Text instead of a PDF, chat text instead of a draft ready to send.
 
