@@ -96,5 +96,113 @@
     }
    ]
   }
+ },
+ {
+  "id": "image-blaster",
+  "date": "2026-10-06",
+  "sourceDate": "2026-05-15",
+  "video": true,
+  "source": "https://github.com/neilsonnn/image-blaster",
+  "repo": "https://github.com/neilsonnn/image-blaster",
+  "en": {
+   "title": "image-blaster: one photo into a 3D space",
+   "short": "image-blaster",
+   "field": "Generative 3D",
+   "type": "GitHub repo",
+   "verdict": "This assembly became possible right after Agent Skills arrived in October 2025. The method is not new, and one five-object scene costs about five dollars. The lesson is not the 3D output. It is the rule file that writes down where the agent stops before it spends.",
+   "summary": "image-blaster is a set of Claude skills that turns one photo into a 3D space you can walk through, plus object meshes and sound effects. It adds no new model: nine skills call World Labs Marble, Hunyuan3D, nano-banana-2 and ElevenLabs in order. The repo collected 9,679 stars in the five months after it was created on 21 April 2026.",
+   "facts": [
+    {
+     "claim": "It works from a single image",
+     "result": "One image works, but one is not the cap. The uncover skill reads every image in the source/ folder, writes a JSON file per image, then merges them into image.json.",
+     "v": "ok"
+    },
+    {
+     "claim": "From an image to a 3D environment in under 5 minutes",
+     "result": "I could not time it, because that needs paid keys. The default mode stops for a human check after analysis, so the number holds in one-shot mode only.",
+     "v": "cond"
+    },
+    {
+     "claim": "A fully meshed 3D environment",
+     "result": "The environment is not a mesh. generate-world.mjs collects a .spz splat, a panorama, a thumbnail and one collider mesh. No textured environment mesh comes down.",
+     "v": "no"
+    },
+    {
+     "claim": "3D models as .glb and .obj",
+     "result": "True, and understated. The model_urls field of fal hunyuan3d-v3 holds GLB, OBJ, FBX and USDZ, and the script downloads every returned URL.",
+     "v": "ok"
+    },
+    {
+     "claim": "Embed it under any game engine, DCC tool or web app",
+     "result": "The repo ships no importer and no plugin. The mesh formats open anywhere, but Unity, Unreal, Godot and Blender do not read .spz on their own. The bundled viewer uses @sparkjsdev/spark for three.js.",
+     "v": "cond"
+    },
+    {
+     "claim": "It uses Claude skills, World Labs and FAL",
+     "result": "True. FAL is a broker, though. The models come from Google nano-banana-2, OpenAI gpt-image-2, Tencent Hunyuan3D and ElevenLabs.",
+     "v": "ok"
+    },
+    {
+     "claim": "The bill for one run",
+     "result": "The README says nothing. The official price pages give about 5.14 dollars for one five-object scene. A mesh has a 0.375 dollar base price, but the skill always passes PBR and a face count, so 0.675 goes out.",
+     "v": "no"
+    },
+    {
+     "claim": "What you need",
+     "result": "One prerequisite is missing from the README. Sound post-processing calls ffprobe and ffmpeg.",
+     "v": "cond"
+    }
+   ]
+  },
+  "ko": {
+   "title": "image-blaster: 사진 한 장을 3D 공간으로",
+   "short": "image-blaster",
+   "field": "생성 3D",
+   "type": "GitHub 레포",
+   "verdict": "2025년 10월 Agent Skills가 생기자마자 가능해진 조립입니다. 새 기법은 없고 값은 물건 5개 장면 기준 약 5달러입니다. 배워 갈 것은 3D 결과물이 아니라 돈 쓰기 전에 멈추는 지점을 글로 박아 둔 규칙 파일입니다.",
+   "summary": "사진 한 장을 넣으면 Claude Code가 돌아다닐 수 있는 3D 공간과 오브젝트 메시, 효과음을 만드는 Claude 스킬 묶음입니다. 새 모델은 없고 World Labs Marble, Hunyuan3D, nano-banana-2, ElevenLabs를 스킬 9개가 순서대로 부릅니다. 2026년 4월 21일 레포 생성 후 5개월 만에 별 9,679개가 붙었습니다.",
+   "facts": [
+    {
+     "claim": "사진 한 장으로 만든다",
+     "result": "한 장으로도 되지만 한 장이 상한은 아닙니다. uncover 스킬이 source/ 폴더의 이미지를 전부 읽고 이미지별 JSON을 만든 뒤 image.json으로 합칩니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "5분 안에 이미지에서 3D 환경까지 간다",
+     "result": "시간은 못 쟀습니다. 유료 키가 필요합니다. 기본 모드는 분석 후 사용자 확인에서 멈추므로, 5분은 원샷 모드에서만 가능한 수치입니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "완전히 메시가 된 3D 환경",
+     "result": "환경은 메시가 아닙니다. generate-world.mjs가 받는 것은 .spz 스플랫, 파노라마, 썸네일, 그리고 콜라이더 메시 하나입니다. 텍스처 입은 환경 메시는 받지 않습니다.",
+     "v": "no"
+    },
+    {
+     "claim": "3D 모델을 .glb와 .obj로 만든다",
+     "result": "맞고 오히려 적게 적었습니다. fal hunyuan3d-v3의 model_urls에 GLB, OBJ, FBX, USDZ가 들어 있고 스크립트가 반환된 URL을 전부 내려받습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "어느 게임 엔진, DCC, 웹 앱에든 넣을 수 있다",
+     "result": "임포터나 플러그인은 레포에 없습니다. 메시 포맷은 어디서나 열리지만 .spz는 Unity, Unreal, Godot, Blender가 기본으로 못 읽습니다. 레포 뷰어는 three.js용 @sparkjsdev/spark를 씁니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "Claude 스킬, World Labs, FAL을 쓴다",
+     "result": "맞습니다. 다만 FAL은 중개자입니다. 실제 모델은 구글 nano-banana-2, OpenAI gpt-image-2, 텐센트 Hunyuan3D, ElevenLabs입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "한 번에 드는 값",
+     "result": "README에 아무 설명이 없습니다. 공식 가격표로 계산하면 물건 5개 장면 1회에 약 5.14달러입니다. 메시 1개는 기본가 0.375달러인데 스킬이 PBR과 면 수를 항상 넘겨 0.675달러가 나갑니다.",
+     "v": "no"
+    },
+    {
+     "claim": "준비물",
+     "result": "README에 없는 선행 조건이 있습니다. SFX 후처리가 ffprobe와 ffmpeg를 씁니다.",
+     "v": "cond"
+    }
+   ]
+  }
  }
 ]
