@@ -525,6 +525,107 @@
   ]
  },
  {
+  "id": "buzz",
+  "date": "2026-10-06",
+  "sourceDate": "2026-07-21",
+  "video": true,
+  "source": "https://github.com/block/buzz",
+  "repo": "https://github.com/block/buzz",
+  "related": [
+   "openai-dots"
+  ],
+  "en": {
+   "title": "Buzz: A Workspace Where People and AI Agents Share the Same Rooms",
+   "short": "Buzz",
+   "field": "Agent collaboration",
+   "type": "GitHub repo",
+   "verdict": "Buzz rearranges old parts rather than inventing new ones. The new part is one decision: give an agent the same kind of key and the same kind of record as a person. Desktop is still at 0.5.x with no mobile or push, so study the structure before you adopt it.",
+   "summary": "Block released this self-hostable workspace on 21 July 2026. A Nostr relay sits underneath, so messages, git patches, workflow steps and review approvals all land in one signed log. AI agents join as members with their own keypair and their own channel membership, not as outside bots on a borrowed app token.",
+   "facts": [
+    {
+     "claim": "Messages, workflows, reviews and git events are signed events in one log",
+     "result": "buzz-relay handles NIP-01, NIP-42 auth, channel, DM, media, workflow and git REST, and the audit log. Confirmed in the crate map",
+     "v": "ok"
+    },
+    {
+     "claim": "Agents do the same things people do",
+     "result": "buzz-cli opens channel creation, canvases, workflow approval, reactions and DMs. But the README table still marks workflow approval gates and huddle lifecycle as in progress",
+     "v": "cond"
+    },
+    {
+     "claim": "Agents get a cryptographic identity and an owner signature",
+     "result": "docs/nips/NIP-OA.md defines an auth tag. The event author stays the agent key. But it is draft and optional",
+     "v": "ok"
+    },
+    {
+     "claim": "Block runs it internally in place of Slack and GitHub",
+     "result": "The README tells Block staff to use the internal build. Internal use is confirmed. The scope of 'in place of' cannot be checked from the repo",
+     "v": "cond"
+    },
+    {
+     "claim": "A mobile app exists",
+     "result": "It sits in the in-progress column of the README table. The 2026-10-05 commit is mobile mention work",
+     "v": "no"
+    },
+    {
+     "claim": "Push notifications exist",
+     "result": "It sits in the 'opinions, no code' column. The deploy bundle keeps push off by default",
+     "v": "no"
+    },
+    {
+     "claim": "It is a finished product",
+     "result": "The latest desktop release is desktop-v0.5.26, below 1.0. The README itself says 'Not finished'. There are 3,605 open issues",
+     "v": "no"
+    }
+   ]
+  },
+  "ko": {
+   "title": "Buzz: 사람과 AI 에이전트가 같은 방에서 일하는 작업 공간",
+   "short": "Buzz",
+   "field": "에이전트 협업",
+   "type": "GitHub 레포",
+   "verdict": "새 발명이 아니라 오래된 조각들의 재배치입니다. 새로운 쪽은 에이전트에게 사람과 같은 종류의 키와 기록을 준다는 결정 하나입니다. 다만 데스크톱이 0.5.x이고 모바일과 푸시는 아직 없어, 도입보다 구조를 참고할 단계입니다.",
+   "summary": "Block이 2026년 7월 21일에 공개한 자체 호스팅 작업 공간입니다. 바닥은 Nostr 릴레이이고, 메시지·깃 패치·워크플로 단계·리뷰 승인이 모두 서명된 이벤트 하나로 같은 로그에 쌓입니다. AI 에이전트는 앱 토큰을 빌리는 외부 봇이 아니라, 자기 키 쌍과 자기 채널 멤버십을 가진 멤버로 들어갑니다.",
+   "facts": [
+    {
+     "claim": "메시지, 워크플로, 리뷰, 깃 이벤트가 한 로그의 서명 이벤트다",
+     "result": "buzz-relay가 NIP-01, NIP-42 인증, 채널·DM·미디어·워크플로·깃 REST, 감사 로그를 모두 맡습니다. 크레이트 지도로 확인했습니다",
+     "v": "ok"
+    },
+    {
+     "claim": "에이전트가 사람과 같은 일을 한다",
+     "result": "buzz-cli가 채널 생성, 캔버스, 워크플로 승인, 반응, DM을 엽니다. 다만 README 표에서 워크플로 승인 게이트와 허들 생명주기는 아직 작업 중입니다",
+     "v": "cond"
+    },
+    {
+     "claim": "에이전트에 암호 신원과 소유자 서명이 붙는다",
+     "result": "docs/nips/NIP-OA.md가 auth 태그를 정의합니다. 이벤트 저자는 에이전트 키로 남습니다. 단 draft·optional입니다",
+     "v": "ok"
+    },
+    {
+     "claim": "Block이 사내에서 Slack과 GitHub를 대체해 쓴다",
+     "result": "README는 Block 직원에게 사내 빌드를 쓰라고 안내합니다. 사내 사용은 확인됩니다. '대체' 범위는 레포로 확인할 수 없습니다",
+     "v": "cond"
+    },
+    {
+     "claim": "모바일 앱이 있다",
+     "result": "README 표의 작업 중 칸입니다. 2026-10-05 커밋도 모바일 멘션 작업입니다",
+     "v": "no"
+    },
+    {
+     "claim": "푸시 알림이 있다",
+     "result": "README 표의 '코드는 아직' 칸입니다. 배포 번들도 푸시가 기본 꺼짐입니다",
+     "v": "no"
+    },
+    {
+     "claim": "완성된 제품이다",
+     "result": "최신 데스크톱 릴리스는 desktop-v0.5.26입니다. 1.0 미만입니다. README가 직접 'Not finished'라고 적습니다. 열린 이슈는 3,605건입니다",
+     "v": "no"
+    }
+   ]
+  }
+ },
+ {
   "id": "longcat-avatar-15",
   "date": "2026-10-06",
   "sourceDate": "2026-05-21",
