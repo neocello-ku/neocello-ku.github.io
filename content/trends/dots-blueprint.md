@@ -18,13 +18,11 @@ lang: "en"
 
 On 2 October 2026 rari posted a 10-step operating design for OpenAI Dots.
 
-In the wider arc it restates a 2023 multi-agent pattern under a 2026 product name. The short answer: 2 of the 10 steps assume features the product does not have. New to these terms? Start with the "If you are new" section below.
+It restates a 2023 multi-agent pattern under a 2026 product name, and 2 of the 10 steps assume features the product does not have. New to these terms? Start with the "If you are new" section below.
 
 ## Where this sits in the arc
 
-Designs that group several agents into a team go back to 2023. What changed is not the design. It is the container. On 29 September 2026 OpenAI shipped Dots, and the container became a managed product.
-
-This post came three days later.
+Designs that group several agents into a team go back to 2023. The design stayed the same; the container changed. On 29 September 2026 OpenAI shipped Dots, and the container became a managed product. This post came three days later.
 
 ```mermaid
 %%{init: {'themeVariables': {'cScale0': '#2F6FDB', 'cScaleLabel0': '#FFFFFF', 'cScale1': '#11806F', 'cScaleLabel1': '#FFFFFF', 'cScale2': '#5B6878', 'cScaleLabel2': '#FFFFFF', 'cScale3': '#2F6FDB', 'cScaleLabel3': '#FFFFFF', 'cScale4': '#11806F', 'cScaleLabel4': '#FFFFFF', 'cScale5': '#5B6878', 'cScaleLabel5': '#FFFFFF', 'cScale6': '#2F6FDB', 'cScaleLabel6': '#FFFFFF', 'cScale7': '#11806F', 'cScaleLabel7': '#FFFFFF', 'cScale8': '#5B6878', 'cScaleLabel8': '#FFFFFF', 'cScale9': '#2F6FDB', 'cScaleLabel9': '#FFFFFF', 'cScale10': '#11806F', 'cScaleLabel10': '#FFFFFF', 'cScale11': '#5B6878', 'cScaleLabel11': '#FFFFFF'}}}%%
@@ -38,9 +36,9 @@ timeline
   2 October 2026 : this post (the 10-step blueprint)
 ```
 
-Look at the second entry. A CrewAI agent took a role, a goal, a backstory, a model, tools and a delegation toggle. Steps 2 and 8 of this post name almost the same list.
+The second entry is the clearest match. A CrewAI agent took a role, a goal, a backstory, a model, tools and a delegation toggle. Steps 2 and 8 of this post name almost the same list.
 
-The fifth entry matches too. In June 2025 Anthropic described a lead agent that spawns subagents. Steps 3 and 4 of this post describe that shape.
+Anthropic's entry is the other match. In June 2025 it described a lead agent that spawns subagents. Steps 3 and 4 of this post describe that shape.
 
 ### What is actually new here
 
@@ -50,9 +48,9 @@ The fifth entry matches too. In June 2025 Anthropic described a lead agent that 
 | What you can run today (product) | Low | You get one dot per person. There is no model setting. |
 | Dots and Space (infrastructure) | Medium | A resident agent and a shared workspace now ship as one product. |
 
-This is not an invention. It restates a 2023 pattern under a 2026 product name. And 2 of the 10 steps describe work you cannot do today.
+The post restates a 2023 pattern under a 2026 product name, so the technique is old. And 2 of the 10 steps describe work you cannot do today.
 
-Note that the infrastructure row belongs to OpenAI. It does not belong to the post.
+That medium rating credits OpenAI, not the post.
 
 ### Reading this with the earlier posts
 
@@ -60,7 +58,7 @@ I wrote [OpenAI dots: an always-on agent inside the subscription](/trends/openai
 
 [Open Dot: running OpenAI Dots on your own Mac](/trends/open-dot) went up the same day. That one moves the same product onto your own computer.
 
-Put the three side by side. The first is the product, the second is a clone, and this one is a claim about how to use it. All three reach the same verdict on the technique: it is not new.
+The first is the product, the second is a clone, and this one is a claim about how to use it. All three reach the same verdict on the technique: it is not new.
 
 ## If you are new: what is this about
 
@@ -68,9 +66,7 @@ Put the three side by side. The first is the product, the second is a clone, and
 
 A chatbot answers questions. An agent does the work instead. It reads mail, books time and signs in to websites.
 
-One worker does the jobs in order. With several workers, a lead splits the job and hands out the parts. This post draws the second picture.
-
-The catch is that OpenAI still sells one worker.
+One worker does the jobs in order. With several workers, a lead splits the job and hands out the parts. This post draws the second picture, and OpenAI still sells one worker.
 
 ### Why would several beat one
 
@@ -116,7 +112,7 @@ flowchart LR
   O --> D[one deliverable]
 ```
 
-Here is the shape Dots gives you today.
+Dots gives you this shape today.
 
 ```mermaid
 flowchart LR
@@ -129,11 +125,11 @@ flowchart LR
   O -.->|later| X[another dot]
 ```
 
-The two shapes look alike. What sits inside the boxes differs.
+The two shapes look alike, but the boxes hold different things.
 
-In the post each worker is its own dot. Today each worker is a background task that your one dot started. The two differ in both permissions and price.
+In the post each worker is its own dot. Today each worker is a background task that your one dot started. Permissions and price differ too.
 
-Approval rules and Auto-review still apply to those background tasks. OpenAI states this in its own documents.
+OpenAI's documents say approval rules and Auto-review still apply to those background tasks.
 
 ## What works today and what does not
 
@@ -151,7 +147,7 @@ Follow the 10 steps as written and you stop at two of them. Read the blocked poi
 | Scheduled tasks | Yes | You ask for them, then edit them under Scheduled. |
 | Event triggers | No | They do not appear in the documents. |
 | Model choice | No | Every dot runs GPT-6 Astra. |
-| A working-style field | No | Memory stands in for it. |
+| A working-style field | No | Memory does this job instead. |
 
 ### The four values of a Custom Rule
 
@@ -162,7 +158,7 @@ Follow the 10 steps as written and you stop at two of them. Read the blocked poi
 | Ask before taking action | It asks each time. |
 | Hand off to you | The dot stops and you finish the action. |
 
-Changing a password and moving money always stay with you. No Custom Rule moves that line.
+Changing a password and moving money always stay with you. No Custom Rule changes that.
 
 ### Reorder the steps like this
 
@@ -197,41 +193,35 @@ I compared the 10 steps against the launch post and two official help articles.
 
 ### Step 3: you cannot build a team of dots yet
 
-The launch post says you start with your primary dot today. The next sentence says OpenAI envisions teams of dots over time. The help article also says you will be able to add more dots in the future.
+The launch post says you start with your primary dot today. The next sentence adds that OpenAI envisions teams of dots over time. The help article also says you can add more dots in the future.
 
-Specialist dots with set responsibilities do exist. But those run as enterprise pilots with OpenAI engineers on the project. No ordinary user creates one.
-
-The price of an extra dot is still undisclosed.
+Specialist dots with set responsibilities do exist. But those run as enterprise pilots with OpenAI engineers on the project. No ordinary user creates one, and the price of an extra dot is still undisclosed.
 
 ### Step 8: you cannot choose the model
 
 Every dot runs GPT-6 Astra. No model choice appears in the launch post, the help article or the privacy FAQ.
 
-The origin of this habit is clear. Since November 2023 a CrewAI agent has taken a `model` attribute. When you assembled the parts yourself, that setting was a given.
-
-The managed product removed the knob. The post tells you to turn it anyway.
+Since November 2023 a CrewAI agent has taken a `model` attribute. When you assembled the parts yourself, that setting was a given. The managed product removed the knob, and the post still tells you to turn it.
 
 ### Step 2: you cannot give a dot its own sources
 
-The privacy FAQ states it plainly. Plugin permissions are shared across dots, ChatGPT, ChatGPT Work and Codex.
+The privacy FAQ says plugin permissions are shared across dots, ChatGPT, ChatGPT Work and Codex.
 
 So you cannot say "this dot reads only this material". Your dot sees every app you connect. The one split you get is a Slack account for the dot.
 
 ### Step 9: this is Space, not memory
 
-You cannot view or edit a single dot memory. To clear them you delete the dot. That is not where a company spec belongs.
+You cannot view or edit a single dot memory. To clear them you delete the dot. A company spec does not belong there.
 
 The shared workspace is ChatGPT Space. It shipped the same day as Dots and replaces Library. People and dots edit the same page there.
 
-The post never mentions Space. The prescription is right and the bottle is wrong.
+The post never mentions Space. It names the right goal and the wrong feature.
 
 ### Nobody knows the cost
 
-Anthropic published one number in June 2025. Its lead-and-subagent setup used about 15 times the tokens of an ordinary chat. The conclusion was to spend that only on valuable work.
+Anthropic published one number in June 2025. Its lead-and-subagent setup used about 15 times the tokens of an ordinary chat. Its advice was to spend that only on work worth the cost.
 
-OpenAI has not published the size of the deep-work allowance for Dots. The extended limit also ends in late October 2026.
-
-So there is no way to price a full run of the 10 steps.
+OpenAI has not published the size of the deep-work allowance for Dots. The extended limit also ends in late October 2026. So nobody can price a full run of the 10 steps.
 
 ### Three things the post gets right
 
