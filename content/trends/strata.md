@@ -1,194 +1,194 @@
 ---
-title: "Strata: 125B 모델을 게임용 PC에서"
+title: "Strata: a 125B model on a gaming PC"
 date: "2026-10-06"
-description: "기법은 PowerInfer(2023)부터 이어진 것이고, 새로운 것은 더블클릭으로 되는 설치 경험입니다. 단 12GB 카드 외에 RAM 32GB와 디스크 80GB가 같이 필요하고, 기본 추천값은 원본이 아니라 2비트 압축본입니다."
+description: "The method goes back to PowerInfer in 2023. What is new is the double-click install. Note that the 12 GB card also needs 32 GB of RAM and 80 GB of disk, and the default size is a 2-bit file, not the original."
 tags:
-  - "로컬 추론"
-  - "GitHub 레포"
+  - "Local inference"
+  - "GitHub repo"
 source: "https://github.com/Niko1221/Strata"
 repo: "https://github.com/Niko1221/Strata"
-lang: "ko"
+lang: "en"
 ---
 
-![[strata.mp4]]
+![[strata.en.mp4]]
 
-[원문](https://github.com/Niko1221/Strata) · [레포](https://github.com/Niko1221/Strata) · [English](https://neocello-ku.github.io/en/trends/strata)
+[Source](https://github.com/Niko1221/Strata) · [Repo](https://github.com/Niko1221/Strata) · [한국어](https://neocello-ku.github.io/ko/trends/strata)
 
-## 요약
+## Summary
 
-2026년 9월 24일, Strata가 나왔습니다. 그래픽카드 12GB와 일반 PC 메모리로 125B 모델을 돌리는 오픈소스 엔진입니다. 12일 만에 별이 13,900개 붙었습니다.
+Strata came out on 24 September 2026. It is an open-source engine that runs a 125B model on a 12 GB graphics card and ordinary PC memory. It collected 13,900 stars in 12 days.
 
-같은 일을 하는 도구는 3년 전부터 있었습니다. 새로운 것은 기법이 아니라 설치 경험입니다. 드라이버만 깔려 있으면 스크립트 하나로 끝납니다.
+Tools that do the same job have been around for three years. What is new is not the method. It is the install experience. One script does everything if you have a current driver.
 
-용어가 낯설면 아래 "처음이라면" 섹션부터 읽으세요.
+New to these terms? Start with the "If you are new" section below.
 
-## 흐름 속 위치: 왜 지금 이 이야기인가
+## Where it fits: why this story now
 
-큰 모델을 작은 그래픽카드에서 돌리는 방법은 계속 있었습니다. 문제는 쓰는 사람 쪽이었습니다. 명령줄 플래그를 알아야 썼습니다.
+Ways to run a large model on a small graphics card already existed. The problem was the user. You had to know the command-line flags.
 
 ```mermaid
 %%{init: {'themeVariables': {'cScale0': '#2F6FDB', 'cScaleLabel0': '#FFFFFF', 'cScale1': '#11806F', 'cScaleLabel1': '#FFFFFF', 'cScale2': '#5B6878', 'cScaleLabel2': '#FFFFFF', 'cScale3': '#2F6FDB', 'cScaleLabel3': '#FFFFFF', 'cScale4': '#11806F', 'cScaleLabel4': '#FFFFFF', 'cScale5': '#5B6878', 'cScaleLabel5': '#FFFFFF', 'cScale6': '#2F6FDB', 'cScaleLabel6': '#FFFFFF', 'cScale7': '#11806F', 'cScaleLabel7': '#FFFFFF', 'cScale8': '#5B6878', 'cScaleLabel8': '#FFFFFF', 'cScale9': '#2F6FDB', 'cScaleLabel9': '#FFFFFF', 'cScale10': '#11806F', 'cScaleLabel10': '#FFFFFF', 'cScale11': '#5B6878', 'cScaleLabel11': '#FFFFFF'}}}%%
 timeline
-  2023년 12월 : PowerInfer, 자주 쓰는 뉴런만 GPU에
-  2025년 2월 : KTransformers, 671B를 24GB 카드 한 장에
-  2025년 8월 : llama.cpp 표준 플래그로 전문가 CPU 분담
-  2026년 8월 : Qwen3.8-Flash-Next 공개 (125B, 전문가 512개)
-  2026년 9월 24일 : Strata v0.1.0 (이 글)
-  2026년 10월 4일 : v0.1.39, 11일 동안 릴리스 40개
+  December 2023 : PowerInfer, hot neurons on the GPU
+  February 2025 : KTransformers, 671B on one 24 GB card
+  August 2025 : llama.cpp, expert CPU offload as a standard flag
+  August 2026 : Qwen3.8-Flash-Next released (125B, 512 experts)
+  24 September 2026 : Strata v0.1.0 (this article)
+  4 October 2026 : v0.1.39, 40 releases in 11 days
 ```
 
-Strata는 다섯 번째 단계입니다. 앞의 세 단계가 만든 기법 위에 설치기 하나를 얹었습니다.
+Strata is the fifth step. It puts an installer on top of the method the first three steps built.
 
-### 이 기술은 무엇이 새로운가
+### What is new here
 
-| 무엇 | 새로운 정도 | 이유 |
+| What | How new | Why |
 | --- | --- | --- |
-| 전문가를 GPU와 CPU로 나누기 (기법) | 낮음 | PowerInfer가 2023년 12월에 같은 아이디어를 냈습니다. |
-| 자체 엔진과 커널 (인프라) | 중간 | ggml 일부만 쓰고 나머지는 새로 짰습니다. 적응형 전문가 캐시와 KV 스트리밍이 그렇습니다. |
-| 더블클릭 설치와 로컬 API (제품) | 높음 | 하드웨어 검사, 모델 내려받기, 서버 실행을 한 번에 합니다. |
+| Splitting experts between GPU and CPU (method) | Low | PowerInfer published the same idea in December 2023. |
+| Own engine and kernels (infrastructure) | Medium | It uses part of ggml and writes the rest from scratch. The adaptive expert cache and KV streaming are its own. |
+| Double-click install and a local API (product) | High | One script checks the hardware, fetches the model, and starts the server. |
 
-정리하면 Strata는 새 발명이 아닙니다. 3년 묵은 기법을 처음으로 더블클릭 가능한 물건으로 만든 사례입니다.
+So Strata is not a new invention. It is the first time a three-year-old method became a double-click product.
 
-## 처음이라면: 이게 무슨 이야기인가요
+## If you are new: what is this about
 
-### 큰 모델은 왜 서버에서만 돌았나
+### Why large models only ran on servers
 
-AI 모델의 크기는 파라미터 수로 셉니다. 125B는 파라미터가 1,250억 개라는 뜻입니다. 이 숫자를 메모리에 올려야 모델이 돕니다.
+Model size is counted in parameters. 125B means 125 billion parameters. Those numbers have to sit in memory before the model runs.
 
-보통은 그래픽카드 메모리에 전부 올립니다. 이 모델은 압축하지 않으면 354GB입니다. 게임용 카드는 12GB에서 24GB입니다.
+Normally they all go into graphics card memory. This model is 354 GB when it is not compressed. A gaming card holds 12 GB to 24 GB.
 
-### 전문가 섞기: 한 번에 다 쓰지 않습니다
+### Mixture of experts: not everything runs at once
 
-요즘 큰 모델은 MoE 구조입니다. 전문가라고 부르는 작은 조각을 많이 두고 그중 몇 개만 씁니다.
+Large models today use an MoE design. They hold many small pieces called experts and use only a few of them.
 
-Qwen3.8-Flash-Next는 전문가가 24,576명입니다. 토큰 하나를 쓸 때 10명만 일합니다.
+Qwen3.8-Flash-Next has 24,576 experts. Only 10 of them work on each token.
 
-큰 병원을 떠올려 보세요. 전문의가 2만 명이어도 환자 한 명은 10명만 만납니다. 진료실이 2만 개일 필요는 없습니다.
+Think of a large hospital. It can have 20,000 doctors, but one patient meets only 10. You do not need 20,000 exam rooms.
 
-### Strata가 하는 일: 자리 배치
+### What Strata does: seating
 
-Strata는 이 성질을 씁니다. 자주 찾는 전문가만 그래픽카드에 두고 나머지는 PC 메모리에 둡니다.
+Strata uses this property. It keeps the most-used experts on the graphics card and the rest in PC memory.
 
-- **그래픽카드(VRAM)**: 매번 쓰는 부분과 자주 찾는 전문가 몇천 명
-- **시스템 RAM**: 전문가 24,576명 전부
-- **CPU**: 카드에 없는 전문가를 직접 계산. GPU와 동시에 돌아갑니다
-- **SSD**: 28.8GB짜리 조회 표. 토큰마다 몇 줄만 읽습니다
+- **Graphics card (VRAM)**: the parts every token needs, plus a few thousand hot experts
+- **System RAM**: all 24,576 experts
+- **CPU**: computes the experts the card does not hold, at the same time as the GPU
+- **SSD**: a 28.8 GB lookup table. It reads a few rows per token
 
-카드에 누가 남을지는 대화하는 동안 계속 바뀝니다.
+Which experts stay on the card keeps changing while you chat.
 
-### 압축: 2비트로 줄이기
+### Compression: down to 2 bits
 
-354GB를 그대로 쓸 수는 없습니다. 그래서 숫자의 정밀도를 깎습니다. 이것을 양자화라고 부릅니다.
+354 GB is too much to use as it is. So the precision of each number is cut. This is called quantization.
 
-원본은 가중치 하나에 16비트를 씁니다. Strata가 쓰는 파일은 2비트에서 3.5비트입니다. 용량이 66GB에서 84GB로 줄어듭니다.
+The original uses 16 bits per weight. The files Strata uses run from 2 bits to 3.5 bits. That brings the size down to 66 GB or 84 GB.
 
-깎으면 품질도 깎입니다. 얼마나 깎이는지는 아래 팩트체크에서 숫자로 봅니다.
+Cutting precision also cuts quality. The fact check below gives the numbers.
 
-### 왜 좋은가
+### Why it is good
 
-- 월 구독료 없이 내 PC에서 큰 모델을 씁니다.
-- 글이 밖으로 나가지 않습니다.
-- OpenAI와 Anthropic 호환 API라 쓰던 앱을 그대로 붙입니다.
+- You run a large model on your own PC with no monthly fee.
+- Your text never leaves the PC.
+- The API matches OpenAI and Anthropic, so your apps connect as they are.
 
-### 이런 곳에 씁니다
+### Where it fits your work
 
-- 반복이 많고 양이 큰 코드 작업
-- 밖으로 내보내면 안 되는 문서 다루기
-- 코딩 에이전트의 값싼 기본값
+- Repeated bulk code work
+- Documents that must not leave the building
+- A cheap default for a coding agent
 
-### 이 글에 나오는 이름들
+### Names in this article
 
-| 용어 | 쉬운 뜻 |
+| Term | Plain meaning |
 | --- | --- |
-| 토큰 | 모델이 글을 읽고 쓰는 최소 조각. 영어에서 단어의 약 3/4. |
-| 파라미터 | 모델이 학습으로 얻은 숫자. 125B는 1,250억 개. |
-| MoE | 전문가 섞기. 조각을 많이 두고 몇 개만 쓰는 구조. |
-| 전문가 | MoE의 조각 하나. 이 모델은 24,576개. |
-| 양자화 | 가중치의 정밀도를 깎아 용량을 줄이는 작업. |
-| VRAM | 그래픽카드가 가진 메모리. |
-| 컨텍스트 | 모델이 한 번에 기억하는 글의 길이. |
-| 추측 디코딩 | 작은 층이 먼저 찍고 큰 모델이 확인하는 가속 방법. |
-| tok/s | 초당 토큰 수. 속도 단위. |
+| Token | The smallest piece a model reads and writes. About 3/4 of a word in English. |
+| Parameter | A number the model learned. 125B means 125 billion of them. |
+| MoE | Mixture of experts. Many small pieces, a few used per token. |
+| Expert | One piece of an MoE. This model has 24,576. |
+| Quantization | Cutting the precision of weights to make the files smaller. |
+| VRAM | The memory on the graphics card. |
+| Context | How much text the model keeps in mind at once. |
+| Speculative decoding | A small layer drafts first, the large model checks. |
+| tok/s | Tokens per second. The speed unit. |
 
-## 동작 방식
+## How it works
 
 ```mermaid
 flowchart LR
-  P[프롬프트] --> G["GPU VRAM<br/>어텐션 · 자주 쓰는 전문가"]
-  G --> C["CPU + RAM<br/>나머지 전문가 24,576명"]
-  C --> M["MTP 초안 층<br/>다음 3토큰 찍기"]
-  M --> V["48개 층 1회 검증<br/>맞은 것만 채택"]
-  V --> O[답 토큰]
-  S["SSD<br/>28.8GB 조회 표"] --> G
+  P[Prompt] --> G["GPU VRAM<br/>attention · hot experts"]
+  G --> C["CPU + RAM<br/>the other experts, 24,576 total"]
+  C --> M["MTP draft layer<br/>drafts the next 3 tokens"]
+  M --> V["one pass over 48 layers<br/>keeps what matches"]
+  V --> O[Answer tokens]
+  S["SSD<br/>28.8 GB lookup table"] --> G
 ```
 
-### 찍고 확인하기
+### Draft, then check
 
-모델 안에는 MTP라는 작은 초안 층이 있습니다. 이 층이 다음 토큰 3개를 먼저 찍습니다.
+The model has a small draft layer called MTP. It drafts the next 3 tokens.
 
-그다음 큰 모델이 48개 층을 한 번 지나며 3개를 한꺼번에 확인합니다. 맞은 것만 남기고 다음 토큰 하나를 직접 씁니다.
+Then the large model makes one pass over 48 layers and checks all three at once. It keeps what matches and writes the next token itself.
 
-한 번 지날 때 평균 2.4개에서 3.2개가 나옵니다. 레포는 이것으로 1.6배에서 1.8배 빨라진다고 밝힙니다.
+One pass yields 2.4 to 3.2 tokens on average. The repository reports 1.6x to 1.8x from this.
 
-### 긴 글 읽기
+### Reading long text
 
-프롬프트는 최대 8,192토큰씩 묶어서 읽습니다. 이 사이에 다음 층의 전문가가 PCIe로 흘러 들어옵니다.
+Prompts are read in chunks of up to 8,192 tokens. The next layer's experts stream over PCIe while this happens.
 
-그래서 긴 문서는 초당 1,000토큰 넘게 읽습니다. 첫 메시지는 3만 토큰당 약 1분 걸립니다. 이어지는 메시지는 몇 초 만에 시작합니다.
+So a long document reads at over 1,000 tokens per second. The first message takes about one minute per 30,000 tokens. Later messages start in seconds.
 
-## 준비물
+## What you need
 
-| 항목 | 요구 사항 |
+| Item | Requirement |
 | --- | --- |
-| 그래픽카드 | NVIDIA RTX 20·30·40·50 시리즈, 또는 AMD RX 6800/6900·7700 XT 이상. VRAM 12GB 이상 |
-| 시스템 RAM | 32GB 이상. 64GB면 모든 사이즈가 들어갑니다 |
-| CPU | AVX2를 지원하는 x86-64. AVX-512면 조금 빠릅니다 |
-| 디스크 | 모델 70~80GB에 초안 층 약 6GB. NVMe SSD 권장 |
-| 드라이버 | NVIDIA 580 이상, 또는 AMD 최신 드라이버 |
+| Graphics card | NVIDIA RTX 20, 30, 40 or 50 series, or AMD RX 6800/6900 and 7700 XT upward. 12 GB of VRAM or more |
+| System RAM | 32 GB or more. 64 GB fits every size |
+| CPU | x86-64 with AVX2. AVX-512 is a little faster |
+| Disk | 70-80 GB for the model plus about 6 GB for the draft layer. An NVMe SSD is advised |
+| Driver | NVIDIA 580 or newer, or a current AMD driver |
 
-함정이 하나 있습니다. 모델은 VRAM이 아니라 시스템 RAM에 올라갑니다. 카드가 12GB여도 RAM이 32GB 미만이면 돌지 않습니다.
+There is one trap. The model loads into system RAM, not into VRAM. A 12 GB card will not help if the PC has under 32 GB of RAM.
 
-## 설치하고 실행하기
+## Install and run
 
-### 1단계. 내려받으세요
+### Step 1. Download it
 
 ```bash
 git clone https://github.com/Niko1221/Strata
 cd Strata
 ```
 
-윈도우는 zip으로 받아서 풀어도 됩니다.
+On Windows you can download the zip and unpack it.
 
-### 2단계. 설치 스크립트를 실행하세요
+### Step 2. Run the setup script
 
 ```bash
 ./setup.sh
 ```
 
-윈도우는 `START-HERE.bat`을 더블클릭하세요.
+On Windows, double-click `START-HERE.bat`.
 
-스크립트가 카드와 RAM을 보고 사이즈를 추천합니다. 질문마다 엔터를 누르면 추천값으로 갑니다.
+The script reads your card and RAM and recommends a size. Press Enter at each question to take the recommendation.
 
-그다음 모델 약 70GB를 내려받습니다. 중간에 끊기면 다시 실행하세요. 받던 곳부터 이어 받습니다.
+Then it downloads about 70 GB. Run it again if the download stops. It picks up where it left off.
 
-### 3단계. 첫 실행을 기다리세요
+### Step 3. Wait for the first start
 
-모델이 올라오는 1~3분 동안 PC가 멈춘 것처럼 보입니다. RAM에 35~55GB를 올리는 중입니다. 창을 닫지 마세요.
+The PC can look frozen for 1 to 3 minutes while the model loads. It is moving 35 to 55 GB into RAM. Do not close the window.
 
-끝나면 브라우저가 `http://127.0.0.1:8080`을 엽니다.
+Your browser then opens `http://127.0.0.1:8080`.
 
-### 4단계. 쓰던 앱을 붙이세요
+### Step 4. Connect the apps you already use
 
-| 붙일 곳 | 설정 |
+| App type | Setting |
 | --- | --- |
-| OpenAI 호환 앱 | 기본 주소 `http://127.0.0.1:8080/v1` |
-| Anthropic 호환 앱 | `http://127.0.0.1:8080/v1/messages` |
+| OpenAI-compatible | Base URL `http://127.0.0.1:8080/v1` |
+| Anthropic-compatible | `http://127.0.0.1:8080/v1/messages` |
 | Claude Code | `ANTHROPIC_BASE_URL=http://127.0.0.1:8080` |
 | Codex CLI | `/v1/responses` |
 
-API 키와 모델 이름은 아무 값이나 넣어도 됩니다.
+Any API key and any model name work.
 
-### 다른 사이즈로 바꾸려면
+### To switch sizes
 
 ```bash
 ./setup.sh --setup
@@ -196,70 +196,70 @@ API 키와 모델 이름은 아무 값이나 넣어도 됩니다.
 ./setup.sh --setup --host 0.0.0.0 --api-key <secret>
 ```
 
-첫 줄은 메뉴에서 고르기, 둘째 줄은 RAM 32GB용 코딩 모델입니다. 밖에서 접속하게 열 때는 키를 꼭 거세요.
+The first line opens the menu. The second installs the coding model for 32 GB of RAM. Always set a key before you open the server to other machines.
 
-## 팩트체크
+## Fact check
 
-| README의 주장 | 확인 결과 | 판정 |
+| Claim in the README | What we found | Verdict |
 | --- | --- | --- |
-| 125B 모델을 게임용 PC에서 돌린다 | 맞습니다. 단 2~3.5비트로 압축한 파일이고, RAM 32GB와 디스크 80GB가 같이 필요합니다 | 조건 있음 |
-| RTX 5070 12GB에서 94 tok/s | 측정 기계와 엔진 버전, 원시 데이터 경로를 밝혔습니다. 자체 측정입니다 | 일치 |
-| 추측 디코딩으로 1.6~1.8배 | 패스당 평균 2.4~3.2토큰이라는 숫자와 앞뒤가 맞습니다. 외부 재현은 없습니다 | 근거 있음, 검증 전 |
-| 큰 사이즈가 조금 더 똑똑하다 | IQ2_XS 89.16 대 IQ3_S 93.26입니다. "조금"보다 큽니다 | 과소 표현 |
-| IQ3_S는 공개 시험에서 원본과 같다 | 93.26 대 93.12로 맞습니다. 측정 주체가 양자화를 만든 팀입니다 | 일치 |
-| Coder는 원본 SWE-bench의 91% | 보고값은 91.3%입니다. 코드 밖과 중국어에서 약하다고 직접 밝힙니다 | 일치 |
-| 그림도 읽는다 | 켤 수 있습니다. AMD는 리눅스에서 CPU로만 돕니다 | 조건 있음 |
+| It runs a 125B model on a gaming PC | True. The file is compressed to 2-3.5 bits, and you also need 32 GB of RAM and 80 GB of disk | Conditional |
+| 94 tok/s on an RTX 5070 12 GB | The machine, the engine version and the raw data path are all given. It is a self-measurement | Matches |
+| 1.6x to 1.8x from speculative decoding | It agrees with the stated 2.4-3.2 tokens per pass. No outside reproduction exists | Grounded, not verified |
+| Larger sizes are a bit smarter | IQ2_XS scores 89.16 against IQ3_S at 93.26. That is more than "a bit" | Understated |
+| IQ3_S matches the original on the published tests | 93.26 against 93.12, so yes. The measurement comes from the team that made the quantization | Matches |
+| The Coder reaches 91% of the original on SWE-bench | The reported value is 91.3%. The README states it is weaker outside code and in Chinese | Matches |
+| It reads pictures | You can turn this on. On AMD it runs on the CPU and on Linux only | Conditional |
 
-### 2비트는 얼마나 손해인가
+### How much does 2 bits cost
 
-이 질문이 제일 중요합니다. 양자화를 만든 ISTA-DASLab이 숫자를 공개했습니다.
+This is the question that matters. ISTA-DASLab, which made the quantization, published the numbers.
 
-| 사이즈 | 비트/가중치 | 용량 | Task 평균 | LiveCodeBench v6 |
+| Size | Bits per weight | Size on disk | Task average | LiveCodeBench v6 |
 | --- | ---: | ---: | ---: | ---: |
-| BF16 원본 | 16.0 | 354GB | 93.12 | 87.43 |
-| Q2_0 | 2.40 | 66.4GB | 89.07 | 81.14 |
-| IQ2_XS | 2.50 | 68.0GB | 89.16 | 83.43 |
-| IQ3_XXS | 3.00 | 75.8GB | 92.57 | 86.29 |
-| IQ3_S | 3.50 | 83.6GB | 93.26 | 86.86 |
+| BF16 original | 16.0 | 354 GB | 93.12 | 87.43 |
+| Q2_0 | 2.40 | 66.4 GB | 89.07 | 81.14 |
+| IQ2_XS | 2.50 | 68.0 GB | 89.16 | 83.43 |
+| IQ3_XXS | 3.00 | 75.8 GB | 92.57 | 86.29 |
+| IQ3_S | 3.50 | 83.6 GB | 93.26 | 86.86 |
 
-읽는 법은 이렇습니다. 3비트부터는 원본과 거의 같습니다. 2비트대는 4점쯤 떨어지고 코드에서 더 떨어집니다.
+Read it this way. From 3 bits up the scores stay close to the original. The 2-bit sizes drop about 4 points, and more on code.
 
-설치기의 기본 추천은 RAM 64GB에서 IQ2_XS입니다. 즉 기본값은 원본이 아니라 89점짜리입니다. RAM이 96GB면 IQ3_S를 고르세요.
+The installer recommends IQ2_XS on a 64 GB PC. So the default is the 89-point file, not the original. Pick IQ3_S if you have 96 GB of RAM.
 
-단서를 하나 답니다. 이 표의 측정 주체는 양자화를 만든 팀입니다. 레포 밖의 독립 측정은 찾지 못했습니다.
+One caveat. The team that made the quantization also made this table. We found no independent measurement outside the repository.
 
-### 속도는 믿을 만한가
+### Can you trust the speed numbers
 
-레포는 측정 기계, 엔진 버전, 원시 데이터 경로를 모두 적어 둡니다. 이 점은 좋습니다.
+The repository states the machine, the engine version and the raw data path. That part is good.
 
-레포 안에 커뮤니티 보고도 두 건 들어 있습니다. RTX 5090 보고는 IQ2_XS에서 디코드 중앙값 179.4 tok/s였습니다. README의 5070 수치보다 빠릅니다.
+Two community reports also sit inside the repository. The RTX 5090 report shows a median decode of 179.4 tok/s with IQ2_XS. That is faster than the 5070 numbers in the README.
 
-다만 두 보고 모두 레포 안의 PR입니다. 독립된 제3자 벤치마크는 아직 없습니다.
+Both reports are pull requests inside the repository. No third-party benchmark exists yet.
 
-### 이미지는 조심하세요
+### Test image input first
 
-이미지 입력은 선택 기능입니다. AMD 카드는 리눅스에서만, 그것도 CPU로 돕니다. 윈도우는 아직 안 됩니다.
+Image input is optional. On AMD cards it works on Linux only, and on the CPU. Windows cannot do it yet.
 
-레포 이슈 #767은 CPU 경로가 이미지를 300토큰으로 자른다고 지적합니다. llama.cpp는 같은 모델 계열에 1,024토큰 이상을 권합니다. 좌표 지목이나 작은 글자 읽기는 먼저 시험해 보세요.
+Repository issue #767 reports that the CPU path caps an image at 300 tokens. llama.cpp asks for 1,024 tokens or more on this model family. Test pointing and small text before you trust it.
 
-## 언제 무엇을 쓰나
+## When to use what
 
-| 상황 | 쓸 것 |
+| Situation | Take |
 | --- | --- |
-| RAM 32GB, 코드 작업 위주 | Coder |
-| RAM 48GB | Q2_0 또는 IQ2_XS |
-| RAM 64GB, 일반 용도 | IQ2_XS |
-| RAM 96GB 이상, 품질 우선 | IQ3_S |
-| 답을 빨리 받고 싶다 | Swift 1.5 |
-| 품질이 비용보다 중요하다 | 로컬 말고 API |
+| 32 GB of RAM, mostly code work | Coder |
+| 48 GB of RAM | Q2_0 or IQ2_XS |
+| 64 GB of RAM, general use | IQ2_XS |
+| 96 GB of RAM or more, quality first | IQ3_S |
+| You want the answer sooner | Swift 1.5 |
+| Quality matters more than cost | An API, not local |
 
-## 출처
+## Sources
 
-- [Strata 레포](https://github.com/Niko1221/Strata)
-- [Strata 상세 문서 DETAILS.md](https://github.com/Niko1221/Strata/blob/main/docs/DETAILS.md)
-- [Strata 모델 선택 문서 MODELS.md](https://github.com/Niko1221/Strata/blob/main/docs/MODELS.md)
-- [Qwen3.8-Flash-Next 모델 카드](https://huggingface.co/Qwen/Qwen3.8-Flash-Next)
-- [ISTA-DASLab GSQ-RCO GGUF 양자화](https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF)
-- [PowerInfer 논문 (2023-12)](https://arxiv.org/abs/2312.12456)
+- [Strata repository](https://github.com/Niko1221/Strata)
+- [Strata DETAILS.md](https://github.com/Niko1221/Strata/blob/main/docs/DETAILS.md)
+- [Strata MODELS.md](https://github.com/Niko1221/Strata/blob/main/docs/MODELS.md)
+- [Qwen3.8-Flash-Next model card](https://huggingface.co/Qwen/Qwen3.8-Flash-Next)
+- [ISTA-DASLab GSQ-RCO GGUF quantizations](https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF)
+- [PowerInfer paper (December 2023)](https://arxiv.org/abs/2312.12456)
 - [KTransformers](https://github.com/kvcache-ai/ktransformers)
-- [Strata 이슈 #767](https://github.com/Niko1221/Strata/issues/767)
+- [Strata issue #767](https://github.com/Niko1221/Strata/issues/767)

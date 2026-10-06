@@ -1,0 +1,100 @@
+[
+ {
+  "id": "strata",
+  "date": "2026-10-06",
+  "sourceDate": "2026-09-24",
+  "video": true,
+  "source": "https://github.com/Niko1221/Strata",
+  "repo": "https://github.com/Niko1221/Strata",
+  "en": {
+   "title": "Strata: a 125B model on a gaming PC",
+   "short": "Strata",
+   "field": "Local inference",
+   "type": "GitHub repo",
+   "verdict": "The method goes back to PowerInfer in 2023. What is new is the double-click install. Note that the 12 GB card also needs 32 GB of RAM and 80 GB of disk, and the default size is a 2-bit file, not the original.",
+   "summary": "Strata is an open-source engine that runs Qwen3.8-Flash-Next, a 125B MoE model, on a 12 GB graphics card and ordinary PC memory. It splits 24,576 experts across the GPU, system RAM and the CPU, and one script takes you from install to a local API server. It collected 13,900 stars in the 12 days after its release on 24 September 2026.",
+   "facts": [
+    {
+     "claim": "Runs a 125B model on a gaming PC",
+     "result": "True, with a 2 to 3.5-bit file and 6B active parameters per token. The 12 GB card is not enough alone: it also needs 32 GB of RAM and 80 GB of disk.",
+     "v": "cond"
+    },
+    {
+     "claim": "94 tok/s with Q2_0 on an RTX 5070 12 GB",
+     "result": "The machine, engine version and raw data path are all published. It is a self-measurement. A community report in the repo (RTX 5090, IQ2_XS) shows 179.4 tok/s.",
+     "v": "ok"
+    },
+    {
+     "claim": "Speculative decoding makes it 1.6 to 1.8x faster",
+     "result": "An MTP layer drafts up to 3 tokens and one 48-layer pass checks them. The stated 2.4 to 3.2 tokens per pass fits that. No outside reproduction yet.",
+     "v": "cond"
+    },
+    {
+     "claim": "Larger sizes are a little smarter",
+     "result": "The published table gives a task average of 89.16 for IQ2_XS and 93.26 for IQ3_S. LiveCodeBench v6 is 83.43 against 86.86. That is more than a little.",
+     "v": "cond"
+    },
+    {
+     "claim": "IQ3_S matches the original on public tests",
+     "result": "True: IQ3_S 93.26 against BF16 93.12. The measurement comes from ISTA-DASLab, the team that made the quantization.",
+     "v": "ok"
+    },
+    {
+     "claim": "The Coder model keeps 91% of the original on SWE-bench Verified",
+     "result": "ISTA-DASLab reports 91.3%, and 98.7% on LiveCodeBench v6. The README itself says it is weaker outside code and in Chinese.",
+     "v": "ok"
+    },
+    {
+     "claim": "It can read images",
+     "result": "You can turn it on. On AMD it runs on the CPU under Linux only, and Windows is not supported yet. Repo issue #767 says the CPU path cuts images to 300 tokens.",
+     "v": "cond"
+    }
+   ]
+  },
+  "ko": {
+   "title": "Strata: 125B 모델을 게임용 PC에서",
+   "short": "Strata",
+   "field": "로컬 추론",
+   "type": "GitHub 레포",
+   "verdict": "기법은 PowerInfer(2023)부터 이어진 것이고, 새로운 것은 더블클릭으로 되는 설치 경험입니다. 단 12GB 카드 외에 RAM 32GB와 디스크 80GB가 같이 필요하고, 기본 추천값은 원본이 아니라 2비트 압축본입니다.",
+   "summary": "Qwen3.8-Flash-Next(125B MoE)를 VRAM 12GB 그래픽카드와 일반 PC 메모리로 돌리는 오픈소스 추론 엔진입니다. 전문가 24,576개를 GPU·RAM·CPU로 나눠 올리고, 설치부터 로컬 API 서버 실행까지 스크립트 하나로 끝냅니다. 2026년 9월 24일 공개 후 12일 만에 별 13,900개가 붙었습니다.",
+   "facts": [
+    {
+     "claim": "125B 모델을 게임용 PC에서 돌린다",
+     "result": "맞습니다. 단 2~3.5비트로 압축한 파일이고 토큰당 활성은 6B입니다. 12GB 카드만으로는 안 되고 RAM 32GB와 디스크 80GB가 같이 필요합니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "RTX 5070 12GB에서 Q2_0 94 tok/s",
+     "result": "측정 기계, 엔진 버전, 원시 데이터 경로를 모두 밝혔습니다. 자체 측정입니다. 레포 안 커뮤니티 보고(RTX 5090, IQ2_XS)는 179.4 tok/s로 더 빠릅니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "추측 디코딩으로 1.6~1.8배 빠르다",
+     "result": "MTP 층이 최대 3토큰을 초안으로 쓰고 48층 1회 패스로 검증합니다. 패스당 평균 2.4~3.2토큰이라는 숫자와 앞뒤가 맞습니다. 외부 재현은 없습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "큰 사이즈가 조금 더 똑똑하다",
+     "result": "공개 표로는 Task 평균 IQ2_XS 89.16 대 IQ3_S 93.26입니다. LiveCodeBench v6는 83.43 대 86.86입니다. \"조금\"보다 큽니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "IQ3_S는 공개 시험에서 원본과 같다",
+     "result": "IQ3_S 93.26 대 BF16 93.12로 맞습니다. 단 측정 주체가 양자화를 만든 ISTA-DASLab입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "Coder는 원본 SWE-bench Verified의 91%",
+     "result": "ISTA-DASLab 보고값은 91.3%, LiveCodeBench v6는 98.7%입니다. 코드 밖과 중국어에서 약하다는 점을 README가 직접 밝힙니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "그림도 읽는다",
+     "result": "켤 수 있습니다. AMD는 리눅스에서 CPU로만 돌고 윈도우는 아직 안 됩니다. 레포 이슈 #767은 CPU 경로가 이미지를 300토큰으로 자른다고 지적합니다.",
+     "v": "cond"
+    }
+   ]
+  }
+ }
+]
