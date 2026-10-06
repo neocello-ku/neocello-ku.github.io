@@ -488,5 +488,133 @@
     }
    ]
   }
+ },
+ {
+  "id": "dots-blueprint",
+  "date": "2026-10-06",
+  "sourceDate": "2026-10-02",
+  "video": true,
+  "source": "https://x.com/0xwhrrari/status/2106021402197319848",
+  "repo": null,
+  "en": {
+   "title": "A 10-step blueprint for OpenAI Dots: how much of it works today",
+   "short": "Dots 10-step blueprint",
+   "field": "AI agents",
+   "type": "X post",
+   "verdict": "The orchestrator-worker shape and the approval limits were already public in CrewAI (2023) and in Anthropic's June 2025 write-up. What is new is not the pattern but the managed product that saves you from assembling it, and OpenAI built that product. Two of the ten steps assume features the product does not have: you get one dot per person, so no team of specialist dots, and there is no setting to choose a model.",
+   "summary": "On 2 October 2026 rari posted a 10-step design for building a 24/7 AI company on OpenAI Dots. There is no code and no repo, only an operating blueprint. I checked the 10 steps against the OpenAI launch post and two official help articles.",
+   "facts": [
+    {
+     "claim": "1. A dot is a resident environment with its own browser, files, memory and schedule",
+     "result": "This matches the launch post and the help articles. But work you give to your own connected computer needs that computer awake.",
+     "v": "ok"
+    },
+    {
+     "claim": "2. Give each dot a domain, its own sources, a working style, an approval limit and a trigger",
+     "result": "Only 1 of the 5 is a real setting. Plugin permissions are shared with ChatGPT, Work and Codex, so a dot cannot have its own sources. There is no working-style field.",
+     "v": "no"
+    },
+    {
+     "claim": "3. One orchestrator dot delegates to specialist dots",
+     "result": "You cannot do this today. You get one dot per person, and both the launch post and the help article put extra dots in the future. Specialist dots run as enterprise pilots.",
+     "v": "no"
+    },
+    {
+     "claim": "4. Isolated delegation lets a worker run in its own environment and return a structured result",
+     "result": "Half right. One dot does delegate to background agents, and Activity View lists them. But the target is never another dot.",
+     "v": "cond"
+    },
+    {
+     "claim": "5. Connect the cloud browser, Slack, Teams, Google Workspace and internal APIs",
+     "result": "True. Internal APIs attach as MCP plugins hosted on Sites. But the figure of more than 4,000 apps is official only, and the list is not public.",
+     "v": "ok"
+    },
+    {
+     "claim": "6. Recurring routines and event triggers turn one-time tasks into operations",
+     "result": "Recurring schedules exist and live under Scheduled. Event triggers do not appear in the documents. Background work is the dot's own proactive research, not an event you define.",
+     "v": "cond"
+    },
+    {
+     "claim": "7. Automate what can be reversed and gate what cannot",
+     "result": "The product default already works this way. Password changes and money transfers always stay with you. But reviewers at launch had many Custom Rules rejected.",
+     "v": "ok"
+    },
+    {
+     "claim": "8. Match the model to the cost of the work (strongest model, then cheaper ones)",
+     "result": "Every dot runs GPT-6 Astra. No document offers a model setting. The habit comes from CrewAI, which gave each agent a model attribute in November 2023.",
+     "v": "no"
+    },
+    {
+     "claim": "9. Create one shared memory for the company",
+     "result": "You can, but not with dot memory. You cannot view or edit a single dot memory. The shared workspace is ChatGPT Space, which shipped the same day.",
+     "v": "cond"
+    },
+    {
+     "claim": "Build a 24/7 AI company on OpenAI Dots",
+     "result": "You can buy one dot today, and the price of an extra dot is undisclosed. That is one worker, not a company.",
+     "v": "no"
+    }
+   ]
+  },
+  "ko": {
+   "title": "OpenAI Dots 10단계 청사진: 어디까지가 오늘 되는가",
+   "short": "Dots 10단계 청사진",
+   "field": "AI 에이전트",
+   "type": "X 게시물",
+   "verdict": "오케스트레이터-워커 구조와 승인 경계는 2023년 CrewAI, 2025년 6월 Anthropic 공개 글에 이미 있던 패턴입니다. 새로 생긴 것은 패턴이 아니라 직접 조립하지 않아도 되는 관리형 상품이고, 그 상품은 OpenAI가 만들었습니다. 10단계 중 2개는 지금 제품에 없는 기능을 전제합니다. dot은 1인당 1개라 전문가 dot 팀을 못 만들고, 모델을 고르는 설정도 없습니다.",
+   "summary": "2026년 10월 2일 rari가 OpenAI Dots로 24시간 도는 AI 회사를 만드는 10단계 설계를 올렸습니다. 코드도 레포도 없는 운영 청사진입니다. 10단계를 OpenAI 공식 발표문과 공식 도움말 2편에 대조했습니다.",
+   "facts": [
+    {
+     "claim": "1. dot은 자기 브라우저·파일·메모리·예약 실행을 가진 상주 환경이다",
+     "result": "공식 발표문·도움말과 일치합니다. 단 내 컴퓨터를 연결해서 시킨 작업은 그 컴퓨터가 켜져 있어야 합니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "2. dot마다 영역·전용 출처·업무 방식·승인 경계·트리거를 준다",
+     "result": "5개 중 1개만 설정 항목입니다. 플러그인 권한은 dot·ChatGPT·Work·Codex가 공유해서 전용 출처를 못 줍니다. 업무 방식 항목은 없습니다.",
+     "v": "no"
+    },
+    {
+     "claim": "3. 오케스트레이터 dot이 전문가 dot들에게 위임한다",
+     "result": "오늘은 못 합니다. 사용자당 dot 1개이고, 발표문과 도움말 모두 추가 dot을 '앞으로'라고 씁니다. specialist dots는 기업 파일럿 전용입니다.",
+     "v": "no"
+    },
+    {
+     "claim": "4. 격리 위임으로 워커가 자기 환경에서 일하고 구조화된 결과를 반환한다",
+     "result": "절반 맞습니다. dot 하나가 배경 에이전트에게 위임하는 구조는 Activity View에 실제로 있습니다. 단 그 대상은 다른 dot이 아닙니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "5. 클라우드 브라우저, Slack, Teams, Google Workspace, 내부 API를 연결한다",
+     "result": "맞습니다. 내부 API는 Sites에 MCP 플러그인을 올려 붙입니다. 단 '4,000개 넘는 앱'은 공식 수치뿐이고 목록이 공개되지 않았습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "6. 반복 루틴과 이벤트 트리거로 상시 운영을 만든다",
+     "result": "반복 예약은 있고 Scheduled에서 관리합니다. 이벤트 트리거는 공식 문서에 없습니다. 배경 작업은 사용자가 정의한 이벤트가 아니라 dot의 선제 조사입니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "7. 되돌릴 수 있는 일은 자동화하고, 못 되돌리는 일은 승인으로 막아라",
+     "result": "제품 기본값이 이미 그렇습니다. 비밀번호 변경·송금은 항상 사람이 합니다. 단 출시 직후 리뷰에서 Custom Rules 상당수가 거부됐습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "8. 일의 값어치에 모델을 맞춰라 (최강 모델과 싼 모델을 나눠 쓴다)",
+     "result": "dot의 모델은 GPT-6 Astra 하나입니다. 고르는 설정이 공식 문서 어디에도 없습니다. 이 습관은 에이전트마다 model 속성을 주던 CrewAI(2023-11)에서 왔습니다.",
+     "v": "no"
+    },
+    {
+     "claim": "9. 회사 공유 메모리를 한 곳에 만들어라",
+     "result": "할 수는 있지만 dot 메모리로는 안 됩니다. dot 메모리는 개별 항목을 보거나 고칠 수 없습니다. 공유 작업 공간은 같은 날 나온 ChatGPT Space가 맡습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "OpenAI Dots로 24시간 도는 AI 회사를 만든다",
+     "result": "오늘 살 수 있는 dot은 1개이고 추가 dot 가격은 미공개입니다. 회사가 아니라 직원 한 명입니다.",
+     "v": "no"
+    }
+   ]
+  }
  }
 ]
