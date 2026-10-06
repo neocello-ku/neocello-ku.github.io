@@ -18,11 +18,11 @@ lang: "en"
 
 The Composio team published Open Dot on 29 September 2026. It is a Mac desktop app that does what OpenAI Dots does, and it runs on your own API key.
 
-In the wider story it is one of three open clones that appeared the day the paid product shipped. The short answer: the technology is not new, the assembly speed is. But "the same capabilities" is not true yet. New to these terms? Start with the "If you are new" section below.
+It is one of three open clones that appeared the day the paid product shipped. Every part of it already existed; what is new is how fast someone put the parts together. The claim of "the same capabilities" does not hold yet. New to these terms? Start with the "If you are new" section below.
 
 ## Where this sits in the story
 
-OpenAI shipped Dots on 29 September 2026. It went only into plans that start at 100 dollars a month. That price tag was the trigger for the open source side.
+OpenAI shipped Dots on 29 September 2026. It went only into plans that start at 100 dollars a month. That price is what set off the open source side.
 
 ```mermaid
 %%{init: {'themeVariables': {'cScale0': '#2F6FDB', 'cScaleLabel0': '#FFFFFF', 'cScale1': '#11806F', 'cScaleLabel1': '#FFFFFF', 'cScale2': '#5B6878', 'cScaleLabel2': '#FFFFFF', 'cScale3': '#2F6FDB', 'cScaleLabel3': '#FFFFFF', 'cScale4': '#11806F', 'cScaleLabel4': '#FFFFFF', 'cScale5': '#5B6878', 'cScaleLabel5': '#FFFFFF', 'cScale6': '#2F6FDB', 'cScaleLabel6': '#FFFFFF', 'cScale7': '#11806F', 'cScaleLabel7': '#FFFFFF', 'cScale8': '#5B6878', 'cScaleLabel8': '#FFFFFF', 'cScale9': '#2F6FDB', 'cScaleLabel9': '#FFFFFF', 'cScale10': '#11806F', 'cScaleLabel10': '#FFFFFF', 'cScale11': '#5B6878', 'cScaleLabel11': '#FFFFFF'}}}%%
@@ -35,9 +35,9 @@ timeline
   29 September 2026 : Open Dot and two more open clones (this post)
 ```
 
-This post is the last step. The first four steps added capability. The last step is about who owns that capability.
+This post is the last entry in that list. The first four added capability, and this one changes who owns it.
 
-The repo creation times show the speed. Open Dot went up at 16:34 UTC. CopilotKit's OpenDots followed at 17:13. feder-cr's dots followed at 23:06. All three landed within seven hours of the launch.
+The Open Dot repo went up at 16:34 UTC, CopilotKit's OpenDots at 17:13, and feder-cr's dots at 23:06. All three landed within seven hours of the launch.
 
 ### What is new here
 
@@ -47,15 +47,13 @@ The repo creation times show the speed. Open Dot went up at 16:34 UTC. CopilotKi
 | The Mac desktop app (product) | Medium | In one day it ties together the app, browser profiles, a password vault, approval cards and voice calls. |
 | App connections and sandboxes (infrastructure) | Low | No new infrastructure. It borrows Composio, E2B, Playwright and SQLite. |
 
-So this is assembly, not invention. The value is in the speed, not in the parts. The real content of the event is that an alternative appeared the same day as the paid product.
+This is assembly work, and every part came from somewhere else. The speed is what makes it worth a look, because an alternative appeared on the same day as the paid product.
 
 ### Reading this with the earlier post
 
-I wrote [OpenAI dots: an always-on agent inside the subscription](/trends/openai-dots) on 2026-10-06.
+I wrote [OpenAI dots: an always-on agent inside the subscription](/trends/openai-dots) on 2026-10-06. That post covers the product Open Dot wants to copy. It concluded that the technique stayed at 2025 levels, and that what changed was residency and billing.
 
-That post covers the product Open Dot wants to copy.
-
-Its conclusion was that the technique stayed at 2025 levels, and that residency and billing changed. Open Dot removes the billing part. It does not remove the residency part. The fact check below explains why.
+Open Dot takes away the billing part but leaves residency where it was. The fact check below covers that.
 
 ## If you are new: what is this about
 
@@ -63,7 +61,7 @@ Its conclusion was that the technique stayed at 2025 levels, and that residency 
 
 A chatbot answers questions. A dot does the work instead. It opens your inbox, books times, signs in to sites and fills forms.
 
-OpenAI keeps that worker on its own servers and charges rent. Open Dot proposes to keep the same worker on your Mac. You pay the electricity bill instead, which here means API usage.
+OpenAI keeps that worker on its own servers and charges rent. Open Dot puts the same worker on your Mac, so you pay the electricity bill instead. Here the bill is API usage.
 
 ### Why keep it on your own Mac
 
@@ -93,7 +91,7 @@ OpenAI keeps that worker on its own servers and charges rent. Open Dot proposes 
 
 ## How it works
 
-Every action a dot wants to take goes through a rule check. Each tool carries a default risk level, and your own rules sit on top of that.
+Every action a dot wants to take goes through a rule check. Each tool has a default risk level, and your own rules sit on top.
 
 ```mermaid
 flowchart LR
@@ -106,7 +104,7 @@ flowchart LR
   D -->|you press it| E
 ```
 
-You write rules as sentences, such as "when the dot wants to reply to an email, ask first". When rules overlap, "never" wins, and "ask" comes next. If the review model does not answer, the app leans safe and asks.
+You write rules as sentences, such as "when the dot wants to reply to an email, ask first". When rules overlap, "never" wins, and "ask" comes next. If the review model does not answer, the app plays safe and asks.
 
 ## What you need, and how to run it
 
@@ -119,7 +117,7 @@ You write rules as sentences, such as "when the dot wants to reply to an email, 
 
 ### Build the Mac app
 
-Clone the repo. Then run this.
+Clone the repo, then run this.
 
 ```bash
 pnpm install
@@ -176,17 +174,17 @@ ChatGPT Pro starts at 100 dollars a month. One tenth of that is 10 dollars a mon
 
 gpt-5.5 costs 5 dollars per million input tokens and 30 dollars per million output tokens. Assume a 10 to 1 split of input to output. Then 10 dollars buys about 1.2 million input tokens, or about 40,000 per day.
 
-Computer use sends a screenshot and the page text on every turn. So 40,000 tokens a day covers one or two short routines. On top of that, the system prompt is rebuilt every turn, so prompt caching rarely helps.
+Computer use sends a screenshot and the page text on every turn. So 40,000 tokens a day covers one or two short routines. The system prompt is also rebuilt every turn, so prompt caching rarely helps.
 
 The 1/10th figure therefore holds only for light use. Run it all day and it can cost more than the subscription.
 
 ### The always-on part is missing
 
-This is the largest gap. Routines run as croner cron jobs, and those jobs live inside the Node process on your Mac.
+The largest gap is the clock. Routines run as croner cron jobs, and those jobs live inside the Node process on your Mac.
 
-The README says the same thing. Routines and triggers run only while the app is open. A routine that comes due while the Mac sleeps is skipped.
+The README says so too: routines and triggers run only while the app is open. A routine that comes due while the Mac sleeps is skipped.
 
-An E2B key does not change this. E2B rents you the computer the dot uses. The clock that wakes the dot still sits on your Mac. With OpenAI Dots the clock is in the cloud too.
+An E2B key does not change this, because E2B only rents you the computer the dot uses. The clock that wakes the dot still sits on your Mac. With OpenAI Dots that clock is in the cloud too.
 
 ### There is no license
 
@@ -194,7 +192,7 @@ As of 6 October 2026 the repo has no LICENSE file. The GitHub API reports the li
 
 With no license, default copyright applies. Viewing and forking work under the GitHub terms. You have no right to modify the code or redistribute it.
 
-The two clones from the same day both chose MIT. They also have more stars. CopilotKit's OpenDots has 3,697. feder-cr's dots has 2,620. Open Dot has 578.
+Both clones from the same day chose MIT, and both have more stars. CopilotKit's OpenDots has 3,697, feder-cr's dots 2,620, and Open Dot 578.
 
 ## When to use what
 
