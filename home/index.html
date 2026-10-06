@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>neocello</title>
+<meta name="description" content="New tools make big claims. neocello checks them against the repo and the official docs, with a short video for each note.">
+<meta property="og:title" content="neocello">
+<meta property="og:description" content="New tools make big claims. neocello checks them against the repo and the official docs, with a short video for each note.">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="en" href="https://neocello-ku.github.io/">
+<link rel="alternate" hreflang="ko" href="https://neocello-ku.github.io/ko/">
+<link rel="icon" href="static/icon.png">
+<script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="home/home.css">
+</head>
+<body data-root="" data-site="">
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="" aria-label="neocello home"><i aria-hidden="true"><b></b><b></b><b></b></i>neocello</a>
+    <nav aria-label="Main">
+      <a href="trends/">Notes</a>
+      <a class="hide-sm" href="https://github.com/neocello-ku">GitHub</a>
+      <span class="seg" role="group" aria-label="Language"><a href="" aria-current="true" lang="en">EN</a><a href="ko/" aria-current="false" lang="ko">KO</a></span>
+      <button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zm0 1.5v10a5 5 0 0 1 0-10z" fill="currentColor"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">A tech blog that reads the repo first</p>
+      <h1>New tools make big claims. I <em>check</em> them.</h1>
+      <p class="lede">Each note starts from a post or a release. I put the claims next to the README, the code and the official docs, then write down what holds up. Every note comes with a short how-to video.</p>
+      <div class="cta">
+        <a class="btn primary" href="trends/">Read the notes <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn ghost" href="#latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z" fill="currentColor"/></svg> Watch the latest</a>
+      </div>
+    </div>
+
+    <article class="check" id="check" aria-label="Live fact check">
+      <div class="check-head">
+        <span class="live">Live fact check</span>
+        <span>from <a class="check-src" id="check-src" href="trends/strata">Strata</a> · <span id="counter">1 / 7</span></span>
+      </div>
+      <div class="check-body" id="check-body" aria-live="polite">
+        <div class="claim-row"><span class="label">Claim</span><span class="stamp cond" id="stamp">With conditions</span></div>
+        <p class="claim" id="claim">Runs a 125B model on a gaming PC</p>
+        <div class="rule" id="rule"></div>
+        <span class="label">What the repo shows</span>
+        <p class="finding" id="finding">True, with a 2 to 3.5-bit file and 6B active parameters per token. The 12 GB card is not enough alone: it also needs 32 GB of RAM and 80 GB of disk.</p>
+      </div>
+      <div class="check-foot">
+        <div class="dots" id="dots"></div>
+        <button class="nav-btn" id="prev" type="button" aria-label="Previous claim"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="nav-btn" id="next" type="button" aria-label="Next claim"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="ledger wrap" aria-label="Fact-check totals">
+  <div class="ledger-grid">
+    <div class="figures">
+      <div class="fig"><b id="n-notes">1</b><span>notes</span></div>
+      <div class="fig"><b id="n-claims">7</b><span>claims checked</span></div>
+      <div class="fig"><b id="n-no">0</b><span>no evidence</span></div>
+    </div>
+    <div class="dist">
+      <div class="dist-bar" id="dist" role="img" aria-label="Share of verdicts: matches, with conditions, no evidence"></div>
+      <div class="dist-legend" id="dist-legend"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="latest">
+  <div class="sec-head"><h2>Latest notes</h2><a href="trends/">All notes →</a></div>
+  <div class="notes" id="notes"></div>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><h2>How each note is made</h2></div>
+  <div class="steps">
+    <div class="step"><span class="n">01</span><h4>Where it fits</h4><p>What came before, and who shipped something similar at the same time.</p></div>
+    <div class="step"><span class="n">02</span><h4>What is new</h4><p>Method, infrastructure and product, rated separately.</p></div>
+    <div class="step"><span class="n">03</span><h4>How it works</h4><p>A plain explanation first, then the real install and run commands.</p></div>
+    <div class="step"><span class="n">04</span><h4>Fact check</h4><p>Every claim against the repo, the docs and independent numbers.</p></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="mono">neocello</span>
+    <span class="grow">Notes on new tools, checked against the source. Also in Korean.</span>
+    <a href="https://github.com/neocello-ku">GitHub</a>
+    <a href="ko/" lang="ko">한국어</a>
+  </div>
+</footer>
+<script src="home/home.js" defer></script>
+</body>
+</html>

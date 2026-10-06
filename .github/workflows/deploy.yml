@@ -42,10 +42,12 @@ jobs:
         run: npm ci
       - name: Install Quartz plugins
         run: npx quartz plugin install
-      - name: Build Quartz (한국어 → /)
+      - name: Build Quartz (English → /)
         run: npx quartz build
-      - name: Build Quartz (English → /en)
-        run: cp quartz.config.en.yaml quartz.config.yaml && npx quartz build -d content-en -o public/en
+      - name: Build Quartz (한국어 → /ko)
+        run: cp quartz.config.ko.yaml quartz.config.yaml && npx quartz build -d content-ko -o public/ko
+      - name: Custom landing pages (home/ → / and /ko/)
+        run: bash home/install.sh public
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

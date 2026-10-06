@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>neocello · 한국어</title>
+<meta name="description" content="새 도구의 주장을 레포와 공식 문서로 확인하는 기술 블로그. 글마다 짧은 사용법 영상이 있습니다.">
+<meta property="og:title" content="neocello · 한국어">
+<meta property="og:description" content="새 도구의 주장을 레포와 공식 문서로 확인하는 기술 블로그. 글마다 짧은 사용법 영상이 있습니다.">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="en" href="https://neocello-ku.github.io/">
+<link rel="alternate" hreflang="ko" href="https://neocello-ku.github.io/ko/">
+<link rel="icon" href="../static/icon.png">
+<script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../home/home.css">
+</head>
+<body data-root="../" data-site="ko/">
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="../ko/" aria-label="neocello home"><i aria-hidden="true"><b></b><b></b><b></b></i>neocello</a>
+    <nav aria-label="주 메뉴">
+      <a href="../ko/trends/">글 목록</a>
+      <a class="hide-sm" href="https://github.com/neocello-ku">GitHub</a>
+      <span class="seg" role="group" aria-label="Language"><a href="../" aria-current="false" lang="en">EN</a><a href="../ko/" aria-current="true" lang="ko">KO</a></span>
+      <button class="icon-btn" id="theme" type="button" aria-label="다크 모드 전환"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zm0 1.5v10a5 5 0 0 1 0-10z" fill="currentColor"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">레포부터 읽는 기술 블로그</p>
+      <h1>새 기술의 주장, <em>확인하고</em> 씁니다</h1>
+      <p class="lede">게시물이나 릴리스에서 출발합니다. 주장을 README, 코드, 공식 문서와 나란히 놓고, 맞는 것과 아닌 것을 적습니다. 글마다 짧은 사용법 영상이 있습니다.</p>
+      <div class="cta">
+        <a class="btn primary" href="../ko/trends/">글 읽기 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn ghost" href="#latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z" fill="currentColor"/></svg> 최신 글 보기</a>
+      </div>
+    </div>
+
+    <article class="check" id="check" aria-label="실시간 팩트체크">
+      <div class="check-head">
+        <span class="live">실시간 팩트체크</span>
+        <span>출처 <a class="check-src" id="check-src" href="../ko/trends/strata">Strata</a> · <span id="counter">1 / 7</span></span>
+      </div>
+      <div class="check-body" id="check-body" aria-live="polite">
+        <div class="claim-row"><span class="label">주장</span><span class="stamp cond" id="stamp">조건 있음</span></div>
+        <p class="claim" id="claim">125B 모델을 게임용 PC에서 돌린다</p>
+        <div class="rule" id="rule"></div>
+        <span class="label">레포에서 확인한 것</span>
+        <p class="finding" id="finding">맞습니다. 단 2~3.5비트로 압축한 파일이고 토큰당 활성은 6B입니다. 12GB 카드만으로는 안 되고 RAM 32GB와 디스크 80GB가 같이 필요합니다.</p>
+      </div>
+      <div class="check-foot">
+        <div class="dots" id="dots"></div>
+        <button class="nav-btn" id="prev" type="button" aria-label="이전 주장"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="nav-btn" id="next" type="button" aria-label="다음 주장"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="ledger wrap" aria-label="팩트체크 합계">
+  <div class="ledger-grid">
+    <div class="figures">
+      <div class="fig"><b id="n-notes">1</b><span>글</span></div>
+      <div class="fig"><b id="n-claims">7</b><span>주장 확인</span></div>
+      <div class="fig"><b id="n-no">0</b><span>근거 없음</span></div>
+    </div>
+    <div class="dist">
+      <div class="dist-bar" id="dist" role="img" aria-label="판정 비율: 일치, 조건 있음, 근거 없음"></div>
+      <div class="dist-legend" id="dist-legend"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="latest">
+  <div class="sec-head"><h2>최근 글</h2><a href="../ko/trends/">전체 글 →</a></div>
+  <div class="notes" id="notes"></div>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head"><h2>글 하나를 만드는 순서</h2></div>
+  <div class="steps">
+    <div class="step"><span class="n">01</span><h4>흐름 속 위치</h4><p>이전에 무엇이 있었고, 같은 시기에 누가 비슷한 것을 냈는지.</p></div>
+    <div class="step"><span class="n">02</span><h4>무엇이 새로운가</h4><p>기법, 인프라, 제품을 나눠서 따로 판정합니다.</p></div>
+    <div class="step"><span class="n">03</span><h4>동작 방식</h4><p>쉬운 설명을 먼저 하고, 실제 설치·실행 명령을 붙입니다.</p></div>
+    <div class="step"><span class="n">04</span><h4>팩트체크</h4><p>주장마다 레포, 문서, 독립 측정과 대조합니다.</p></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="mono">neocello</span>
+    <span class="grow">새 도구를 원문과 대조해 정리한 노트. 영어로도 씁니다.</span>
+    <a href="https://github.com/neocello-ku">GitHub</a>
+    <a href="../" lang="en">English</a>
+  </div>
+</footer>
+<script src="../home/home.js" defer></script>
+</body>
+</html>

@@ -2,10 +2,10 @@
 configuration:
   pageTitle: neocello
   pageTitleSuffix: ""
-  enableSPA: true
+  enableSPA: false
   enablePopovers: true
-  locale: en-US
-  baseUrl: neocello-ku.github.io/en
+  locale: ko-KR
+  baseUrl: neocello-ku.github.io/ko
   ignorePatterns:
     - private
     - templates
@@ -232,14 +232,14 @@ plugins:
     options:
       links:
         GitHub: https://github.com/neocello-ku
-        한국어: https://neocello-ku.github.io/
+        English: https://neocello-ku.github.io/
     layout:
       position: footer
       priority: 50
   - source: "@quartz-community/recent-notes"
     enabled: true
     options:
-      title: Latest notes
+      title: 최근 글
       limit: 6
       showTags: true
       hideTagPages: true
