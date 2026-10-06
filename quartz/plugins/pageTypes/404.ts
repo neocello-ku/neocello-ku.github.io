@@ -18,6 +18,8 @@ export const NotFoundPageType: QuartzPageTypePlugin = () => ({
       description: notFound,
       frontmatter: { title: notFound, tags: [] },
     })
+    // 최근 글 등 목록 컴포넌트에 404가 글처럼 섞이지 않게 (neocello 패치)
+    ;(vfile.data as { unlisted?: boolean }).unlisted = true
 
     return [
       {

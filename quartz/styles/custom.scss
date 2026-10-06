@@ -1,3 +1,116 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// ---------- 대문 (index) ----------
+.home {
+  padding-block: 1.25rem 0.5rem;
+  .home-eyebrow {
+    margin: 0;
+    font-family: var(--codeFont);
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: var(--tertiary);
+  }
+  .home-title {
+    margin: 0.5rem 0 0.9rem;
+    font-family: var(--headerFont);
+    font-size: clamp(2rem, 5.2vw, 3.1rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--dark);
+    text-wrap: balance;
+  }
+  .home-lede {
+    margin: 0;
+    max-width: 34em;
+    font-size: 1.1rem;
+    color: var(--darkgray);
+  }
+  .home-links {
+    display: flex;
+    gap: 0.6rem;
+    margin: 1rem 0 0;
+    color: var(--gray);
+    a { font-weight: 600; color: var(--secondary); }
+  }
+}
+
+.home-sections {
+  display: grid;
+  gap: 1rem;
+  margin: 1.75rem 0 0.5rem;
+}
+
+.home-card {
+  display: grid;
+  gap: 0.55rem;
+  padding: 1.4rem 1.5rem 1.3rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 14px;
+  background: var(--highlight);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  &:hover { border-color: var(--secondary); transform: translateY(-2px); }
+  .home-kicker {
+    font-family: var(--codeFont);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+  .home-card-title { font-size: 1.5rem; font-weight: 700; color: var(--dark); letter-spacing: -0.01em; }
+  .home-card-desc { color: var(--darkgray); max-width: 36em; }
+}
+
+.home-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+  > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.2rem 0.7rem 0.2rem 0.35rem;
+    border: 1px solid var(--lightgray);
+    border-radius: 999px;
+    background: var(--light);
+    font-size: 0.88rem;
+    color: var(--darkgray);
+  }
+  b {
+    display: inline-grid;
+    place-items: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 50%;
+    background: var(--secondary);
+    color: var(--light);
+    font-family: var(--codeFont);
+    font-size: 0.75rem;
+  }
+}
+
+.home-verdicts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  > span:not(.home-verdicts-note) {
+    padding: 0.05rem 0.5rem;
+    border: 1px solid currentColor;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .v-ok { color: #25804f; }
+  .v-cond { color: #a9740b; }
+  .v-no { color: #b8382e; }
+  .home-verdicts-note { color: var(--gray); }
+}
+:root[saved-theme="dark"] .home-verdicts {
+  .v-ok { color: #5cc08a; }
+  .v-cond { color: #e2b04a; }
+  .v-no { color: #ee7b70; }
+}

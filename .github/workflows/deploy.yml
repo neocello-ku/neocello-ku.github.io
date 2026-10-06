@@ -42,8 +42,10 @@ jobs:
         run: npm ci
       - name: Install Quartz plugins
         run: npx quartz plugin install
-      - name: Build Quartz
+      - name: Build Quartz (한국어 → /)
         run: npx quartz build
+      - name: Build Quartz (English → /en)
+        run: cp quartz.config.en.yaml quartz.config.yaml && npx quartz build -d content-en -o public/en
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
