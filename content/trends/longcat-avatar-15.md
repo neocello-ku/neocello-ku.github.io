@@ -18,9 +18,7 @@ lang: "en"
 
 On 21 May 2026, Meituan released LongCat-Video-Avatar 1.5. You give it a photo and an audio file. It returns a video of that person speaking. The weights carry the MIT license.
 
-The release matters for one reason. Talking-head generation has moved from research into product shape.
-
-Here is the verdict first. There is no new technique. The authors say so in their own technical report. They chose engineering and production readiness over architectural novelty. What is new is that a commercial-grade bundle is now open.
+Talking-head generation has moved from research into product shape. There is no new technique here, and the authors say so in their own technical report. The engineering work went into production readiness. The bundle is commercial grade, and the weights are open.
 
 New to these terms? Start with the 'If you are new' section below.
 
@@ -40,11 +38,11 @@ timeline
   May 2026 : Avatar 1.5. Whisper, 8 steps, INT8
 ```
 
-This guide covers the last step. Two lines of work meet there.
+Two lines of work meet at the last step.
 
-The first line is the video base model. LongCat-Video uses the Wan VAE and the Google UMT5-XXL text encoder. I checked the demo code and the README acknowledgements.
+One line is the video base model. LongCat-Video uses the Wan VAE and the Google UMT5-XXL text encoder. I checked the demo code and the README acknowledgements.
 
-The second line is two-person conversation. The Avatar project page sits on `meigen-ai.github.io`. The MeiGen-AI team that built MultiTalk worked on this model.
+The other line is two-person conversation. The Avatar project page is on `meigen-ai.github.io`. The MeiGen-AI team that built MultiTalk worked on this model.
 
 ### What is new here
 
@@ -56,16 +54,14 @@ The second line is two-person conversation. The Avatar project page sits on `mei
 
 Two earlier posts connect here. [Strata](https://neocello-ku.github.io/trends/strata) (2026-10-06) put a large model on a small GPU. The same INT8 trick appears here. [image-blaster](https://neocello-ku.github.io/trends/image-blaster) (2026-10-06) turned one photo into 3D. This model turns one photo into video.
 
-In short, this release is not an invention. Scattered techniques got packed into one bundle at commercial quality.
+The release packs scattered techniques into one bundle at commercial quality.
 
 ## If you are new: what is this about
 
 ### Two ways to make a talking video
 
-A stage metaphor helps.
-
-- **The old way**: You already have footage of an actor. You cut out the mouth and draw a new mouth for the new lines. The mouth matches, but the face and the gestures stay old.
-- **The new way**: You give one photo and one voice recording. The model draws the scene from scratch. The head nods and the hands move.
+- The old way: You already have footage of an actor. You cut out the mouth and draw a new mouth for the new lines. The mouth matches, but the face and the gestures stay old.
+- The new way: You give one photo and one voice recording. The model draws the scene from scratch. The head nods and the hands move.
 
 Avatar 1.5 is the new way.
 
@@ -121,7 +117,7 @@ The audio goes through vocal separation first. Background music would blur the m
 
 Longer video comes from joined segments. Each new segment reads the last 13 frames of the one before it. That keeps the scene from jumping.
 
-The length formula sits in the demo code.
+The demo code has the length formula.
 
 ```
 length (s) = 93/25 + (segments - 1) * 80/25
