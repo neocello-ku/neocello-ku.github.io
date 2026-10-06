@@ -137,7 +137,7 @@
   function rail(notes) {
     const svg = $("#railsvg"); if (!svg || !notes.length) return;
     railNotes = notes;
-    const narrow = svg.parentElement.clientWidth < 600;
+    const narrow = svg.parentElement.clientWidth < 760;  // 가로 그림이 스크롤 없이 다 들어갈 때만 가로
     railMode = narrow ? "v" : "h";
     svg.classList.toggle("v", narrow);
     if (narrow) return railVertical(notes, svg);
@@ -232,7 +232,7 @@
   }
   window.addEventListener("resize", () => {
     const svg = $("#railsvg"); if (!svg || !railNotes) return;
-    const want = svg.parentElement.clientWidth < 600 ? "v" : "h";
+    const want = svg.parentElement.clientWidth < 760 ? "v" : "h";
     if (want !== railMode) rail(railNotes);
   });
 

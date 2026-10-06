@@ -134,3 +134,32 @@ body[data-slug^="essays/"] article {
     color: var(--secondary); background: var(--highlight); font-weight: 600; text-decoration: none;
   }
 }
+
+// ---------- 잘림·넘침 방지 (Quartz 기본값 보정) ----------
+// 100vw 는 스크롤바까지 포함해 오른쪽 15px 이 스크롤바 밑으로 잘린다
+html { width: 100%; }
+
+@media (max-width: 800px) {
+  // 모바일 탐색기 서랍: 화면 기준 0~100%, 닫히면 자기 폭만큼 완전히 밀어낸다 (16px 비침 방지)
+  .explorer .explorer-content {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+  .explorer.collapsed > .explorer-content { transform: translateX(-100%) !important; }
+}
+
+@media (max-width: 420px) {
+  // 아주 좁은 폰: 검색창은 돋보기 아이콘 하나로 접어 상단 바가 화면 폭을 밀어내지 않게
+  .sidebar.left { gap: 0 !important; min-width: 0; }
+  .sidebar.left > * { min-width: 0; }
+  .sidebar.left .search { flex: 0 0 auto !important; min-width: 0 !important; }
+  .sidebar.left .search > .search-button { width: 2.25rem !important; padding: 0 !important; justify-content: center; border: 0 !important; }
+  .sidebar.left .search > .search-button > p { display: none !important; }
+  .sidebar.left .search > .search-button > svg { margin: 0 !important; }
+  .sidebar.left .page-title { font-size: 1.3rem; min-width: 0; }
+}

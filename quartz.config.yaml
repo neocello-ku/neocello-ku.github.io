@@ -231,7 +231,6 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/neocello-ku
         한국어: https://neocello-ku.github.io/ko/
     layout:
       position: footer

@@ -298,6 +298,15 @@ footer .grow { flex: 1; }
   .icon-btn { width: 32px; height: 32px; }
   .seg a { padding: 3px 8px; }
 }
+@media (max-width: 340px) {
+  .wrap { padding-inline: 16px; }
+  .bar .wrap { gap: 6px; }
+  .bar nav { gap: 4px; }
+  .mark { font-size: 15px; }
+  .mark i { display: none; }
+  .seg a { padding: 2px 7px; font-size: 12px; }
+  .icon-btn { width: 30px; height: 30px; }
+}
 @media (max-width: 560px) {
   .hide-xs { display: none; }
   .cta { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 36px; }
