@@ -20,13 +20,13 @@ image-blaster appeared in April 2026. You drop in one photo, and Claude Code bui
 
 There is no new model here. Four commercial APIs already existed, and a set of Claude skills calls them in order. Agent Skills arrived in October 2025, and this assembly became possible right after.
 
-Here is the conclusion first. The method is not new, and one run costs about five dollars. The part worth reading is the rule file, not the 3D output.
+The method is not new, and one run costs about five dollars. The rule file teaches more than the 3D output does.
 
 New to these terms? Start with the "If you are new" section below.
 
 ## Where this fits: why this story now
 
-Turning a photo into a 3D space is an old problem. The pieces arrived one at a time from 2023. The last piece was not a model. It was a container.
+Turning a photo into a 3D space is an old problem. The pieces arrived one at a time from 2023. The last piece was a container.
 
 ```mermaid
 %%{init: {'themeVariables': {'cScale0': '#2F6FDB', 'cScaleLabel0': '#FFFFFF', 'cScale1': '#11806F', 'cScaleLabel1': '#FFFFFF', 'cScale2': '#5B6878', 'cScaleLabel2': '#FFFFFF', 'cScale3': '#2F6FDB', 'cScaleLabel3': '#FFFFFF', 'cScale4': '#11806F', 'cScaleLabel4': '#FFFFFF', 'cScale5': '#5B6878', 'cScaleLabel5': '#FFFFFF', 'cScale6': '#2F6FDB', 'cScaleLabel6': '#FFFFFF', 'cScale7': '#11806F', 'cScaleLabel7': '#FFFFFF', 'cScale8': '#5B6878', 'cScaleLabel8': '#FFFFFF', 'cScale9': '#2F6FDB', 'cScaleLabel9': '#FFFFFF', 'cScale10': '#11806F', 'cScaleLabel10': '#FFFFFF', 'cScale11': '#5B6878', 'cScaleLabel11': '#FFFFFF'}}}%%
@@ -55,7 +55,7 @@ image-blaster produces something else. It builds a space you can walk through fi
 | Scripts and file rules (infrastructure) | Medium | The repo's own code is 21 .mjs files. The generation index and the resume design are worth reusing. |
 | An agent acting as the pipeline (product) | High | It works with no install step. One Claude Code session is the UI, the orchestrator and the check. |
 
-The value of image-blaster is not the 3D output. It sits in the instruction design inside the `.claude/` folder.
+The value of image-blaster is in the instruction design inside the `.claude/` folder, not in the 3D output.
 
 ### A link to the last post
 
@@ -63,7 +63,7 @@ The last post was [Strata: a 125B model on a gaming PC](/trends/strata), from 6 
 
 The direction is the opposite. Strata pulls a large cloud model down onto your own PC. image-blaster keeps nothing local and ties four cloud services together.
 
-Both collected around ten thousand stars in the same year. Two opposite directions landed at once.
+Both collected around ten thousand stars in the same year.
 
 ## If you are new: what is this about
 
@@ -79,7 +79,7 @@ The background uses a method called Gaussian splatting. It scatters hundreds of 
 
 This differs from the older way of building walls out of triangles. It copies what you see instead of carving the shape. That makes it good at leaves and glass, which are hard to carve.
 
-There is a cost. A cloud of blobs has no physical collision. So you also get a separate frame for collisions.
+The cost is that a cloud of blobs has no physical collision. So you also get a separate frame for collisions.
 
 ### Objects: real meshes
 
@@ -145,7 +145,7 @@ flowchart TD
 
 The analysis step is free. Claude looks at the photo directly and writes down object candidates.
 
-Then it stops. It waits for a person to pick which objects to build. Paid calls go out only after that.
+Then it stops and waits for a person to pick which objects to build. Paid calls go out only after that.
 
 If you say "do it all at once", it switches to one-shot mode. In that mode it runs to the end with no stop.
 
@@ -153,15 +153,15 @@ If you say "do it all at once", it switches to one-shot mode. In that mode it ru
 
 Each object starts with a reference cut. That is a photo of the object alone on a white background.
 
-The rules are strict. No clustering. A table and its chairs never become one model. Fixed parts such as floors and walls are skipped.
+The rules are strict. Clustering is not allowed, so a table and its chairs never become one model. Fixed parts such as floors and walls are skipped.
 
-The test is simple. If a person can lift it or push it, it is an object.
+If a person can lift it or push it, it is an object.
 
 ### Generation runs in parallel, scripts run one at a time
 
 Each generation request goes out as a background agent. The world, the meshes and the sound run together.
 
-The script inside never runs in the background. The agent waits for the script to finish and reads the result. Agents hold the parallelism, and scripts hold the result collection.
+The script inside never runs in the background. The agent waits for the script to finish and reads the result.
 
 ### The filename is the state
 
@@ -240,7 +240,7 @@ The defaults are `--face-count 50000`, `--enable-pbr true` and `--generate-type 
 
 ## Fact check
 
-The README says nothing about cost. So the numbers below come from the official price pages.
+The README says nothing about cost. The numbers below come from the official price pages.
 
 | README claim | What I found | Verdict |
 | --- | --- | --- |
@@ -254,13 +254,13 @@ The README says nothing about cost. So the numbers below come from the official 
 
 ### The background is not a mesh
 
-This is the most important point. The README says "a fully meshed 3D environment".
+The biggest gap is in the README phrase "a fully meshed 3D environment".
 
 The world script collects four things. Those are the `.spz` splat, a panorama, a thumbnail and one collider mesh.
 
 A collider is a rough frame that only computes bumps. No textured background mesh comes down.
 
-The gap matters in practice. A splat looks good but resists editing. Moving a wall in Blender, or baking the light again, does not fit this output.
+In practice, a splat looks good but resists editing. Moving a wall in Blender, or baking the light again, does not fit this output.
 
 ### The cost
 
@@ -286,24 +286,24 @@ One run on a scene with five objects adds up like this.
 
 Claude tokens cost extra. Three objects come to about 3.6 dollars, and eight to about 7.4.
 
-One detail stands out. A mesh has a base price of 0.375 dollars, but 0.675 dollars actually goes out.
+A mesh has a base price of 0.375 dollars, but 0.675 dollars actually goes out.
 
 The skill always passes PBR and a face count together. Each of those adds 0.15 dollars. So the default setting raises the bill by 1.8x.
 
 If you only need white geometry, pass `--generate-type Geometry`. The base price drops to 0.225 dollars.
 
-One caveat. The price page does not say whether the face count surcharge applies to every value other than the default. If it does not apply, a five-object scene comes to about 4.4 dollars.
+The price page does not say whether the face count surcharge applies to every value other than the default. If it does not apply, a five-object scene comes to about 4.4 dollars.
 
 ### The rule file is the real lesson
 
-The four model companies set the output quality. The repo sets the order and the prohibitions. That second part teaches more.
+The four model companies set the output quality. The repo sets the order and the prohibitions, and that second part teaches more.
 
 Four rules stand out in `.claude/rules/project.md`.
 
-- **It writes the stopping point down.** Analysis is free, generation is paid. It stops at that line.
-- **It forbids reading generated images.** Checks run on script output and filenames.
-- **Background work is per agent.** Scripts stay synchronous so the result gets read.
-- **Resume is part of the design.** A request JSON stays behind so only files come down again.
+- It writes the stopping point down: analysis is free, generation is paid.
+- It forbids reading generated images, so checks run on script output and filenames.
+- Background work happens per agent, and scripts stay synchronous so the result gets read.
+- Resume is part of the design. A request JSON stays behind so only files come down again.
 
 ## When to use what
 
