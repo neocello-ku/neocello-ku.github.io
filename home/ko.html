@@ -22,11 +22,15 @@
   <div class="wrap">
     <a class="mark" href="../ko/" aria-label="neocello home"><i aria-hidden="true"><b></b><b></b><b></b></i>neocello</a>
     <nav aria-label="주 메뉴">
-      <a href="../ko/trends/">글 목록</a>
-      <a href="../ko/essays/">에세이</a>
-      <a class="hide-sm" href="https://github.com/neocello-ku">GitHub</a>
+      <div class="nav-links" id="navlinks">
+        <a href="../ko/trends/">글 목록</a>
+        <a href="../ko/essays/">에세이</a>
+        <a href="../ko/how-it-works">만드는 방법</a>
+        <a href="https://github.com/neocello-ku">GitHub</a>
+      </div>
       <span class="seg" role="group" aria-label="Language"><a href="../" aria-current="false" lang="en">EN</a><a href="../ko/" aria-current="true" lang="ko">KO</a></span>
       <button class="icon-btn" id="theme" type="button" aria-label="다크 모드 전환"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zm0 1.5v10a5 5 0 0 1 0-10z" fill="currentColor"/></svg></button>
+      <button class="icon-btn menu-btn" id="menu" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="navlinks"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></button>
     </nav>
   </div>
 </header>
@@ -48,7 +52,7 @@
     <article class="check" id="check" aria-label="실시간 팩트체크">
       <div class="check-head">
         <span class="live">실시간 팩트체크</span>
-        <span>출처 <a class="check-src" id="check-src" href="../ko/trends/strata">Strata</a> · <span id="counter">1 / 7</span></span>
+        <span class="check-meta"><span class="hide-xs">출처 </span><a class="check-src" id="check-src" href="../ko/trends/strata">Strata</a></span><span class="counter" id="counter">1 / 7</span>
       </div>
       <div class="check-body" id="check-body" aria-live="polite">
         <div class="claim-row"><span class="label">주장</span><span class="stamp cond" id="stamp">조건 있음</span></div>

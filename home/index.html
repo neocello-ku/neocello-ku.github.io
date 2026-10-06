@@ -21,11 +21,15 @@
   <div class="wrap">
     <a class="mark" href="" aria-label="neocello home"><i aria-hidden="true"><b></b><b></b><b></b></i>neocello</a>
     <nav aria-label="Main">
-      <a href="trends/">Notes</a>
-      <a href="essays/">Essays</a>
-      <a class="hide-sm" href="https://github.com/neocello-ku">GitHub</a>
+      <div class="nav-links" id="navlinks">
+        <a href="trends/">Notes</a>
+        <a href="essays/">Essays</a>
+        <a href="how-it-works">How it's made</a>
+        <a href="https://github.com/neocello-ku">GitHub</a>
+      </div>
       <span class="seg" role="group" aria-label="Language"><a href="" aria-current="true" lang="en">EN</a><a href="ko/" aria-current="false" lang="ko">KO</a></span>
       <button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zm0 1.5v10a5 5 0 0 1 0-10z" fill="currentColor"/></svg></button>
+      <button class="icon-btn menu-btn" id="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></button>
     </nav>
   </div>
 </header>
@@ -47,7 +51,7 @@
     <article class="check" id="check" aria-label="Live fact check">
       <div class="check-head">
         <span class="live">Live fact check</span>
-        <span>from <a class="check-src" id="check-src" href="trends/strata">Strata</a> · <span id="counter">1 / 7</span></span>
+        <span class="check-meta"><span class="hide-xs">from </span><a class="check-src" id="check-src" href="trends/strata">Strata</a></span><span class="counter" id="counter">1 / 7</span>
       </div>
       <div class="check-body" id="check-body" aria-live="polite">
         <div class="claim-row"><span class="label">Claim</span><span class="stamp cond" id="stamp">With conditions</span></div>

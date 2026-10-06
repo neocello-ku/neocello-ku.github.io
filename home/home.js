@@ -23,6 +23,15 @@
     try { localStorage.setItem("theme", html.dataset.theme); } catch {}
   });
 
+  // ---------- 모바일 메뉴 ----------
+  const menuBtn = $("#menu");
+  if (menuBtn) {
+    const setMenu = (open) => { html.classList.toggle("menu-open", open); menuBtn.setAttribute("aria-expanded", open); };
+    menuBtn.addEventListener("click", (e) => { e.stopPropagation(); setMenu(!html.classList.contains("menu-open")); });
+    document.addEventListener("click", (e) => { if (!e.target.closest(".bar")) setMenu(false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
+  }
+
   // ---------- dot field (hero background) ----------
   const cv = $("#field");
   if (cv && !reduce) {
@@ -124,8 +133,14 @@
     .catch(() => {});
 
   // ---------- 타임라인 레일: 원문 날짜순 + 이어진 노트 곡선 + 분야 색 ----------
+  let railNotes = null, railMode = "";
   function rail(notes) {
     const svg = $("#railsvg"); if (!svg || !notes.length) return;
+    railNotes = notes;
+    const narrow = svg.parentElement.clientWidth < 600;
+    railMode = narrow ? "v" : "h";
+    svg.classList.toggle("v", narrow);
+    if (narrow) return railVertical(notes, svg);
     const items = notes.filter((n) => n.sourceDate).map((n) => ({ ...n, L: n[LANG] }));
     const byId = Object.fromEntries(items.map((n) => [n.id, n]));
     const fields = [...new Set(items.map((n) => n.L.field))];
@@ -177,6 +192,49 @@
     svg.innerHTML = s;
     const sc = svg.parentElement; requestAnimationFrame(() => { sc.scrollLeft = sc.scrollWidth; });
   }
+
+  // 세로 타임라인 (모바일): 위가 최신, 이어진 노트는 왼쪽 곡선
+  function railVertical(notes, svg) {
+    const items = notes.filter((n) => n.sourceDate).map((n) => ({ ...n, L: n[LANG] }))
+      .sort((a, b) => b.sourceDate.localeCompare(a.sourceDate));
+    const byId = Object.fromEntries(items.map((n) => [n.id, n]));
+    const fields = [...new Set(notes.map((n) => n[LANG] && n[LANG].field).filter(Boolean))];
+    const color = (f) => `var(--f${(fields.indexOf(f) % 6) + 1})`;
+    $("#legend").innerHTML = fields.map((f) => `<span><i style="background:${color(f)}"></i>${esc(f)}</span>`).join("");
+    const W = Math.max(280, Math.round(svg.parentElement.clientWidth)), X = 56, TOP = 30, ROW = 66, dayN = (d) => Date.parse(d) / 864e5;  // 화면 폭 1:1 — 글씨가 줄지 않게
+    const fmtS = (d) => new Date(d + "T00:00:00").toLocaleDateString(LANG === "ko" ? "ko-KR" : "en-US", { month: "short", day: "numeric" });
+    const ys = {}; let y = TOP, s = "", gaps = "";
+    items.forEach((it, i) => {
+      if (i) {
+        const gap = Math.round(dayN(items[i - 1].sourceDate) - dayN(it.sourceDate));
+        if (gap > 30) { gaps += `<text x="${X}" y="${y + 6}" text-anchor="middle" font-size="11" fill="var(--muted)">⋮</text><text x="${X + 16}" y="${y + 6}" font-size="11.5" fill="var(--muted)">${LANG === "ko" ? gap + "일" : gap + " days"}</text>`; y += 34; }
+      }
+      ys[it.id] = y; y += ROW;
+    });
+    const H = y - ROW + 30;
+    s += `<line x1="${X}" x2="${X}" y1="${TOP - 10}" y2="${H - 20}" stroke="var(--line)" stroke-width="2"/>`;
+    const seen = new Set();
+    items.forEach((a) => (a.related || []).forEach((rid) => {
+      const key = [a.id, rid].sort().join("|"); if (seen.has(key) || !byId[rid]) return; seen.add(key);
+      const y1 = ys[a.id], y2 = ys[rid], h = Math.min(52, 14 + Math.abs(y2 - y1) * 0.12);
+      s += `<path d="M${X} ${y1} C ${X - h} ${y1}, ${X - h} ${y2}, ${X} ${y2}" fill="none" stroke="var(--muted)" stroke-opacity=".5" stroke-width="1.5"/>`;
+    }));
+    s += gaps;
+    items.forEach((it) => {
+      const yy = ys[it.id];
+      s += `<a href="${ROOT}${SITE}trends/${it.id}" class="node">
+        <circle class="dot" cx="${X}" cy="${yy}" r="7" fill="var(--surface)" stroke="${color(it.L.field)}" stroke-width="3"/>
+        <text x="${X + 20}" y="${yy - 3}" font-size="15" font-weight="600" fill="var(--ink)">${esc(it.L.short || it.L.title)}</text>
+        <text x="${X + 20}" y="${yy + 16}" font-size="12.5" fill="var(--muted)">${fmtS(it.sourceDate)} · ${esc(it.L.field)}</text></a>`;
+    });
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    svg.innerHTML = s;
+  }
+  window.addEventListener("resize", () => {
+    const svg = $("#railsvg"); if (!svg || !railNotes) return;
+    const want = svg.parentElement.clientWidth < 600 ? "v" : "h";
+    if (want !== railMode) rail(railNotes);
+  });
 
   function countUp(el, n) {
     // 타이머 방식: 미리보기·스크린샷에서도 최종 숫자로 끝난다
