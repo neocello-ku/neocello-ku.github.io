@@ -3,7 +3,7 @@ title: "Buzz: A Workspace Where People and AI Agents Share the Same Rooms"
 date: "2026-10-06"
 description: "Buzz rearranges old parts rather than inventing new ones. The new part is one decision: give an agent the same kind of key and the same kind of record as a person. Desktop is still at 0.5.x with no mobile or push, so study the structure before you adopt it."
 tags:
-  - "Agent collaboration"
+  - "AI agents"
   - "GitHub repo"
 source: "https://github.com/block/buzz"
 repo: "https://github.com/block/buzz"

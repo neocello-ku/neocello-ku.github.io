@@ -3,7 +3,7 @@ title: "Buzz: 사람과 AI 에이전트가 같은 방에서 일하는 작업 공
 date: "2026-10-06"
 description: "새 발명이 아니라 오래된 조각들의 재배치입니다. 새로운 쪽은 에이전트에게 사람과 같은 종류의 키와 기록을 준다는 결정 하나입니다. 다만 데스크톱이 0.5.x이고 모바일과 푸시는 아직 없어, 도입보다 구조를 참고할 단계입니다."
 tags:
-  - "에이전트 협업"
+  - "AI 에이전트"
   - "GitHub 레포"
 source: "https://github.com/block/buzz"
 repo: "https://github.com/block/buzz"

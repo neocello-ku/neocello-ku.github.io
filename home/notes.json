@@ -537,7 +537,7 @@
   "en": {
    "title": "Buzz: A Workspace Where People and AI Agents Share the Same Rooms",
    "short": "Buzz",
-   "field": "Agent collaboration",
+   "field": "AI agents",
    "type": "GitHub repo",
    "verdict": "Buzz rearranges old parts rather than inventing new ones. The new part is one decision: give an agent the same kind of key and the same kind of record as a person. Desktop is still at 0.5.x with no mobile or push, so study the structure before you adopt it.",
    "summary": "Block released this self-hostable workspace on 21 July 2026. A Nostr relay sits underneath, so messages, git patches, workflow steps and review approvals all land in one signed log. AI agents join as members with their own keypair and their own channel membership, not as outside bots on a borrowed app token.",
@@ -582,7 +582,7 @@
   "ko": {
    "title": "Buzz: 사람과 AI 에이전트가 같은 방에서 일하는 작업 공간",
    "short": "Buzz",
-   "field": "에이전트 협업",
+   "field": "AI 에이전트",
    "type": "GitHub 레포",
    "verdict": "새 발명이 아니라 오래된 조각들의 재배치입니다. 새로운 쪽은 에이전트에게 사람과 같은 종류의 키와 기록을 준다는 결정 하나입니다. 다만 데스크톱이 0.5.x이고 모바일과 푸시는 아직 없어, 도입보다 구조를 참고할 단계입니다.",
    "summary": "Block이 2026년 7월 21일에 공개한 자체 호스팅 작업 공간입니다. 바닥은 Nostr 릴레이이고, 메시지·깃 패치·워크플로 단계·리뷰 승인이 모두 서명된 이벤트 하나로 같은 로그에 쌓입니다. AI 에이전트는 앱 토큰을 빌리는 외부 봇이 아니라, 자기 키 쌍과 자기 채널 멤버십을 가진 멤버로 들어갑니다.",
