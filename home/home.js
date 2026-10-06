@@ -67,6 +67,12 @@
     const count = { ok: 0, cond: 0, no: 0 };
     facts.forEach((f) => (count[f.v] = (count[f.v] || 0) + 1));
 
+    // hero hook: 실제 숫자
+    const eb = $("#eyebrow-stats");
+    if (eb && facts.length) eb.innerHTML = LANG === "ko"
+      ? `주장 <b>${facts.length}</b>개를 확인했고, <b class="no">${count.no}</b>개는 근거가 없었습니다`
+      : `<b>${facts.length}</b> claims checked. <b class="no">${count.no}</b> had no evidence.`;
+
     // ledger
     countUp($("#n-notes"), notes.length);
     countUp($("#n-claims"), facts.length);

@@ -36,12 +36,12 @@
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
-      <p class="eyebrow">레포부터 읽는 기술 블로그</p>
-      <h1>새 기술의 주장, <em>확인하고</em> 씁니다</h1>
-      <p class="lede">게시물이나 릴리스에서 출발합니다. 주장을 README, 코드, 공식 문서와 나란히 놓고, 맞는 것과 아닌 것을 적습니다. 글마다 짧은 사용법 영상이 있습니다.</p>
+      <p class="eyebrow" id="eyebrow-stats">주장 <b>55</b>개를 확인했고, <b class="no">13</b>개는 근거가 없었습니다</p>
+      <h1>다들 혁신이라는데,<br><em>정말일까요?</em></h1>
+      <p class="lede">새 AI 도구의 자랑을 코드와 문서에 대어봅니다. 과장은 걷어내고, 진짜 쓸 만한 것만 남깁니다.</p>
       <div class="cta">
         <a class="btn primary" href="../ko/trends/">글 읽기 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="btn ghost" href="#latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z" fill="currentColor"/></svg> 최신 글 보기</a>
+        <a class="btn ghost" href="#latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z" fill="currentColor"/></svg> 2분 영상으로</a>
       </div>
     </div>
 
@@ -91,13 +91,25 @@
 </section>
 
 <section class="sec wrap">
-  <div class="sec-head"><h2>글 하나를 만드는 순서</h2></div>
+  <div class="sec-head"><h2>글마다 받는 것</h2></div>
   <div class="steps">
-    <div class="step"><span class="n">01</span><h4>흐름 속 위치</h4><p>이전에 무엇이 있었고, 같은 시기에 누가 비슷한 것을 냈는지.</p></div>
-    <div class="step"><span class="n">02</span><h4>무엇이 새로운가</h4><p>기법, 인프라, 제품을 나눠서 따로 판정합니다.</p></div>
-    <div class="step"><span class="n">03</span><h4>동작 방식</h4><p>쉬운 설명을 먼저 하고, 실제 설치·실행 명령을 붙입니다.</p></div>
-    <div class="step"><span class="n">04</span><h4>팩트체크</h4><p>주장마다 레포, 문서, 독립 측정과 대조합니다.</p></div>
+    <div class="step"><span class="n">01</span><h4>판정</h4><p>주장마다 일치 · 조건 있음 · 근거 없음으로 표시합니다.</p></div>
+    <div class="step"><span class="n">02</span><h4>새로운 정도</h4><p>기법, 인프라, 제품을 나눠 낮음부터 높음까지 매깁니다.</p></div>
+    <div class="step"><span class="n">03</span><h4>2분 영상</h4><p>글 전체를 화면으로 설명합니다.</p></div>
+    <div class="step"><span class="n">04</span><h4>바로 써볼 명령어</h4><p>설치·실행 명령을 README 그대로 옮깁니다. 지어내지 않습니다.</p></div>
   </div>
+</section>
+<section class="sec wrap" id="built">
+  <div class="sec-head"><h2>이렇게 만듭니다</h2><a href="../ko/how-it-works">가이드 전체 보기 →</a></div>
+  <ol class="pipe">
+      <li><b>01</b><span class="pipe-name">링크</span><span class="pipe-desc">X 게시물, 레포, 릴리스</span></li>
+      <li><b>02</b><span class="pipe-name">읽기</span><span class="pipe-desc">README, 설치 파일, 예제</span></li>
+      <li><b>03</b><span class="pipe-name">팩트체크</span><span class="pipe-desc">주장마다 출처와 대조</span></li>
+      <li><b>04</b><span class="pipe-name">STE</span><span class="pipe-desc">단순 기술 문체, 스크립트로 검사</span></li>
+      <li><b>05</b><span class="pipe-name">윤문</span><span class="pipe-desc">한국어판의 기계 티 제거</span></li>
+      <li><b>06</b><span class="pipe-name">Manim</span><span class="pipe-desc">템플릿 8종으로 2분 영상 두 편</span></li>
+      <li><b>07</b><span class="pipe-name">게시</span><span class="pipe-desc">Quartz 사이트, 한영 동시</span></li>
+  </ol>
 </section>
 </main>
 
