@@ -1,5 +1,126 @@
 [
  {
+  "id": "research-engineering",
+  "date": "2026-10-07",
+  "sourceDate": "2026-10-07",
+  "video": true,
+  "source": "https://x.com/0xwhrrari/status/2107818239052902852",
+  "repo": null,
+  "related": [
+   "dots-blueprint"
+  ],
+  "en": {
+   "title": "Building a research machine: put the evidence ledger first",
+   "short": "Evidence ledger design",
+   "field": "AI agents",
+   "type": "X article",
+   "verdict": "The six stages and the split into search lanes were already in GPT Researcher in 2023, STORM in 2024, and Anthropic's June 2025 write-up. The ledger moves ALCE's 2023 sentence-to-citation scoring into operations. What is new is the stop rule, not the design. The figures the article cites from Anthropic match the announcement exactly. It leaves out that ten repeat runs of the same campaign found nothing.",
+   "summary": "On 7 October 2026 rari published a six-stage design for a research agent. At its centre is an evidence ledger that attaches a source and an exact passage to every claim. There is no code and no repository, so I checked it against vendor documentation and an independent benchmark.",
+   "facts": [
+    {
+     "claim": "In September 2026 Anthropic screened 200,000 reverse transcriptases, found 3,500 candidates and narrowed to 20",
+     "result": "The announcement of 23 September 2026 carries the same figures: 200,000, 3,500, 20, 21 hours, roughly 950 agents, 210 million tokens.",
+     "v": "ok"
+    },
+    {
+     "claim": "It is an early company-reported result, not an independent benchmark",
+     "result": "Correct. It has not been peer reviewed.",
+     "v": "ok"
+    },
+    {
+     "claim": "The function of the system is still unknown",
+     "result": "The announcement states that the function is not yet known.",
+     "v": "ok"
+    },
+    {
+     "claim": "OpenAI web search, the Anthropic web search tool and xAI X Search each search and return sources differently",
+     "result": "All three appear in vendor documentation.",
+     "v": "ok"
+    },
+    {
+     "claim": "OpenAI shipped Paper Review in Prism and Kevin Weil described the goal",
+     "result": "Prism shipped on 27 January 2026 and Paper Review is real. But the quoted passage is blank in the article text.",
+     "v": "cond"
+    },
+    {
+     "claim": "A snippet is a lead for the next fetch, not evidence",
+     "result": "Structurally correct. Measuring citation quality separately has been standard since ALCE in 2023.",
+     "v": "ok"
+    },
+    {
+     "claim": "Three agents reading the same five results are not three independent sources",
+     "result": "The logic holds. I found no public measurement of this specific claim.",
+     "v": "cond"
+    },
+    {
+     "claim": "Reports read well while the evidence is thin (the article's premise)",
+     "result": "DeepResearch Bench II supports this. Presentation tops out at 91.85 while information recall tops out at 39.98, and the leader fails more than half the rubrics.",
+     "v": "ok"
+    },
+    {
+     "claim": "Six stages and a ledger amount to a new field",
+     "result": "Not a new technique. The article itself says it is not a claim about the job title.",
+     "v": "no"
+    }
+   ]
+  },
+  "ko": {
+   "title": "조사하는 AI 만들기: 증거 원장을 중심에 두는 설계",
+   "short": "증거 원장 설계",
+   "field": "AI 에이전트",
+   "type": "X 아티클",
+   "verdict": "6단계 흐름과 레인 분리는 2023년 GPT Researcher, 2024년 STORM, 2025년 6월 Anthropic 공개 글에 이미 있던 설계입니다. 증거 원장도 2023년 ALCE가 재던 문장-인용 대응을 운영 쪽으로 옮긴 것입니다. 새것은 설계가 아니라 멈추는 기준입니다. 글이 든 Anthropic 사례의 숫자는 공식 발표문과 정확히 일치합니다. 다만 같은 캠페인을 10번 더 돌렸을 때 10번 모두 재발견에 실패한 사실은 빠졌습니다.",
+   "summary": "2026년 10월 7일 rari가 조사형 AI를 만드는 6단계 설계를 올렸습니다. 주장마다 출처와 원문 문장을 붙이는 증거 원장을 중심에 둡니다. 코드도 레포도 없는 운영 지침이라, 공급사 공식 문서와 독립 벤치마크에 대조했습니다.",
+   "facts": [
+    {
+     "claim": "2026년 9월 Anthropic이 역전사효소 20만 개를 훑어 후보 3,500개를 찾고 20개로 줄였다",
+     "result": "공식 발표문(2026년 9월 23일)에 20만, 3,500, 20, 21시간, 에이전트 약 950개, 토큰 2억 1천만 개가 그대로 있습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "회사가 보고한 초기 결과이고 독립 벤치마크가 아니다",
+     "result": "맞습니다. 동료 심사 전입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "그 시스템의 기능은 아직 모른다",
+     "result": "공식 발표문이 아직 기능을 모른다고 밝힙니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "OpenAI 웹 검색, Anthropic 웹 검색, xAI X Search가 각각 다르게 검색하고 출처를 돌려준다",
+     "result": "셋 다 공식 문서에 있습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "OpenAI가 Prism에 Paper Review를 냈고 Kevin Weil이 목표를 밝혔다",
+     "result": "Prism은 2026년 1월 27일에 나왔고 Paper Review도 맞습니다. 다만 글 본문에서 그 인용문 자리가 비어 있습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "스니펫은 증거가 아니라 다음 가져오기의 단서다",
+     "result": "구조적으로 맞습니다. 인용 품질을 따로 재는 방식은 2023년 ALCE 이후 표준입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "에이전트 셋이 같은 결과 다섯 개를 읽으면 독립 출처 셋이 아니다",
+     "result": "논리는 맞습니다. 이 문장을 직접 잰 공개 측정은 찾지 못했습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "보고서는 매끄럽지만 증거는 얇다 (글의 전제)",
+     "result": "DeepResearch Bench II가 뒷받침합니다. 표현은 최고 91.85점인데 정보 회수는 최고 39.98점이고, 1위도 기준의 절반을 못 넘겼습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "6단계 흐름과 증거 원장이 새 분야다",
+     "result": "새 기법이 아닙니다. 글도 형식 직함에 대한 주장이 아니라고 스스로 밝힙니다.",
+     "v": "no"
+    }
+   ]
+  }
+ },
+ {
   "id": "embeddinggemma-2",
   "date": "2026-10-07",
   "sourceDate": "2026-10-06",
