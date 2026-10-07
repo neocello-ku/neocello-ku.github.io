@@ -3,7 +3,7 @@
   "id": "embeddinggemma-2",
   "date": "2026-10-07",
   "sourceDate": "2026-10-06",
-  "video": false,
+  "video": true,
   "source": "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/",
   "repo": null,
   "related": [

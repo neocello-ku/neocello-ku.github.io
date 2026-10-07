@@ -10,6 +10,8 @@ repo:
 lang: "ko"
 ---
 
+![[embeddinggemma-2.mp4]]
+
 [원문](https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/) · [English](https://neocello-ku.github.io/trends/embeddinggemma-2)
 
 ## 요약
