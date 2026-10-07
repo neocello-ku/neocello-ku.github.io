@@ -102,6 +102,127 @@
   }
  },
  {
+  "id": "image-to-3dlab",
+  "date": "2026-10-07",
+  "sourceDate": "2026-10-02",
+  "video": true,
+  "source": "https://github.com/Bingeljell/image-to-3dlab/releases/tag/v0.3.7",
+  "repo": "https://github.com/Bingeljell/image-to-3dlab",
+  "related": [
+   "image-blaster"
+  ],
+  "en": {
+   "title": "image-to-3dlab v0.3.7: three 3D routes on NVIDIA Linux, two of them in South Korea",
+   "short": "image-to-3dlab",
+   "field": "Generative 3D",
+   "type": "GitHub repo",
+   "verdict": "No new method here. The work is tying scattered research code into a single install command. In South Korea only two of the three routes are usable, because Hunyuan3D-2.1 excludes the territory. The README calls both NVIDIA routes untested on real hardware while the CHANGELOG reports an RTX 3090 end-to-end test, so the two documents disagree.",
+   "summary": "A local workbench that turns one photo into a textured 3D model on your own machine. v0.3.7 widens three routes, Pixal3D, TRELLIS.2 and Hunyuan3D-2.1, to Linux with an NVIDIA card. It trains no models and puts four other people's models behind one viewer and one CLI.",
+   "facts": [
+    {
+     "claim": "Three routes install and run on Linux with an NVIDIA card",
+     "result": "The CHANGELOG says both routes were tested end to end on an RTX 3090. But the README, even at the newer v0.3.9, still calls both routes not yet tested on real hardware. The two documents disagree.",
+     "v": "cond"
+    },
+    {
+     "claim": "Hunyuan3D-2.1 does shape and PBR paint in one run on a 24 GB card",
+     "result": "The setup script states the numbers. Shape needs about 10 GB and paint about 21 GB. Shape unloads before paint loads, so 24 GB is enough. It needs the CUDA 12 toolkit.",
+     "v": "ok"
+    },
+    {
+     "claim": "Not licensed in the EU, the UK or South Korea",
+     "result": "True. provenance.py classes Hunyuan as territory-restricted and the viewer shows a warning. It does not block the install or the run. The call is left to you.",
+     "v": "ok"
+    },
+    {
+     "claim": "Pixal3D uses a ready-made build, with no compiling",
+     "result": "Only on driver 575 or newer. Below that it compiles locally with the CUDA toolkit. The ready-made build also runs 12 steps instead of the default 8.",
+     "v": "cond"
+    },
+    {
+     "claim": "One install command and the viewer opens",
+     "result": "Correct. install.sh clones into ~/image-to-3dlab, installs Python 3.11 and starts the viewer at the end. It downloads no model weights. If uv is missing, it asks once before installing it.",
+     "v": "ok"
+    },
+    {
+     "claim": "Every download states its size and licence, and asks first",
+     "result": "Correct. backend_catalog.py holds file names and byte counts for each route. Without --yes the bootstrap script prints and stops. A test enforces the rule.",
+     "v": "ok"
+    },
+    {
+     "claim": "Hunyuan3D-2.1 download about 19.5 GB",
+     "result": "We added the code's own numbers: 8.03 + 6.89 + 4.55 + 0.07 + 0.21 = 19.75 GiB. The CHANGELOG figure of 19.7 GB is right and the README is low.",
+     "v": "cond"
+    },
+    {
+     "claim": "TRELLIS.2 download about 15 GB",
+     "result": "We added it up: about 16.7 GiB. The README is 1.7 GiB low. A code comment flags the same problem.",
+     "v": "cond"
+    },
+    {
+     "claim": "The most complete open-source image-to-3D pipeline (Oct 2026)",
+     "result": "This is from the repo description. It names no benchmark and no comparison set. We cannot check it.",
+     "v": "no"
+    }
+   ]
+  },
+  "ko": {
+   "title": "image-to-3dlab v0.3.7: 엔비디아 리눅스에 3D 경로 세 개, 한국에서는 두 개",
+   "short": "image-to-3dlab",
+   "field": "생성 3D",
+   "type": "GitHub 레포",
+   "verdict": "새 기법은 없고, 흩어진 연구 코드를 설치 명령 한 줄로 묶은 작업입니다. 한국에서는 세 경로 중 Hunyuan3D-2.1이 라이선스 대상에서 빠져 두 개만 쓸 수 있습니다. README는 두 NVIDIA 경로를 '실제 하드웨어 미테스트'라고 적고 CHANGELOG는 RTX 3090 종단 테스트 완료라고 적어, 문서가 서로 어긋납니다.",
+   "summary": "사진 한 장을 내 기계에서 텍스처가 붙은 3D 모델로 바꾸는 로컬 작업대입니다. v0.3.7은 Pixal3D, TRELLIS.2, Hunyuan3D-2.1 세 경로를 리눅스 + NVIDIA 카드로 넓혔습니다. 모델은 하나도 만들지 않고, 남이 만든 모델 네 종류를 뷰어 하나와 CLI 하나 뒤에 모읍니다.",
+   "facts": [
+    {
+     "claim": "세 경로가 리눅스 + NVIDIA에서 설치되고 실행된다",
+     "result": "CHANGELOG는 두 경로를 RTX 3090에서 끝까지 테스트했다고 적습니다. 그런데 README는 최신 v0.3.9에서도 두 경로를 '실제 하드웨어에서 아직 테스트하지 않음'이라고 적습니다. 문서 두 개가 어긋납니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "Hunyuan3D-2.1이 24GB 카드에서 형상과 PBR 페인트를 한 번에 한다",
+     "result": "설치 스크립트가 숫자를 적습니다. 형상 약 10GB, 페인트 약 21GB입니다. 형상을 내린 뒤 페인트를 올리므로 24GB면 됩니다. CUDA 12 툴킷이 필요합니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "EU, 영국, 한국에서는 라이선스가 없다",
+     "result": "사실입니다. provenance.py가 Hunyuan을 'territory-restricted'로 분류하고 뷰어가 경고를 띄웁니다. 다만 설치나 실행을 막지는 않습니다. 판단은 사용자 몫입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "Pixal3D는 미리 만든 빌드라 컴파일이 없다",
+     "result": "드라이버 575 이상일 때만입니다. 그 아래는 CUDA 툴킷으로 직접 컴파일합니다. 또 미리 만든 빌드는 기본 8스텝이 아니라 12스텝으로 돕니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "설치 명령 하나로 뷰어가 열린다",
+     "result": "맞습니다. install.sh가 ~/image-to-3dlab에 clone하고 Python 3.11을 깔고 마지막에 뷰어를 띄웁니다. 모델 가중치는 받지 않습니다. 다만 uv가 없으면 설치 동의를 한 번 묻습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "모든 다운로드가 크기와 라이선스를 말하고 먼저 묻는다",
+     "result": "맞습니다. backend_catalog.py가 경로마다 파일 이름과 바이트 수를 들고 있습니다. --yes가 없으면 부트스트랩 스크립트가 출력 후 멈춥니다. 테스트가 이 규칙을 지킵니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "Hunyuan3D-2.1 내려받기 약 19.5GB",
+     "result": "코드의 숫자를 직접 더했습니다. 8.03 + 6.89 + 4.55 + 0.07 + 0.21 = 19.75GiB입니다. CHANGELOG의 19.7GB가 맞고 README가 낮습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "TRELLIS.2 내려받기 약 15GB",
+     "result": "직접 더했습니다. 약 16.7GiB입니다. README가 1.7GiB 낮게 적었습니다. 코드 주석도 같은 문제를 적어 두었습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "2026년 10월 기준 가장 완전한 오픈소스 이미지-투-3D 파이프라인",
+     "result": "레포 설명문의 문구입니다. 비교 기준도 비교 대상 목록도 없습니다. 확인할 방법이 없습니다.",
+     "v": "no"
+    }
+   ]
+  }
+ },
+ {
   "id": "dots-blueprint",
   "date": "2026-10-06",
   "sourceDate": "2026-10-02",
