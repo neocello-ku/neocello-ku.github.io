@@ -1,5 +1,117 @@
 [
  {
+  "id": "tex-zero",
+  "date": "2026-10-08",
+  "sourceDate": "2026-09-28",
+  "video": true,
+  "source": "https://arxiv.org/abs/2609.34621",
+  "repo": "https://github.com/wangjiangshan0725/Tex-Zero",
+  "related": [
+   "image-to-3dlab",
+   "image-blaster"
+  ],
+  "en": {
+   "title": "Tex-Zero: Training a 3D Texture Model Without 3D Assets",
+   "short": "Tex-Zero",
+   "field": "Generative 3D",
+   "type": "Paper",
+   "verdict": "On an internal test set, it shows that a texture model can train without 3D assets. But it wins only on perceptual scores, loses on numeric color scores, and ships no code or weights.",
+   "summary": "Tex-Zero places one photo as a plane in 3D space, cuts it into 16 pieces, and rotates each piece at random. Those fake samples alone train a VAE and a DiT that paint real 3D assets. No code and no checkpoint are out.",
+   "facts": [
+    {
+     "claim": "A native 3D texture model can train without 3D assets",
+     "result": "In Table 1, an image-only VAE reconstructs real 3D assets. 3D LPIPS 0.0154 to 0.0316",
+     "v": "ok"
+    },
+    {
+     "claim": "The VAE reconstructs 3D assets at high quality",
+     "result": "At matched settings, LPIPS wins in all three and PSNR-PC loses in all three",
+     "v": "cond"
+    },
+    {
+     "claim": "It beats NaTex",
+     "result": "Six-view LPIPS 0.0340 against 0.0754. But the test set is 160 internal samples, and the first author of NaTex is the project lead here",
+     "v": "cond"
+    },
+    {
+     "claim": "Title: are 3D assets required",
+     "result": "Table 3 shows 2D+3D (DiT LPIPS 0.0216) beats 3D alone (0.0302). The precise reading is 'not required'",
+     "v": "cond"
+    },
+    {
+     "claim": "Trained on 11.1M images at 1536x1536",
+     "result": "Stated in the paper. The datasets are SA-1B, BLIP3o-60k, and ShareGPT-4o",
+     "v": "ok"
+    },
+    {
+     "claim": "Training and inference hardware",
+     "result": "Absent from the paper and the README. GPU count, training time, inference VRAM, and inference time are all undisclosed",
+     "v": "no"
+    },
+    {
+     "claim": "You can run the code and the weights",
+     "result": "The repository holds a README and five PNG files. A release request issue from 2026-10-03 has no reply",
+     "v": "no"
+    },
+    {
+     "claim": "One photo is enough as input",
+     "result": "The input is a real mesh plus multi-view images. Novel-view synthesis and mesh reconstruction come first",
+     "v": "cond"
+    }
+   ]
+  },
+  "ko": {
+   "title": "Tex-Zero: 3D 에셋 없이 3D 텍스처 모델을 학습하기",
+   "short": "Tex-Zero",
+   "field": "생성 3D",
+   "type": "논문",
+   "verdict": "3D 에셋 없이도 텍스처 모델을 학습할 수 있다는 반례를 내부 테스트셋에서 보였습니다. 다만 지각 지표만 이기고 색 수치 지표는 지며, 코드와 가중치가 없어 오늘은 확인할 수 없습니다.",
+   "summary": "사진 1장을 3D 공간의 평면으로 놓고 16조각으로 잘라 무작위로 돌려 가짜 3D 학습 표본을 만듭니다. 이 표본만으로 학습한 VAE와 DiT가 진짜 3D 에셋에 색을 입힙니다. 코드와 가중치는 공개되지 않았습니다.",
+   "facts": [
+    {
+     "claim": "3D 에셋 없이 네이티브 3D 텍스처 모델을 학습할 수 있다",
+     "result": "표 1에서 이미지만 학습한 VAE가 진짜 3D 에셋을 재구성합니다. 3D LPIPS 0.0154~0.0316",
+     "v": "ok"
+    },
+    {
+     "claim": "VAE가 3D 에셋을 고품질로 재구성한다",
+     "result": "같은 설정끼리 비교하면 LPIPS는 세 설정 모두 이기고, PSNR-PC는 세 설정 모두 집니다",
+     "v": "cond"
+    },
+    {
+     "claim": "NaTex보다 낫다",
+     "result": "6시점 LPIPS 0.0340 대 0.0754. 단 내부 테스트셋 160개이고, NaTex 1저자가 이 논문의 프로젝트 리드입니다",
+     "v": "cond"
+    },
+    {
+     "claim": "제목: 3D 에셋이 꼭 필요한가",
+     "result": "표 3은 2D+3D(DiT LPIPS 0.0216)가 3D만(0.0302)보다 낫다고 보입니다. '없어도 된다'가 정확한 읽기입니다",
+     "v": "cond"
+    },
+    {
+     "claim": "이미지 1110만 장, 1536x1536으로 학습했다",
+     "result": "논문에 명시되어 있습니다. 데이터셋은 SA-1B, BLIP3o-60k, ShareGPT-4o입니다",
+     "v": "ok"
+    },
+    {
+     "claim": "학습·추론 하드웨어 요구 사항",
+     "result": "논문과 README 모두에 없습니다. GPU 수, 학습 시간, 추론 VRAM, 추론 시간이 모두 미공개입니다",
+     "v": "no"
+    },
+    {
+     "claim": "코드와 가중치를 쓸 수 있다",
+     "result": "레포는 README와 PNG 5장뿐입니다. HF 공개 요청 이슈가 2026-10-03부터 미답변입니다",
+     "v": "no"
+    },
+    {
+     "claim": "사진 1장만 넣으면 된다",
+     "result": "입력은 진짜 메시 + 다중 시점 이미지입니다. 앞에 새 시점 합성과 형상 재구성이 필요합니다",
+     "v": "cond"
+    }
+   ]
+  }
+ },
+ {
   "id": "research-engineering",
   "date": "2026-10-07",
   "sourceDate": "2026-10-07",
