@@ -1,5 +1,97 @@
 [
  {
+  "id": "cogfree",
+  "date": "2026-10-11",
+  "sourceDate": "2026-10-11",
+  "video": true,
+  "source": "https://x.com/junjiechou1122/status/2109255504287711258",
+  "repo": "https://github.com/Humanive/cogfree",
+  "related": [
+   "harness-engineering",
+   "research-engineering"
+  ],
+  "en": {
+   "title": "CogFree: 28 thinking moves, one file each",
+   "short": "CogFree",
+   "field": "AI agents",
+   "type": "X post",
+   "verdict": "There is no new technique here. `reconstruct` moves an old teaching method into two sentences: rebuild the idea from a world without it. What is new is the list, 28 moves named and sorted into six groups, plus four install paths built in eight days. The repo ships no evaluation, and it has 6 stars and no releases, so wide use is unproven. The Codex install path I could not confirm, because the marketplace file sits somewhere the documentation does not name.",
+   "summary": "On 11 October 2026, CogFree grew to 28 cognitive skills. Each skill names one thinking move and writes it down in a SKILL.md file of one or two sentences. All 28 come to 419 words and 5,682 bytes, with zero lines of executable code.",
+   "facts": [
+    {
+     "claim": "Now 28 cognitive skills",
+     "result": "True. I counted 28 folders. The 11 October commit added nine, taking it from 19 to 28.",
+     "v": "ok"
+    },
+    {
+     "claim": "Small, composable skills",
+     "result": "Small is true, at 203 bytes on average. Composition is you calling them in turn, and the repo has no mechanism that chains skills.",
+     "v": "cond"
+    },
+    {
+     "claim": "Built to help you think, learn, explore",
+     "result": "That is the design intent. The repo has no evaluation, no example transcripts, no before-and-after comparison.",
+     "v": "cond"
+    },
+    {
+     "claim": "reconstruct derives why a concept was invented",
+     "result": "True. The post and the two sentences in SKILL.md say nearly the same thing.",
+     "v": "ok"
+    },
+    {
+     "claim": "A more interesting way to learn",
+     "result": "The author's opinion. I found no measurement of this method.",
+     "v": "cond"
+    },
+    {
+     "claim": "It installs into four agents",
+     "result": "The Claude, Pi and npx layouts check out. Codex I could not confirm, because its marketplace file sits at a path the docs do not name.",
+     "v": "cond"
+    }
+   ]
+  },
+  "ko": {
+   "title": "CogFree: 생각하는 동작 28가지를 스킬로 쪼개기",
+   "short": "CogFree",
+   "field": "AI 에이전트",
+   "type": "X 게시물",
+   "verdict": "새 기법은 없습니다. reconstruct도 \"없던 세계에서 다시 만들어 보기\"라는 오래된 교수법을 두 문장으로 옮긴 것입니다. 새것은 생각 동작에 이름을 붙여 6갈래 28개로 묶은 목록, 그리고 호스트 4곳에 8일 만에 맞춘 배포입니다. 다만 레포에 평가 자료가 없고 별 6개, 릴리스 0개라 쓰임은 아직 확인되지 않았습니다. Codex 설치 경로는 공식 문서와 파일 위치가 달라 확인하지 못했습니다.",
+   "summary": "2026년 10월 11일, CogFree가 인지 스킬 28개로 늘었습니다. 생각하는 동작마다 이름을 붙여 한두 문장짜리 SKILL.md 한 장씩 만든 묶음입니다. 28개를 다 합쳐도 419단어, 5,682바이트이고 실행 코드는 0줄입니다.",
+   "facts": [
+    {
+     "claim": "이제 인지 스킬 28개",
+     "result": "맞습니다. 폴더 28개를 셌습니다. 10월 11일 커밋이 9개를 더해 19개에서 28개가 됐습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "작고 조립할 수 있는 스킬",
+     "result": "작은 것은 맞습니다. 평균 203바이트입니다. 조립은 사람이 차례로 부르는 방식이고, 스킬끼리 엮는 장치는 없습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "생각·학습·탐색을 돕도록 설계",
+     "result": "설계 의도입니다. 레포에 평가도, 예제 대화도, 사용 전후 비교도 없습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "reconstruct는 왜 발명됐는지 재구성시킨다",
+     "result": "맞습니다. 게시물 문장과 SKILL.md 두 문장이 거의 같습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "배우기에 훨씬 재미있는 방법",
+     "result": "글쓴이 의견입니다. 이 방식을 잰 자료를 찾지 못했습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "에이전트 4곳에 설치된다",
+     "result": "Claude, Pi, npx 세 곳은 구조가 맞습니다. Codex는 마켓플레이스 파일 위치가 공식 문서와 달라 확인하지 못했습니다.",
+     "v": "cond"
+    }
+   ]
+  }
+ },
+ {
   "id": "tex-zero",
   "date": "2026-10-08",
   "sourceDate": "2026-09-28",
