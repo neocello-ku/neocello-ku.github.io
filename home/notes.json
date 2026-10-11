@@ -92,6 +92,118 @@
   }
  },
  {
+  "id": "voxcpm2",
+  "date": "2026-10-11",
+  "sourceDate": "2026-10-11",
+  "video": true,
+  "source": "https://x.com/0xGky/status/2109085321635701002",
+  "repo": "https://github.com/OpenBMB/VoxCPM",
+  "related": [
+   "longcat-avatar-15",
+   "embeddinggemma-2"
+  ],
+  "en": {
+   "title": "VoxCPM2: One Open Model That Speaks 30 Languages at 48kHz",
+   "short": "VoxCPM2",
+   "field": "Speech synthesis",
+   "type": "X post",
+   "verdict": "Not a new method, but the widest open package so far. It leads neither clarity nor similarity in English and Chinese, yet it is far ahead on Khmer, Lao, and Burmese. Despite the post, the model shipped on 6 April 2026 and is six months old.",
+   "summary": "VoxCPM2 is a 2B open speech model from OpenBMB. It covers 30 languages, builds a voice from a written description, clones a timbre from a short recording, and outputs 48kHz audio. Weights and code are Apache-2.0, so you can ship it commercially.",
+   "facts": [
+    {
+     "claim": "38,000 stars",
+     "result": "38,860 by the API on 2026-10-11",
+     "v": "ok"
+    },
+    {
+     "claim": "Number one on GitHub Trending",
+     "result": "The README credits VoxCPM1.5 with that rank in December 2025. It records no such rank for VoxCPM2",
+     "v": "no"
+    },
+    {
+     "claim": "It is blowing up abroad right now",
+     "result": "VoxCPM2 shipped on 2026-04-06. The post came six months later",
+     "v": "no"
+    },
+    {
+     "claim": "One line of text makes a voice",
+     "result": "Confirmed as the voice design feature",
+     "v": "ok"
+    },
+    {
+     "claim": "Copies speech habits and pace one to one",
+     "result": "You must supply both the reference audio and its transcript. Similarity is 75.3 for English and 79.5 for Chinese",
+     "v": "cond"
+    },
+    {
+     "claim": "48kHz studio quality",
+     "result": "The README states 48kHz output with built-in super-resolution",
+     "v": "ok"
+    },
+    {
+     "claim": "Apache 2.0, free for commercial use",
+     "result": "The LICENSE file is Apache-2.0",
+     "v": "ok"
+    },
+    {
+     "claim": "You cannot tell it from a real voice",
+     "result": "Seed-TTS-eval English WER is 0.99 for Fish S2, 1.23 for Qwen3-TTS, and 1.84 for VoxCPM2. It does not rank first",
+     "v": "no"
+    }
+   ]
+  },
+  "ko": {
+   "title": "VoxCPM2: 30개 언어를 48kHz로 말하는 공개 음성 모델",
+   "short": "VoxCPM2",
+   "field": "음성 합성",
+   "type": "X 게시물",
+   "verdict": "새 기법이 아니라 가장 넓은 공개 묶음입니다. 영어·중국어 또렷함은 1위가 아니지만, 크메르어·라오어·버마어에서는 비교 모델과 차이가 큽니다. 게시물이 말한 것과 달리 2026년 4월 6일에 나온 6개월 된 모델입니다.",
+   "summary": "OpenBMB의 2B 공개 음성 합성 모델입니다. 30개 언어, 글로 주문하는 목소리 설계, 짧은 녹음으로 하는 음색 복제, 48kHz 출력을 한 묶음에 담았습니다. 가중치와 코드 모두 Apache-2.0이라 상업 제품에 넣을 수 있습니다.",
+   "facts": [
+    {
+     "claim": "스타 3.8만",
+     "result": "2026-10-11 API 기준 38,860",
+     "v": "ok"
+    },
+    {
+     "claim": "GitHub 트렌딩 1위",
+     "result": "README는 VoxCPM1.5가 2025년 12월에 1위였다고 적습니다. VoxCPM2의 기록은 없습니다",
+     "v": "no"
+    },
+    {
+     "claim": "해외가 지금 난리",
+     "result": "VoxCPM2 릴리스는 2026-04-06입니다. 게시물은 6개월 뒤입니다",
+     "v": "no"
+    },
+    {
+     "claim": "한 줄 설명으로 목소리 합성",
+     "result": "보이스 디자인 기능으로 확인했습니다",
+     "v": "ok"
+    },
+    {
+     "claim": "말버릇·속도까지 1:1 복제",
+     "result": "참조 음성과 전사문을 둘 다 넣어야 합니다. 유사도는 영어 75.3, 중국어 79.5입니다",
+     "v": "cond"
+    },
+    {
+     "claim": "48kHz 녹음실급 음질",
+     "result": "README에 48kHz 출력과 내장 초해상이 적혀 있습니다",
+     "v": "ok"
+    },
+    {
+     "claim": "Apache 2.0, 상업 이용 자유",
+     "result": "LICENSE 파일이 Apache-2.0입니다",
+     "v": "ok"
+    },
+    {
+     "claim": "진짜와 가짜를 구분할 수 없다",
+     "result": "Seed-TTS-eval 영어 WER은 Fish S2 0.99, Qwen3-TTS 1.23, VoxCPM2 1.84입니다. 1위가 아닙니다",
+     "v": "no"
+    }
+   ]
+  }
+ },
+ {
   "id": "tex-zero",
   "date": "2026-10-08",
   "sourceDate": "2026-09-28",
