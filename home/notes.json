@@ -1,5 +1,118 @@
 [
  {
+  "id": "llm-wiki",
+  "date": "2026-10-12",
+  "sourceDate": "2026-10-12",
+  "video": true,
+  "source": "https://x.com/trendtech33566/status/2109412212431565299",
+  "repo": "https://github.com/nashsu/llm_wiki",
+  "related": [
+   "research-engineering",
+   "embeddinggemma-2",
+   "foresight"
+  ],
+  "en": {
+   "title": "LLM Wiki: an app that files your documents into a wiki for you",
+   "short": "LLM Wiki",
+   "field": "AI agents",
+   "type": "X post",
+   "verdict": "This is not an invention. It is fast productization of a four-day-old pattern. Every method in it existed before, and the new part is the move to an app that non-developers can install. It is also not fresh news: the repo dates to 8 April 2026 and the newest release is from 28 September. Two number claims in the README have no evidence in the repo, and the interface has no Korean.",
+   "summary": "A desktop app where an LLM reads your documents and writes a markdown wiki from them. It turned a one-page note Karpathy posted on 4 April 2026 into an installed app four days later. Its 20,531 stars are more than ten times what the other builds of the same pattern got.",
+   "facts": [
+    {
+     "claim": "About 20,000 stars",
+     "result": "The count is 20,531. That is the GitHub API value on 12 October 2026.",
+     "v": "ok"
+    },
+    {
+     "claim": "A desktop app that grows a wiki on its own",
+     "result": "Correct. It is a Tauri v2 app, and the two-step ingest writes and edits pages.",
+     "v": "ok"
+    },
+    {
+     "claim": "Turns PDFs, Office files and web articles into a wiki",
+     "result": "Correct. It takes PDF, DOCX, PPTX, XLSX, EPUB/MOBI and a Chrome clipper.",
+     "v": "ok"
+    },
+    {
+     "claim": "Links related knowledge together",
+     "result": "Correct. Wikilinks plus a 4-signal score and Louvain clusters.",
+     "v": "ok"
+    },
+    {
+     "claim": "Detects added or changed sources and updates",
+     "result": "A folder watcher and a SHA256 cache exist. You must turn the watcher on, and it watches only raw/sources/.",
+     "v": "cond"
+    },
+    {
+     "claim": "This just came out (what the post implies)",
+     "result": "No. The repo appeared on 8 April 2026. The newest release is from 28 September, and the repo has been quiet since.",
+     "v": "no"
+    },
+    {
+     "claim": "README: vector search lifts recall from 58.2% to 71.4%",
+     "result": "The repo holds no benchmark code, no query set and no method.",
+     "v": "no"
+    },
+    {
+     "claim": "README: the interface is English and Chinese",
+     "result": "src/i18n/ holds en, zh, it and ru. Korean is absent.",
+     "v": "no"
+    }
+   ]
+  },
+  "ko": {
+   "title": "LLM Wiki: 모아 둔 자료를 LLM이 위키로 엮어 줍니다",
+   "short": "LLM Wiki",
+   "field": "AI 에이전트",
+   "type": "X 게시물",
+   "verdict": "새 발명이 아니라 나흘 된 패턴의 빠른 제품화입니다. 기법은 전부 기존 것이고, 복붙용 지시서를 비개발자도 쓰는 앱으로 옮긴 점이 새롭습니다. 다만 지금 막 나온 소식이 아닙니다. 레포는 2026년 4월 8일에 생겼고 최신 릴리스는 9월 28일입니다. README의 수치 주장 두 개는 레포에 근거가 없고, 화면에 한국어가 없습니다.",
+   "summary": "내 문서를 읽고 LLM이 마크다운 위키를 쌓아 주는 데스크톱 앱입니다. Karpathy가 2026년 4월 4일에 올린 한 장짜리 지시서를 나흘 만에 설치형 앱으로 옮겼습니다. 별 20,531개로 같은 패턴의 다른 구현보다 10배 넘게 많습니다.",
+   "facts": [
+    {
+     "claim": "별 약 2만 개",
+     "result": "20,531개입니다. 2026년 10월 12일 GitHub API 값입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "AI가 자동으로 위키를 키우는 데스크톱 앱",
+     "result": "맞습니다. Tauri v2 앱이고, 두 단계 수집이 페이지를 쓰고 고칩니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "PDF·오피스 문서·웹 기사를 위키로",
+     "result": "맞습니다. PDF, DOCX, PPTX, XLSX, EPUB/MOBI, 크롬 클리퍼를 받습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "관련 지식을 링크로 이음",
+     "result": "맞습니다. 위키링크에 4신호 관련도와 Louvain 군집을 더했습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "자료 추가·변경을 감지해 갱신",
+     "result": "폴더 감시와 SHA256 캐시가 있습니다. 단 설정에서 켜야 하고, 감시 대상은 raw/sources/ 하나입니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "지금 막 나온 것 (게시물이 읽히는 뜻)",
+     "result": "아닙니다. 레포는 2026년 4월 8일에 생겼습니다. 최신 릴리스는 9월 28일이고 그 뒤로 조용합니다.",
+     "v": "no"
+    },
+    {
+     "claim": "README: 벡터 검색으로 recall이 58.2%에서 71.4%로",
+     "result": "벤치마크 코드도, 질의 집합도, 측정 방법도 레포에 없습니다.",
+     "v": "no"
+    },
+    {
+     "claim": "README: 인터페이스는 영어 + 중국어",
+     "result": "src/i18n/에 en, zh, it, ru 네 개가 있습니다. 한국어는 없습니다.",
+     "v": "no"
+    }
+   ]
+  }
+ },
+ {
   "id": "foresight",
   "date": "2026-10-12",
   "sourceDate": "2026-10-06",
