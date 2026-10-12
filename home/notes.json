@@ -1,5 +1,88 @@
 [
  {
+  "id": "foresight",
+  "date": "2026-10-12",
+  "sourceDate": "2026-10-06",
+  "video": true,
+  "source": "https://x.com/Saboo_Shubham_/status/2108799974024880199",
+  "repo": null,
+  "related": [
+   "embeddinggemma-2",
+   "open-dot",
+   "strata"
+  ],
+  "en": {
+   "title": "Foresight: Google's Mac note app that keeps meeting audio on the machine",
+   "short": "Foresight",
+   "field": "Local inference",
+   "type": "X post",
+   "verdict": "The method is what Granola shipped in 2024. What is new is that all of it runs inside one Mac, and it transcribes English only.",
+   "summary": "On October 6, 2026, Google released Foresight, a meeting note app for Mac. Transcription, note write-up and document search all run on the machine. It is free and needs no account, but it is experimental and Apple Silicon only. The transcription model is English only, so a Korean meeting comes out as an empty transcript.",
+   "facts": [
+    {
+     "claim": "Google shipped a free AI note app for Mac",
+     "result": "True. Released 2026-10-06, free, no account. It carries an experimental label and needs Apple Silicon",
+     "v": "cond"
+    },
+    {
+     "claim": "Every premium feature works without a subscription",
+     "result": "No basis. Google never compared features against a rival. It has no speaker labels and no transcription outside English",
+     "v": "no"
+    },
+    {
+     "claim": "100% free and fully local",
+     "result": "Inference is local. Drive and Calendar import, web search and de-identified usage data do use the network",
+     "v": "cond"
+    },
+    {
+     "claim": "EmbeddingGemma 2 powers it",
+     "result": "Only in part. There are three models. A closed ODML model transcribes, Gemma 4 writes up notes, EmbeddingGemma 2 searches",
+     "v": "cond"
+    },
+    {
+     "claim": "It transcribes any language",
+     "result": "No. The transcription model is English only, and the UI layer strips non-ASCII characters. A Korean transcript comes out empty",
+     "v": "no"
+    }
+   ]
+  },
+  "ko": {
+   "title": "Foresight: 구글이 낸 맥용 회의 노트 앱, 소리가 기기를 안 떠납니다",
+   "short": "Foresight",
+   "field": "로컬 추론",
+   "type": "X 게시물",
+   "verdict": "기법은 2024년 Granola가 낸 것 그대로입니다. 새로운 것은 그 전부를 맥 한 대 안에서 돌린다는 점이고, 지금은 영어만 받아씁니다.",
+   "summary": "구글이 2026년 10월 6일 맥용 회의 노트 앱 Foresight를 냈습니다. 받아쓰기와 노트 보강, 문서 검색을 모두 맥 안에서 합니다. 무료이고 계정이 필요 없지만, 실험용이고 Apple Silicon 전용입니다. 받아쓰기 모델이 영어 전용이라 한국어 회의는 전사가 비어 나옵니다.",
+   "facts": [
+    {
+     "claim": "구글이 맥용 무료 AI 노트 앱을 냈다",
+     "result": "맞습니다. 2026-10-06 공개, 무료, 계정 없이 씁니다. 단 실험용 딱지가 있고 Apple Silicon 전용입니다",
+     "v": "cond"
+    },
+    {
+     "claim": "유료 기능이 전부 구독 없이 된다",
+     "result": "근거가 없습니다. 경쟁 제품과 기능을 대조한 적이 없습니다. 화자 구분이 없고 영어 외 받아쓰기가 안 됩니다",
+     "v": "no"
+    },
+    {
+     "claim": "100% 무료이고 완전히 로컬이다",
+     "result": "추론은 로컬이 맞습니다. 단 Drive·캘린더 가져오기, 웹 검색, 비식별 사용 데이터는 네트워크를 씁니다",
+     "v": "cond"
+    },
+    {
+     "claim": "EmbeddingGemma 2가 돌린다",
+     "result": "부분만 맞습니다. 모델이 셋입니다. 받아쓰기는 ODML 음성 모델, 노트 보강은 Gemma 4, 검색만 EmbeddingGemma 2입니다",
+     "v": "cond"
+    },
+    {
+     "claim": "어떤 언어든 받아쓴다",
+     "result": "아닙니다. 받아쓰기 모델이 영어 전용이고, 화면 층이 ASCII 아닌 글자를 지웁니다. 한국어 전사는 통째로 빕니다",
+     "v": "no"
+    }
+   ]
+  }
+ },
+ {
   "id": "cogfree",
   "date": "2026-10-11",
   "sourceDate": "2026-10-11",
