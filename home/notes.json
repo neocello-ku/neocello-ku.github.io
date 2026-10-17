@@ -1,5 +1,118 @@
 [
  {
+  "id": "google-ax",
+  "date": "2026-10-17",
+  "sourceDate": "2026-09-25",
+  "video": true,
+  "source": "https://github.com/google/ax",
+  "repo": "https://github.com/google/ax",
+  "related": [
+   "harness-engineering",
+   "openai-dots",
+   "buzz"
+  ],
+  "en": {
+   "title": "AX: Declare One Agent Task in a Single YAML File",
+   "short": "AX",
+   "field": "AI agents",
+   "type": "GitHub repo",
+   "verdict": "The technique is what Kubernetes did in 2014. What is new is that Google published an open shape for treating agents as an operated workload.",
+   "summary": "AX is Google's orchestrator that declares agent work the way Kubernetes declares containers. Three kinds, Task, Workspace and Model, describe the sandbox, the files and tools, and the model config. You need a Kubernetes cluster and Agent Substrate before you can run it.",
+   "facts": [
+    {
+     "claim": "Billions of agent workloads per cluster (README)",
+     "result": "The repository holds no benchmark and no measurement script. The density numbers come from Agent Substrate.",
+     "v": "no"
+    },
+    {
+     "claim": "It feels familiar if you know Kubernetes (README)",
+     "result": "apply, get, describe, watch and delete are all there. --context follows your kubectl context.",
+     "v": "ok"
+    },
+    {
+     "claim": "Three primitives handle the money-burning loop declaratively (README)",
+     "result": "TaskSpec has no token or time budget field. Budgets and approval policies sit on the roadmap.",
+     "v": "cond"
+    },
+    {
+     "claim": "Four primitives: Task, Workspace, Gateway, Model (InfoQ article)",
+     "result": "The repository defines three. Gateway appears in no code and no document.",
+     "v": "no"
+    },
+    {
+     "claim": "Point the Model resource at any LLM (README)",
+     "result": "It works when the provider is google. Any other value returns an unsupported provider error.",
+     "v": "cond"
+    },
+    {
+     "claim": "Applied with a single command (README)",
+     "result": "The apply is one command. Ahead of it sit a cluster, Substrate, ko, a registry and a control plane deploy.",
+     "v": "cond"
+    },
+    {
+     "claim": "150,000 developers signed up in 48 hours (some secondary articles)",
+     "result": "I cannot verify this. GitHub has no sign-up metric. The public numbers are 13,867 stars and 666 Hacker News points.",
+     "v": "no"
+    },
+    {
+     "claim": "Pick up exactly where it left off (README)",
+     "result": "The SuspendTask and ResumeTask RPCs exist. Agent Substrate performs the checkpoint.",
+     "v": "ok"
+    }
+   ]
+  },
+  "ko": {
+   "title": "AX: 에이전트 한 개를 YAML 한 장으로 선언하기",
+   "short": "AX",
+   "field": "AI 에이전트",
+   "type": "GitHub 레포",
+   "verdict": "기법은 2014년 쿠버네티스 그대로입니다. 새로운 것은 에이전트를 운영 워크로드로 다루는 공개 규격을 구글이 먼저 내놓았다는 점입니다.",
+   "summary": "구글이 공개한 AX는 에이전트 작업을 쿠버네티스 매니페스트처럼 선언하는 오케스트레이터입니다. Task·Workspace·Model 세 가지로 샌드박스, 작업 공간, 모델 설정을 적고 ax apply로 적용합니다. 쓰려면 쿠버네티스 클러스터와 Agent Substrate가 먼저 있어야 합니다.",
+   "facts": [
+    {
+     "claim": "클러스터 하나에서 에이전트 작업 수십억 개 (README)",
+     "result": "레포에 벤치마크도 측정 스크립트도 없습니다. 밀도 숫자는 Agent Substrate 쪽에서 나옵니다.",
+     "v": "no"
+    },
+    {
+     "claim": "쿠버네티스를 써 봤다면 익숙하다 (README)",
+     "result": "apply·get·describe·watch·delete가 실제로 있습니다. --context로 kubectl 컨텍스트를 따릅니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "세 요소가 돈이 새는 루프까지 선언적으로 처리한다 (README)",
+     "result": "TaskSpec에 토큰·시간 예산 필드가 없습니다. 예산과 승인 정책은 로드맵 항목입니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "기본 요소는 Task·Workspace·Gateway·Model 네 개 (InfoQ 기사)",
+     "result": "레포 상수는 세 개입니다. Gateway는 코드에도 문서에도 없습니다.",
+     "v": "no"
+    },
+    {
+     "claim": "어떤 LLM이든 Model 자원으로 설정한다 (README)",
+     "result": "공급자가 google일 때만 동작합니다. 다른 값은 unsupported provider 오류입니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "한 명령으로 적용한다 (README)",
+     "result": "적용은 한 명령이 맞습니다. 그 앞에 클러스터·Substrate·ko·레지스트리·제어 평면 배포가 필요합니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "48시간 만에 개발자 15만 명 등록 (일부 2차 기사)",
+     "result": "확인할 수 없습니다. GitHub에 등록 지표가 없습니다. 공개 숫자는 별 13,867개와 HN 666점입니다.",
+     "v": "no"
+    },
+    {
+     "claim": "멈춘 자리에서 이어서 돌린다 (README)",
+     "result": "SuspendTask·ResumeTask RPC가 있습니다. 체크포인트는 Agent Substrate가 합니다.",
+     "v": "ok"
+    }
+   ]
+  }
+ },
+ {
   "id": "llm-wiki",
   "date": "2026-10-12",
   "sourceDate": "2026-10-12",
