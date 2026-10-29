@@ -1,5 +1,106 @@
 [
  {
+  "id": "detectorscope",
+  "date": "2026-10-29",
+  "sourceDate": "2026-10-21",
+  "video": true,
+  "source": "https://github.com/google-deepmind/detectorscope",
+  "repo": "https://github.com/google-deepmind/detectorscope",
+  "related": [
+   "jev-local"
+  ],
+  "en": {
+   "title": "DetectorScope: An AI Text Detector That Shows Its Evidence",
+   "short": "DetectorScope",
+   "field": "AI trust",
+   "type": "GitHub repo",
+   "verdict": "Looking inside AI text detectors with SAEs was already done in 2025. What is new is a ready package that returns its evidence, and at the default setting its in-domain F1 is about 11 points below the black box.",
+   "summary": "DetectorScope, from Google DeepMind and the University of Pennsylvania, returns a list of evidence features and their locations with each AI text verdict. SAEs split signals from four Gemma-2-2b layers, and only features scoring at or above tau reach a linear head. It installs with one pip command, but it is a research artifact and must not be used to judge individuals.",
+   "facts": [
+    {
+     "claim": "Every prediction is a sum of validated features (README)",
+     "result": "The head is linear, so the sum holds. Validated means an auto-interp score at or above tau; at tau 0.00 every feature goes in.",
+     "v": "ok"
+    },
+    {
+     "claim": "Making it auditable costs little accuracy (README)",
+     "result": "The default detector scores F1 0.867 on COLING dev, about 11 points below the neural baseline of 0.98. Out of domain, the two are close.",
+     "v": "cond"
+    },
+    {
+     "claim": "FT-Model+SAE matches the baseline even at tau 0.7 and above (README figure caption)",
+     "result": "This holds on COLING up to tau 0.8. On RAID it scores about 0.60 to 0.67 at every tau, below the baseline of 0.75.",
+     "v": "cond"
+    },
+    {
+     "claim": "96.8 vs 98.0 in domain, 92.2 vs 75.2 out of domain (Crypto Briefing)",
+     "result": "These are low-tau values from two different settings. The default detector scores 0.751 on out-of-domain test, the same as the baseline.",
+     "v": "cond"
+    },
+    {
+     "claim": "Changing tau downloads nothing (README)",
+     "result": "The main branch holds 20 logreg and 20 XGBoost head files.",
+     "v": "ok"
+    },
+    {
+     "claim": "The language model is bundled, so there is no licence gate (README)",
+     "result": "There is no gate. The Gemma Terms of Use still apply.",
+     "v": "ok"
+    },
+    {
+     "claim": "Features match linguistic tells of AI text (paper abstract)",
+     "result": "Top human-side features include the digit 0 in url placeholders and newlines in scientific text. Some track data format rather than style.",
+     "v": "cond"
+    }
+   ]
+  },
+  "ko": {
+   "title": "DetectorScope: 근거를 보여 주는 AI 글 탐지기",
+   "short": "DetectorScope",
+   "field": "AI 신뢰성",
+   "type": "GitHub 레포",
+   "verdict": "SAE로 AI 글 탐지기를 들여다보는 기법은 2025년에 이미 나왔습니다. 새로운 것은 근거를 돌려주는 탐지기를 바로 쓰게 묶은 점이고, 기본 설정의 분야 안 F1은 블랙박스보다 약 11점 낮습니다.",
+   "summary": "Google DeepMind와 펜실베이니아대가 공개한 DetectorScope는 AI 글 탐지 판정과 함께 근거 특징 목록과 위치를 돌려줍니다. Gemma-2-2b 네 층의 신호를 SAE로 쪼개고, 설명 점수가 tau 이상인 특징만 선형 머리에 넣습니다. pip 한 줄로 쓰지만, 연구용이라 개인 판정에는 쓰면 안 됩니다.",
+   "facts": [
+    {
+     "claim": "모든 예측이 검증된 특징의 합이다 (README)",
+     "result": "선형 머리라 합이 맞습니다. 검증은 설명 점수가 tau 이상이라는 뜻이고, tau 0.00이면 모든 특징이 들어갑니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "해석 가능하게 바꿔도 성능 손해가 작다 (README)",
+     "result": "기본 탐지기 F1은 COLING dev 0.867로 신경망 기준선 0.98보다 약 11점 낮습니다. 분야 밖에서는 비슷합니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "FT-Model+SAE는 tau 0.7 이상에서도 기준선과 맞먹는다 (README 그림 설명)",
+     "result": "COLING에서 tau 0.8까지만 맞습니다. RAID에서는 모든 tau에서 약 0.60~0.67로 기준선 0.75보다 낮습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "분야 안 96.8 대 98.0, 분야 밖 92.2 대 75.2 (Crypto Briefing)",
+     "result": "낮은 tau의 값이고 두 숫자는 서로 다른 설정입니다. 기본 탐지기는 분야 밖 test에서 0.751로 기준선과 같습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "tau를 바꿔도 다시 내려받지 않는다 (README)",
+     "result": "main 브랜치에 logreg 20개, xgboost 20개 머리 파일이 있습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "언어 모델을 함께 담아 라이선스 게이트가 없다 (README)",
+     "result": "게이트는 없습니다. Gemma 이용 약관은 그대로 적용됩니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "특징이 AI 글의 언어적 티에 대응한다 (논문 초록)",
+     "result": "사람 쪽 상위 특징에 url 0의 숫자 0, 과학 글의 줄바꿈이 있습니다. 일부는 문체가 아니라 데이터 형식입니다.",
+     "v": "cond"
+    }
+   ]
+  }
+ },
+ {
   "id": "google-ax",
   "date": "2026-10-17",
   "sourceDate": "2026-09-25",
