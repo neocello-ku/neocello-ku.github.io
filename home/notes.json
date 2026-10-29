@@ -1,5 +1,127 @@
 [
  {
+  "id": "voicestudio",
+  "date": "2026-10-29",
+  "sourceDate": "2026-10-26",
+  "video": true,
+  "source": "https://github.com/debpalash/VoiceStudio",
+  "repo": "https://github.com/debpalash/VoiceStudio",
+  "related": [
+   "voxcpm2",
+   "foresight"
+  ],
+  "en": {
+   "title": "VoiceStudio: A Voice Studio That Runs on Your Own Computer",
+   "short": "VoiceStudio",
+   "field": "Speech synthesis",
+   "type": "GitHub repo",
+   "verdict": "A product that bundles open speech models into one app, in a category voicebox opened first. The 646 languages belong to one speech generation model, and the default model weights carry a non-commercial licence.",
+   "summary": "VoiceStudio is an open app that clones voices, dubs videos, and transcribes speech on your computer and phone. It ships no new model and bundles 29 open engine entries, with OmniVoice as the default. A local API and an MCP server let agents call a voice too.",
+   "facts": [
+    {
+     "claim": "Clone, dub, and transcribe in 646 languages (README)",
+     "result": "646 is the OmniVoice speech generation count. Transcription uses Whisper-family engines, and the docs say Whisper cannot transcribe Uyghur",
+     "v": "no"
+    },
+    {
+     "claim": "Quality across 646 languages",
+     "result": "265 languages have under 10 hours of training data. English has 206,061 hours and Korean 8,609",
+     "v": "cond"
+    },
+    {
+     "claim": "Nothing leaves your device unless you say yes (README)",
+     "result": "Analytics need consent and the app asks before model downloads. Picking Google for translation sends text out",
+     "v": "ok"
+    },
+    {
+     "claim": "AGPL allows commercial use (README)",
+     "result": "True for the app code. The default OmniVoice weights are CC-BY-NC, and from v0.5.7 the API returns a licence error until you accept",
+     "v": "cond"
+    },
+    {
+     "claim": "Runs on your computer and phone (README)",
+     "result": "Phone apps are in Preview. The iPhone build is sideloaded, and a free Apple ID install expires after 7 days",
+     "v": "cond"
+    },
+    {
+     "claim": "Usable without a GPU (README)",
+     "result": "It runs on the CPU. The default engine recommends 6 GB VRAM, and a GGUF build exists for small GPUs",
+     "v": "ok"
+    },
+    {
+     "claim": "Speed by engine and hardware is documented (README)",
+     "result": "The benchmark table has zero verified rows. The only measurements come from one 16 GB M2",
+     "v": "no"
+    },
+    {
+     "claim": "Dozens of other engines (README)",
+     "result": "19 speech and 10 transcription engines, 29 entries in total. Three are OmniVoice variants",
+     "v": "ok"
+    },
+    {
+     "claim": "Fully local ElevenLabs alternative (repo description)",
+     "result": "The features overlap, but the repo has no quality comparison. Remote GPU features moved to paid Pro in v0.5.7",
+     "v": "no"
+    }
+   ]
+  },
+  "ko": {
+   "title": "VoiceStudio: 목소리 작업을 내 컴퓨터에서 하는 앱",
+   "short": "VoiceStudio",
+   "field": "음성 합성",
+   "type": "GitHub 레포",
+   "verdict": "공개 음성 모델을 한 앱에 묶은 제품화이고, 같은 범주는 voicebox가 먼저 열었습니다. 646개 언어는 음성 생성 모델 하나의 숫자이고, 기본 모델 가중치는 비상업 라이선스입니다.",
+   "summary": "VoiceStudio는 목소리 복제, 영상 더빙, 받아쓰기를 내 컴퓨터와 휴대폰에서 하는 공개 앱입니다. 새 모델은 없고, OmniVoice를 기본으로 공개 엔진 29개 항목을 묶습니다. 로컬 API와 MCP 서버가 있어 에이전트도 목소리를 부를 수 있습니다.",
+   "facts": [
+    {
+     "claim": "646개 언어로 복제·더빙·받아쓰기 (README)",
+     "result": "646은 OmniVoice 음성 생성의 언어 수입니다. 받아쓰기는 Whisper 계열이고, 문서도 위구르어는 못 받아쓴다고 적습니다",
+     "v": "no"
+    },
+    {
+     "claim": "646개 언어의 품질",
+     "result": "265개 언어가 학습 데이터 10시간 미만입니다. 영어 206,061시간, 한국어 8,609시간입니다",
+     "v": "cond"
+    },
+    {
+     "claim": "허락 없이 기기 밖으로 안 나감 (README)",
+     "result": "분석은 동의해야 켜지고, 모델은 받기 전에 묻습니다. 번역에 Google을 고르면 밖으로 나갑니다",
+     "v": "ok"
+    },
+    {
+     "claim": "AGPL이라 상업 이용 가능 (README)",
+     "result": "앱 코드는 맞습니다. 기본 OmniVoice 가중치는 CC-BY-NC이고, v0.5.7부터 수락 전에는 API가 라이선스 오류를 냅니다",
+     "v": "cond"
+    },
+    {
+     "claim": "컴퓨터와 휴대폰에서 돈다 (README)",
+     "result": "휴대폰은 Preview입니다. iPhone은 사이드로드이고, 무료 Apple ID는 7일 뒤 만료됩니다",
+     "v": "cond"
+    },
+    {
+     "claim": "GPU 없어도 쓸 수 있다 (README)",
+     "result": "CPU로 돕니다. 기본 엔진은 VRAM 6GB를 권장하고, 작은 GPU용 GGUF가 있습니다",
+     "v": "ok"
+    },
+    {
+     "claim": "엔진·하드웨어별 속도 안내 (README)",
+     "result": "벤치마크 표에 검증된 행이 0개입니다. 측정은 M2 16GB 한 대뿐입니다",
+     "v": "no"
+    },
+    {
+     "claim": "다른 엔진 수십 개 (README)",
+     "result": "음성 생성 19개, 받아쓰기 10개, 합계 29개 항목입니다. OmniVoice 변형 3개가 들어 있습니다",
+     "v": "ok"
+    },
+    {
+     "claim": "완전 로컬 ElevenLabs 대안 (레포 설명)",
+     "result": "기능은 겹치지만 품질 비교는 레포에 없습니다. 원격 GPU 기능은 v0.5.7에서 유료 Pro로 옮겼습니다",
+     "v": "no"
+    }
+   ]
+  }
+ },
+ {
   "id": "detectorscope",
   "date": "2026-10-29",
   "sourceDate": "2026-10-21",
