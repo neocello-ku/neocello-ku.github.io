@@ -1,5 +1,117 @@
 [
  {
+  "id": "genie-4",
+  "date": "2026-10-29",
+  "sourceDate": "2026-10-27",
+  "video": true,
+  "source": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+  "repo": null,
+  "related": [
+   "image-blaster",
+   "longcat-avatar-15"
+  ],
+  "en": {
+   "title": "Genie 4: a world model that draws, sounds, and talks in real time",
+   "short": "Genie 4",
+   "field": "Generative video",
+   "type": "Official announcement",
+   "verdict": "Runway shipped real-time sound two months earlier; the new parts are talking characters and the Gemini director loop. Google published no resolution, fps, or session length, and only trusted testers have access.",
+   "summary": "Google DeepMind announced the world model Genie 4 on October 27, 2026. As you move with the keyboard, it generates the picture, ambient sound, and character dialogue in real time, and text changes weather, camera, and people. Gemini works outside the model, splits goals into steps, and checks frames for success.",
+   "facts": [
+    {
+     "claim": "Realism never seen before",
+     "result": "No numbers and no benchmark. Only demo videos",
+     "v": "no"
+    },
+    {
+     "claim": "Real-time interactive simulation",
+     "result": "No primary source gives resolution, fps, or latency",
+     "v": "cond"
+    },
+    {
+     "claim": "Our first real-time world model with native audio",
+     "result": "True inside Google. Runway shipped real-time sound first, on September 3",
+     "v": "ok"
+    },
+    {
+     "claim": "Consistent scenes for 2 minutes, double the predecessor (news)",
+     "result": "No number in primary sources. 60 seconds is the app's session cap",
+     "v": "cond"
+    },
+    {
+     "claim": "Simulates aerodynamics and collisions",
+     "result": "Demos only. The same post lists complex physics as a limit",
+     "v": "cond"
+    },
+    {
+     "claim": "Gemini checks each step inside the loop",
+     "result": "Structure only. No success rate",
+     "v": "cond"
+    },
+    {
+     "claim": "Coming soon to Ultra and the API",
+     "result": "No date and no price. Only trusted testers today",
+     "v": "cond"
+    },
+    {
+     "claim": "SynthID on all video and audio",
+     "result": "A promise. No public output exists yet to check",
+     "v": "cond"
+    }
+   ]
+  },
+  "ko": {
+   "title": "Genie 4: 소리 내고 말하는 세계를 실시간으로 그리는 모델",
+   "short": "Genie 4",
+   "field": "생성 영상",
+   "type": "공식 발표",
+   "verdict": "소리는 Runway가 두 달 먼저 냈고, 새로운 것은 대화하는 인물과 Gemini 감독 루프입니다. 해상도·fps·세션 길이를 하나도 밝히지 않았고, 지금은 신뢰 테스터만 씁니다.",
+   "summary": "Google DeepMind가 2026년 10월 27일 월드 모델 Genie 4를 발표했습니다. 키보드로 돌아다니는 동안 화면, 주변 소리, 인물의 대화를 실시간으로 만들고, 글로 날씨·카메라·인물을 바꿉니다. Gemini가 바깥에서 목표를 단계로 나누고 프레임으로 성공을 확인합니다.",
+   "facts": [
+    {
+     "claim": "전례 없는 사실감",
+     "result": "수치·벤치마크가 없습니다. 데모 영상만 있습니다",
+     "v": "no"
+    },
+    {
+     "claim": "실시간 상호작용 시뮬레이션",
+     "result": "해상도·fps·지연을 1차 출처 어디에도 적지 않았습니다",
+     "v": "cond"
+    },
+    {
+     "claim": "우리의 첫 실시간 소리 생성 월드 모델",
+     "result": "구글 안에서는 맞습니다. Runway가 9월 3일에 먼저 냈습니다",
+     "v": "ok"
+    },
+    {
+     "claim": "일관된 장면 2분, 이전의 2배 (기사)",
+     "result": "1차 출처에 숫자가 없습니다. 60초는 앱의 세션 상한입니다",
+     "v": "cond"
+    },
+    {
+     "claim": "공기역학·충돌을 시뮬레이션",
+     "result": "데모뿐입니다. 같은 글이 복잡한 물리를 한계로 적었습니다",
+     "v": "cond"
+    },
+    {
+     "claim": "Gemini가 루프 안에서 단계를 검증",
+     "result": "구조 설명만 있습니다. 성공률 수치가 없습니다",
+     "v": "cond"
+    },
+    {
+     "claim": "Ultra·API에 곧 출시",
+     "result": "날짜와 가격이 없습니다. 지금은 신뢰 테스터만 씁니다",
+     "v": "cond"
+    },
+    {
+     "claim": "모든 영상·소리에 SynthID",
+     "result": "약속입니다. 공개 출력이 없어 아직 확인할 수 없습니다",
+     "v": "cond"
+    }
+   ]
+  }
+ },
+ {
   "id": "voicestudio",
   "date": "2026-10-29",
   "sourceDate": "2026-10-26",
