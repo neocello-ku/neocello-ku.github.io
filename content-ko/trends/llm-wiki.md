@@ -20,7 +20,7 @@ lang: "ko"
 
 흐름으로 보면 Karpathy가 4월 4일에 올린 한 장짜리 지시서의 구현입니다. 레포는 그 나흘 뒤에 생겼습니다.
 
-결론부터 적겠습니다. 기법은 새롭지 않고, 지시서를 설치형 앱으로 옮긴 점이 새롭습니다. 그리고 지금 막 나온 것도 아닙니다. 6개월 된 프로젝트입니다. 용어가 낯설면, 아래 "처음이라면" 섹션부터 읽으세요.
+결론부터 적겠습니다. 기법은 새롭지 않고 지시서를 설치형 앱으로 옮긴 점이 새롭습니다. 그리고 지금 막 나온 것도 아닙니다. 6개월 된 프로젝트입니다. 용어가 낯설면, 아래 "처음이라면" 섹션부터 읽으세요.
 
 ## 흐름 속 위치: 왜 지금 이 이야기인가
 
@@ -28,7 +28,7 @@ lang: "ko"
 
 다섯 문서를 엮어야 하는 질문을 또 하면, 모델은 그 엮는 일을 처음부터 다시 합니다. 쌓이지 않는다는 점이 이 방식의 약점이었습니다.
 
-2026년 4월 4일, Karpathy가 다른 순서를 적은 gist를 올렸습니다. 답할 때 찾지 말고, 자료가 들어올 때 미리 위키를 고쳐 두자는 내용입니다.
+2026년 4월 4일, Karpathy가 다른 순서를 적은 gist를 올렸습니다. 답할 때 찾지 말고 자료가 들어올 때 미리 위키를 고쳐 두자는 내용입니다.
 
 ```mermaid
 %%{init: {'themeVariables': {'cScale0': '#2F6FDB', 'cScaleLabel0': '#FFFFFF', 'cScale1': '#11806F', 'cScaleLabel1': '#FFFFFF', 'cScale2': '#5B6878', 'cScaleLabel2': '#FFFFFF', 'cScale3': '#2F6FDB', 'cScaleLabel3': '#FFFFFF', 'cScale4': '#11806F', 'cScaleLabel4': '#FFFFFF', 'cScale5': '#5B6878', 'cScaleLabel5': '#FFFFFF', 'cScale6': '#2F6FDB', 'cScaleLabel6': '#FFFFFF', 'cScale7': '#11806F', 'cScaleLabel7': '#FFFFFF', 'cScale8': '#5B6878', 'cScaleLabel8': '#FFFFFF', 'cScale9': '#2F6FDB', 'cScaleLabel9': '#FFFFFF', 'cScale10': '#11806F', 'cScaleLabel10': '#FFFFFF', 'cScale11': '#5B6878', 'cScaleLabel11': '#FFFFFF'}}}%%
@@ -74,7 +74,7 @@ LLM Wiki는 마지막에서 두 번째 줄에서 시작했습니다. gist가 올
 | 복붙 지시서를 설치형 앱으로 (제품) | 높음 | 6개월에 릴리스 61번, 별 20,531개. 창 세 칸과 설정 화면을 갖췄습니다. |
 | 위키를 다른 에이전트에 여는 통로 (인프라) | 중간 | 로컬 HTTP API와 MCP 서버를 붙였습니다. 부품인 MCP는 2024년 것입니다. |
 
-정리하면 이렇습니다. 새 발명이 아니라 나흘 된 패턴의 빠른 제품화입니다. 볼 것은 기법이 아니라 속도와 형태입니다. 같은 글을 읽은 셋 중 앱을 만든 쪽만 20,531개를 받았습니다.
+정리하면 이렇습니다. 새 발명은 아닙니다. 나흘 된 패턴의 빠른 제품화입니다. 볼 것은 기법이 아니라 속도와 형태입니다. 같은 글을 읽은 셋 중 앱을 만든 쪽만 20,531개를 받았습니다.
 
 ## 처음이라면: 이게 무슨 이야기인가요
 
@@ -161,7 +161,7 @@ flowchart TB
 | LLM | 외부 API 키 또는 로컬 Ollama. 둘 중 하나는 있어야 합니다 |
 | 라이선스 | GNU GPL v3.0 |
 
-앱은 Tauri라 가볍습니다. 실제 부담은 LLM 쪽입니다. 자료 한 개마다 호출이 두 번 가므로, 외부 API를 쓰면 요금이 자료 수에 비례합니다.
+앱은 Tauri라 가볍습니다. 실제 부담은 LLM 쪽입니다. 자료 한 개마다 호출이 두 번 가므로 외부 API를 쓰면 요금이 자료 수에 비례합니다.
 
 ### 설치
 
@@ -189,7 +189,7 @@ npm run tauri build
 
 ### API 키 없이 돌리는 길
 
-README의 제공자 목록에는 없지만, 코드에는 CLI 제공자가 둘 더 있습니다. `src/components/settings/llm-presets.ts`에 "Claude Code CLI (local)" 프리셋이 있습니다. 설명문이 `Uses the local 'claude' binary — no API key needed`입니다.
+README의 제공자 목록에는 없지만 코드에는 CLI 제공자가 둘 더 있습니다. `src/components/settings/llm-presets.ts`에 "Claude Code CLI (local)" 프리셋이 있습니다. 설명문이 `Uses the local 'claude' binary — no API key needed`입니다.
 
 `src/lib/has-usable-llm.ts`의 `PROVIDERS_WITHOUT_KEY`에 네 개가 들어 있습니다.
 
