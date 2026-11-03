@@ -18,9 +18,9 @@ lang: "ko"
 
 2026년 10월 11일, CogFree가 인지 스킬 28개로 늘었습니다. 생각하는 동작마다 이름을 붙여 파일 한 장씩 만든 묶음입니다.
 
-흐름으로 보면, 에이전트 스킬이 작업 절차에서 대화 방식으로 번지는 장면입니다. 지난 1년간 스킬은 "코드를 어떻게 짜는가"를 담았습니다. 이 묶음은 "대화를 어떻게 끌고 가는가"를 담습니다.
+흐름으로 보면 에이전트 스킬이 작업 절차에서 대화 방식으로 번지는 장면입니다. 지난 1년간 스킬은 "코드를 어떻게 짜는가"를 담았습니다. 이 묶음은 "대화를 어떻게 끌고 가는가"를 담습니다.
 
-결론부터 말하면, 새 기법은 없습니다. 28개를 다 합쳐도 419단어, 5,682바이트입니다. 값은 길이가 아니라 분류에 있습니다. 용어가 낯설면, 아래 "처음이라면" 섹션부터 읽으세요.
+결론부터 말하면 새 기법은 없습니다. 28개를 다 합쳐도 419단어, 5,682바이트입니다. 값은 길이가 아니라 분류에 있습니다. 용어가 낯설면 아래 "처음이라면" 섹션부터 읽으세요.
 
 ## 흐름 속 위치: 왜 지금 이 이야기인가
 
@@ -28,7 +28,7 @@ lang: "ko"
 
 그 뒤 1년 동안 스킬 모음은 거의 작업 절차였습니다. 계획 세우기, 디버깅, 코드 검토 같은 것입니다. 가장 널리 쓰인 obra/superpowers가 그 자리를 잡았습니다.
 
-CogFree는 겨냥점이 다릅니다. 코드가 아니라 대화를 다룹니다.
+CogFree는 겨냥점이 다릅니다. 코드 대신 대화를 다룹니다.
 
 ```mermaid
 %%{init: {'themeVariables': {'cScale0': '#2F6FDB', 'cScaleLabel0': '#FFFFFF', 'cScale1': '#11806F', 'cScaleLabel1': '#FFFFFF', 'cScale2': '#5B6878', 'cScaleLabel2': '#FFFFFF', 'cScale3': '#2F6FDB', 'cScaleLabel3': '#FFFFFF', 'cScale4': '#11806F', 'cScaleLabel4': '#FFFFFF', 'cScale5': '#5B6878', 'cScaleLabel5': '#FFFFFF', 'cScale6': '#2F6FDB', 'cScaleLabel6': '#FFFFFF', 'cScale7': '#11806F', 'cScaleLabel7': '#FFFFFF', 'cScale8': '#5B6878', 'cScaleLabel8': '#FFFFFF', 'cScale9': '#2F6FDB', 'cScaleLabel9': '#FFFFFF', 'cScale10': '#11806F', 'cScaleLabel10': '#FFFFFF', 'cScale11': '#5B6878', 'cScaleLabel11': '#FFFFFF'}}}%%
@@ -178,7 +178,7 @@ npx skills add Humanive/cogfree --skill restate
 challenge
 ```
 
-GPU도, 파이썬 환경도 필요 없습니다. 토큰 비용만 조금 늘어납니다. 본문 419단어는 전부 합쳐도 약 600토큰이고, 한 번에 한 개만 읽힙니다.
+GPU도, 파이썬 환경도 필요 없습니다. 토큰 비용만 조금 늘어납니다. 본문 419단어는 전부 합쳐도 약 600토큰이고 한 번에 한 개만 읽힙니다.
 
 ## 팩트체크
 
@@ -193,7 +193,7 @@ GPU도, 파이썬 환경도 필요 없습니다. 토큰 비용만 조금 늘어�
 
 Codex만 따로 적어 둡니다. OpenAI 공식 문서는 마켓플레이스 파일을 `.agents/plugins/marketplace.json`에 두라고 적습니다. CogFree는 `.codex-plugin/marketplace.json`에 뒀습니다.
 
-문서에 나온 명령은 `codex plugin marketplace add`와 CLI 안의 `/plugins` 창입니다. README가 적은 `codex plugin add cogfree@cogfree`는 문서에서 찾지 못했습니다. 틀렸다고 단정할 근거도 없어서, 판정은 "확인 못 함"으로 둡니다.
+문서에 나온 명령은 `codex plugin marketplace add`와 CLI 안의 `/plugins` 창입니다. README가 적은 `codex plugin add cogfree@cogfree`는 문서에서 찾지 못했습니다. 틀렸다고 단정할 근거도 없어서 판정은 "확인 못 함"으로 둡니다.
 
 ### 같은 시기 독립 측정
 
