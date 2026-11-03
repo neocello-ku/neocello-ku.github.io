@@ -113,19 +113,19 @@ README의 설치 명령은 스크립트를 받아서 바로 실행합니다. 실
 
 ### 2단계. 앱을 설치하세요
 
-macOS나 Linux라면, 아래 명령을 실행하세요.
+macOS나 Linux라면 아래 명령을 실행하세요.
 
 ```sh
 curl -fsSL https://voicestudio.sh/install | sh
 ```
 
-Windows라면, PowerShell에서 아래 명령을 실행하세요.
+Windows라면 PowerShell에서 아래 명령을 실행하세요.
 
 ```powershell
 irm https://voicestudio.sh/install.ps1 | iex
 ```
 
-스크립트가 싫으면, [최신 릴리스](https://github.com/debpalash/VoiceStudio/releases/latest)에서 설치 파일을 받으세요.
+스크립트가 싫으면 [최신 릴리스](https://github.com/debpalash/VoiceStudio/releases/latest)에서 설치 파일을 받으세요.
 
 ### 3단계. 첫 목소리를 만드세요
 
@@ -137,7 +137,7 @@ irm https://voicestudio.sh/install.ps1 | iex
 
 ### 서버에서 돌리려면: Docker
 
-GPU 서버가 있으면, Docker 이미지로 띄울 수 있습니다. 먼저 API 키를 만드세요.
+GPU 서버가 있으면 Docker 이미지로 띄울 수 있습니다. 먼저 API 키를 만드세요.
 
 ```bash
 export OMNIVOICE_API_KEY="$(python3 -c 'import secrets; print(secrets.token_urlsafe(32))')"
@@ -148,7 +148,7 @@ docker run -d --name omnivoice --gpus all \
   ghcr.io/debpalash/voicestudio:stable
 ```
 
-이 명령은 포트를 `127.0.0.1`에만 엽니다. 다른 기기에서 쓰려면, 공식 문서의 리버스 프록시 안내를 따르세요.
+이 명령은 포트를 `127.0.0.1`에만 엽니다. 다른 기기에서 쓰려면 공식 문서의 리버스 프록시 안내를 따르세요.
 
 ### 상업적으로 쓰려면: 모델 라이선스를 확인하세요
 
