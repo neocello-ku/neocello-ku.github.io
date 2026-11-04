@@ -1,5 +1,97 @@
 [
  {
+  "id": "cliproxyapi",
+  "date": "2026-11-04",
+  "sourceDate": "2026-11-04",
+  "video": true,
+  "source": "https://github.com/router-for-me/CLIProxyAPI",
+  "repo": "https://github.com/router-for-me/CLIProxyAPI",
+  "related": [
+   "harness-engineering",
+   "reason-network"
+  ],
+  "en": {
+   "title": "CLIProxyAPI: One API Address for Your Coding Subscriptions",
+   "short": "CLIProxyAPI",
+   "field": "AI agents",
+   "type": "GitHub repo",
+   "verdict": "Protocol-translating gateways have existed since 2023; the new part is one product that holds subscription logins from seven providers. 'Free API access' is overstated, and the Claude subscription path cloaks as Claude Code by default, which conflicts with Anthropic's terms. The paths without a terms problem are API keys, local models, and OpenAI's official SIWC path.",
+   "summary": "A Go server that puts subscription accounts such as Claude Code, Codex, and Gemini CLI, plus API keys, behind one OpenAI, Claude, or Gemini format API address. It first shipped in July 2025 and reached v8.0.54 on November 4, 2026, after 916 releases, with more than 57,000 GitHub stars. It rotates an account pool by round robin and retries failed requests on another account.",
+   "facts": [
+    {
+     "claim": "Free Gemini, GPT, Grok, and Claude models through an API (GitHub description)",
+     "result": "It is not a free API. It uses the quota of a subscription you pay for. Claude needs a paid plan.",
+     "v": "no"
+    },
+    {
+     "claim": "Works with OpenAI, Gemini, and Claude compatible clients",
+     "result": "The code has the /v1/chat/completions, /v1/responses, /v1/messages, and /v1beta/models routes.",
+     "v": "ok"
+    },
+    {
+     "claim": "Round-robin load balancing across accounts",
+     "result": "Round robin (default), weighted, and fill-first exist. Defaults for 3 retry rounds and cooldowns exist too.",
+     "v": "ok"
+    },
+    {
+     "claim": "Claude Code OAuth support",
+     "result": "--claude-login exists. But Anthropic forbids third parties from relaying requests with subscription credentials. The default config cloaks as Claude Code.",
+     "v": "cond"
+    },
+    {
+     "claim": "No API keys needed (apps built on it)",
+     "result": "True. But this repo's issues and Google's forum report permanent account bans. No public data gives a ban rate.",
+     "v": "cond"
+    },
+    {
+     "claim": "Codex (ChatGPT) OAuth support",
+     "result": "OpenAI opened the official SIWC path on 2026-09-29, and CLIProxyAPI uses it through --siwc-bind. The default Codex OAuth path adds the official Codex headers.",
+     "v": "cond"
+    }
+   ]
+  },
+  "ko": {
+   "title": "CLIProxyAPI: 코딩 구독 계정을 API 주소 하나로 묶는 중계 서버",
+   "short": "CLIProxyAPI",
+   "field": "AI 에이전트",
+   "type": "GitHub 레포",
+   "verdict": "프로토콜 번역 게이트웨이는 2023년부터 있던 기법이고, 새로운 것은 공급사 7곳의 구독 로그인을 한 서버에 묶은 제품입니다. '무료로 API처럼'은 과장이고, Claude 구독 경로는 기본으로 Claude Code를 위장해 Anthropic 약관과 부딪힙니다. 약관 문제가 없는 길은 API 키, 로컬 모델, OpenAI 공식 SIWC 경로입니다.",
+   "summary": "Claude Code, Codex, Gemini CLI 같은 구독 계정과 API 키를 OpenAI·Claude·Gemini 형식의 API 주소 하나로 묶는 Go 서버입니다. 2025년 7월에 나와 2026년 11월 4일 v8.0.54까지 916번 릴리스했고, GitHub 별은 5만 7천 개가 넘습니다. 계정 풀을 라운드 로빈으로 돌리고, 실패하면 다른 계정으로 다시 보냅니다.",
+   "facts": [
+    {
+     "claim": "Gemini, GPT, Grok, Claude를 무료로 API처럼 (GitHub 설명문)",
+     "result": "무료 API가 아닙니다. 내가 낸 구독의 할당량을 씁니다. Claude는 유료 구독이 있어야 합니다.",
+     "v": "no"
+    },
+    {
+     "claim": "OpenAI·Gemini·Claude 호환 클라이언트에서 쓴다",
+     "result": "/v1/chat/completions, /v1/responses, /v1/messages, /v1beta/models 경로가 코드에 있습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "여러 계정 라운드 로빈 부하 분산",
+     "result": "라운드 로빈(기본), 가중치, fill-first가 있습니다. 재시도 3라운드와 쿨다운 기본값도 있습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "Claude Code OAuth 지원",
+     "result": "--claude-login이 있습니다. 하지만 Anthropic은 제3자가 구독 자격 증명으로 요청을 중계하는 것을 금지합니다. 기본 설정은 Claude Code로 위장합니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "API 키가 필요 없다 (연동 앱 소개)",
+     "result": "맞습니다. 다만 이 레포 이슈와 Google 포럼에 계정 영구 정지 사례가 있습니다. 정지 비율은 공개 자료가 없습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "Codex(ChatGPT) OAuth 지원",
+     "result": "OpenAI가 2026-09-29 SIWC로 공식 경로를 열었고, CLIProxyAPI는 --siwc-bind로 이 경로를 씁니다. 기본 Codex OAuth 경로는 공식 Codex 헤더를 넣습니다.",
+     "v": "cond"
+    }
+   ]
+  }
+ },
+ {
   "id": "genie-4",
   "date": "2026-10-29",
   "sourceDate": "2026-10-27",
