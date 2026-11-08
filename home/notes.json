@@ -1,5 +1,118 @@
 [
  {
+  "id": "open-notebook",
+  "date": "2026-11-08",
+  "sourceDate": "2026-11-04",
+  "video": true,
+  "source": "https://github.com/lfnovo/open-notebook",
+  "repo": "https://github.com/lfnovo/open-notebook",
+  "related": [
+   "llm-wiki",
+   "foresight",
+   "research-engineering"
+  ],
+  "en": {
+   "title": "Open Notebook: NotebookLM on Your Own Server, with Your Own Models",
+   "short": "Open Notebook",
+   "field": "AI agents",
+   "type": "GitHub repo",
+   "verdict": "Not an invention: it rebuilds a Google product as open source, and it is the most widely used build of that idea. '100% local' holds only with local models and closed ports. The README's 'NotebookLM has no API' is overstated because an Enterprise API exists, and its comparison table predates the Gemini Notebook rename.",
+   "summary": "An open-source app that runs a Google NotebookLM-style notebook on your own server. It appeared in October 2024, six weeks after Audio Overviews, and shipped the v1.15.1 security release on November 4, 2026. It connects to 24 model providers and has 41,740 GitHub stars.",
+   "facts": [
+    {
+     "claim": "More than 20 providers",
+     "result": "The README table lists 24. That is 21 for LLMs, 12 for embeddings, 10 for transcription and 12 for speech.",
+     "v": "ok"
+    },
+    {
+     "claim": "100% local",
+     "result": "True only when you pick local models. Ollama and oMLX do chat and embeddings only. Speech needs a separate server.",
+     "v": "cond"
+    },
+    {
+     "claim": "Your data stays under your control",
+     "result": "The default file opens the ports on all interfaces with no password. The README warns about this too.",
+     "v": "cond"
+    },
+    {
+     "claim": "Podcasts with 1 to 4 speakers; NotebookLM has only 2",
+     "result": "1 to 4 is correct. NotebookLM grew to four formats in September 2025. We could not confirm its host count from an official source.",
+     "v": "cond"
+    },
+    {
+     "claim": "NotebookLM has no API",
+     "result": "NotebookLM Enterprise has an API, and it can create Audio Overviews. Only notebooks in personal accounts have no API.",
+     "v": "no"
+    },
+    {
+     "claim": "Answers cite their sources",
+     "result": "Correct. But a citation points to a whole item. There are no page numbers or passages.",
+     "v": "cond"
+    },
+    {
+     "claim": "MCP integration with Claude Desktop",
+     "result": "The docs exist. The MCP server is a third-party package, open-notebook-mcp, and its last version is 0.3.0 from December 2025.",
+     "v": "cond"
+    },
+    {
+     "claim": "UI in 14 languages",
+     "result": "Correct. Korean is not one of them. The README's Korean link is a machine translation.",
+     "v": "ok"
+    }
+   ]
+  },
+  "ko": {
+   "title": "Open Notebook: NotebookLM을 내 서버와 내 모델로",
+   "short": "Open Notebook",
+   "field": "AI 에이전트",
+   "type": "GitHub 레포",
+   "verdict": "새 발명이 아니라 구글 제품의 오픈소스 재구성이고, 그 갈래에서 가장 많이 쓰이는 구현입니다. '100% 로컬'은 로컬 모델을 고르고 포트를 막을 때만 맞습니다. README의 'NotebookLM은 API 없음'은 Enterprise API가 있어 과장이고, 비교표는 Gemini Notebook 이름 변경을 반영하지 않았습니다.",
+   "summary": "구글 NotebookLM을 내 서버에서 돌리는 오픈소스 앱입니다. 2024년 10월, 오디오 오버뷰가 나온 지 6주 뒤에 공개됐고 2026년 11월 4일 v1.15.1 보안 릴리스를 냈습니다. 공급사 24곳을 붙일 수 있고 GitHub 별은 41,740개입니다.",
+   "facts": [
+    {
+     "claim": "공급사 20곳 이상",
+     "result": "README 표에 24곳이 있습니다. LLM 21곳, 임베딩 12곳, 받아쓰기 10곳, 음성 12곳입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "100% 로컬",
+     "result": "로컬 모델을 고를 때만 맞습니다. Ollama와 oMLX는 채팅·임베딩만 합니다. 음성은 별도 서버가 필요합니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "데이터는 내 통제 아래",
+     "result": "기본 설정은 포트를 모든 네트워크에 열고 비밀번호가 없습니다. README도 이 점을 경고합니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "팟캐스트 1~4명, NotebookLM은 2명뿐",
+     "result": "1~4명은 맞습니다. NotebookLM은 2025년 9월 형식을 4종으로 늘렸습니다. 진행자 수는 공식 확인을 못 했습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "NotebookLM은 API가 없다",
+     "result": "NotebookLM Enterprise에는 API가 있습니다. 오디오 오버뷰 생성도 됩니다. 개인 계정 노트북에만 API가 없습니다.",
+     "v": "no"
+    },
+    {
+     "claim": "답이 출처를 인용한다",
+     "result": "맞습니다. 다만 인용은 항목 단위입니다. 쪽 번호나 구절은 없습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "MCP로 Claude Desktop과 연동",
+     "result": "문서는 있습니다. MCP 서버는 제3자 패키지 open-notebook-mcp이고, 마지막 버전은 2025년 12월 0.3.0입니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "UI 14개 언어",
+     "result": "맞습니다. 한국어는 없습니다. README의 한국어 링크는 기계 번역입니다.",
+     "v": "ok"
+    }
+   ]
+  }
+ },
+ {
   "id": "cliproxyapi",
   "date": "2026-11-04",
   "sourceDate": "2026-11-04",
