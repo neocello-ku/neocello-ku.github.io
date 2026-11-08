@@ -113,6 +113,117 @@
   }
  },
  {
+  "id": "harness2",
+  "date": "2026-11-08",
+  "sourceDate": "2026-10-09",
+  "video": true,
+  "source": "https://github.com/google-research/harness2",
+  "repo": "https://github.com/google-research/harness2",
+  "related": [
+   "harness-engineering"
+  ],
+  "en": {
+   "title": "Harness²: an agent that fixes its own harness while it works",
+   "short": "Harness²",
+   "field": "AI agents",
+   "type": "GitHub repo",
+   "verdict": "A good combination of 2026 harness self-improvement ideas; the technique is moderately new. The README numbers (11.5, 4.5, 11.8 pp) match the paper, but each peak comes from the weakest configuration. With only OpenCode and Codex executors and mostly Vertex AI settings, the procedure is worth more than the tool: compare on the same task before you keep an edit.",
+   "summary": "A research framework from Google Research. It keeps the model fixed, reruns the same task with proposed edits, and compares behavior to fix the harness. It stores the fixing tips in an improvement library for later tasks. Paper out October 9, 2026; 23,062 stars.",
+   "facts": [
+    {
+     "claim": "One step improves both GLM-5 and Gemini",
+     "result": "The mean went up in all 12 configurations. But the JobBench Codex gains of +1.4 and +1.2 are smaller than the run-to-run standard deviation.",
+     "v": "cond"
+    },
+    {
+     "claim": "Up to 11.5 points on WorkBuddy-Bench",
+     "result": "GLM-5 with OpenCode went from 64.2 to 75.7. That is the weakest configuration; Gemini gains +5.1 and +3.0.",
+     "v": "ok"
+    },
+    {
+     "claim": "Up to 4.5 points on JobBench",
+     "result": "Gemini with OpenCode went from 31.5 to 36.0. The test set has 34 tasks.",
+     "v": "ok"
+    },
+    {
+     "claim": "Up to 11.8 percentage points on LAB partial pass rate",
+     "result": "GLM-5 with OpenCode went from 59.6 to 71.4. The test set has 100 tasks.",
+     "v": "ok"
+    },
+    {
+     "claim": "Edits without ground-truth feedback",
+     "result": "Nobody sees the rubric. But the default editor and the JobBench judge are the same model, Claude Opus 4.8, and the paper lists shared model bias as a limit.",
+     "v": "cond"
+    },
+    {
+     "claim": "A larger recursion budget gives more gains",
+     "result": "k=5 scores 2.6 to 6.7 above k=1. It also uses more tokens, and no dollar amount is published.",
+     "v": "ok"
+    },
+    {
+     "claim": "The demo needs no credentials",
+     "result": "We ran it and two tasks finished: 28 executions, 32 editor calls. The editor is a deterministic stand-in.",
+     "v": "ok"
+    },
+    {
+     "claim": "Plug-and-play",
+     "result": "Only two executors, OpenCode and Codex, and the provided settings use Vertex AI. For your own tasks, you must write an adapter.",
+     "v": "cond"
+    }
+   ]
+  },
+  "ko": {
+   "title": "Harness²: 에이전트가 과제를 풀면서 자기 하네스를 고치게 하기",
+   "short": "Harness²",
+   "field": "AI 에이전트",
+   "type": "GitHub 레포",
+   "verdict": "2026년 3분기 하네스 자기 개선 논문들을 잘 엮은 연구로, 기법은 중간 정도로 새롭습니다. README 수치(11.5점·4.5점·11.8%p)는 논문 표와 맞지만 최대치는 가장 약한 조합의 값입니다. 실행기는 OpenCode·Codex뿐이고 Vertex AI 설정 위주라 바로 쓰기보다 '고치기 전에 같은 과제로 비교'하는 절차를 가져갈 만합니다.",
+   "summary": "Google Research가 낸 연구용 프레임워크입니다. 모델은 그대로 두고, 같은 과제를 수정안으로 다시 돌려 행동을 비교해 하네스를 고칩니다. 고친 요령은 개선 라이브러리에 쌓아 다음 과제에 씁니다. 2026년 10월 9일 논문 공개, 별 23,062개입니다.",
+   "facts": [
+    {
+     "claim": "한 단계로 GLM-5와 Gemini가 모두 나아진다",
+     "result": "12개 조합 모두 평균이 올랐습니다. 다만 JobBench Codex의 +1.4와 +1.2는 3회 실행의 표준편차보다 작습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "WorkBuddy-Bench 최대 11.5점",
+     "result": "GLM-5·OpenCode 64.2 → 75.7로 맞습니다. 가장 약한 조합의 값이고, Gemini는 +5.1, +3.0입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "JobBench 최대 4.5점",
+     "result": "Gemini·OpenCode 31.5 → 36.0으로 맞습니다. 시험 과제는 34개입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "LAB 부분 통과율 최대 11.8%p",
+     "result": "GLM-5·OpenCode 59.6 → 71.4로 맞습니다. 시험 과제는 100개입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "정답 피드백 없이 고친다",
+     "result": "채점표는 아무도 안 봅니다. 다만 기본 편집자와 JobBench 채점기가 같은 Claude Opus 4.8이고, 논문도 모델 편향을 한계로 적었습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "재귀 예산을 늘리면 더 오른다",
+     "result": "k=5가 k=1보다 2.6~6.7 높습니다. 토큰도 더 쓰고, 금액은 공개되지 않았습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "데모는 자격 증명이 필요 없다",
+     "result": "직접 돌려 과제 2개를 마쳤습니다. 실행 28번, 편집 호출 32번. 편집자는 가짜 편집자입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "plug-and-play",
+     "result": "실행기는 OpenCode와 Codex 둘뿐이고 제공 설정은 Vertex AI입니다. 내 과제에는 어댑터를 직접 써야 합니다.",
+     "v": "cond"
+    }
+   ]
+  }
+ },
+ {
   "id": "cliproxyapi",
   "date": "2026-11-04",
   "sourceDate": "2026-11-04",
