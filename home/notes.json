@@ -450,6 +450,129 @@
   }
  },
  {
+  "id": "lemo-opuscar",
+  "date": "2026-11-08",
+  "sourceDate": "2026-09-26",
+  "video": true,
+  "source": "https://github.com/lemomo-ai/lemo-opuscar",
+  "repo": "https://github.com/lemomo-ai/lemo-opuscar",
+  "related": [
+   "genie-4",
+   "longcat-avatar-15",
+   "cogfree"
+  ],
+  "en": {
+   "title": "Lemo-Opuscar: 66 Film Styles Made in Code, With No Video Model",
+   "short": "Lemo-Opuscar",
+   "field": "Generative video",
+   "type": "GitHub repo",
+   "verdict": "The rendering technique matches Remotion and HyperFrames and is not new; the new part is a product that writes style and directing down as documents for an agent. 'No stock footage' is conditional because 8 styles cut public archive film, and '30 to 60 minutes per film' has no measurements behind it. It assumes Opus 5.5, with no results from other models.",
+   "summary": "A style library that lets Claude Code finish short films with web-page code for picture, voice and music, and no video model. Each of the 66 styles ships a STYLE.md and the source of a demo film, along with directing guides and checks before delivery. It came out on 26 September 2026 and passed 13,000 GitHub stars in six weeks.",
+   "facts": [
+    {
+     "claim": "66 styles ready to use",
+     "result": "styles/ has 66 folders, each with a STYLE.md and demo source.",
+     "v": "ok"
+    },
+    {
+     "claim": "No video generation, no stock footage",
+     "result": "The code calls no video model. But the 8 Edit & Documentary styles cut public archive footage, and the 3D demos use Poly Haven CC0 assets.",
+     "v": "cond"
+    },
+    {
+     "claim": "Claude Opus 5.5 wrote every frame in code",
+     "result": "The source of all 66 demos exists. 'Opus 5.5 wrote it' is the author's word, with no record.",
+     "v": "cond"
+    },
+    {
+     "claim": "Music is original scores from free sample libraries",
+     "result": "There is sampler code and a script that fetches 5 instrument libraries.",
+     "v": "ok"
+    },
+    {
+     "claim": "Voice is TTS narration",
+     "result": "The default is offline Kokoro. The README says six demo voice tracks used online TTS (Edge TTS, Doubao) and are not CC BY.",
+     "v": "ok"
+    },
+    {
+     "claim": "A film takes 30 to 60 minutes and a fair amount of tokens",
+     "result": "The repo has no measurements or token counts.",
+     "v": "no"
+    },
+    {
+     "claim": "Tuned for Opus 5.5; other models may not reproduce it",
+     "result": "There are no results from other models. Read it as a warning.",
+     "v": "cond"
+    },
+    {
+     "claim": "OPUSCAR 98: 77 in 2D, 4 in 2.5D, 17 in 3D",
+     "result": "It matches the 98 entries in the data file. But 81 styles are on screen for only 2.5 seconds each (about 286 s in total).",
+     "v": "ok"
+    },
+    {
+     "claim": "Code is MIT, demo films are CC BY 4.0",
+     "result": "LICENSE is MIT. Third-party assets follow each CREDITS file.",
+     "v": "ok"
+    }
+   ]
+  },
+  "ko": {
+   "title": "Lemo-Opuscar: 영상 모델 없이 코드로 찍는 영화 스타일 66개",
+   "short": "Lemo-Opuscar",
+   "field": "생성 영상",
+   "type": "GitHub 레포",
+   "verdict": "렌더링 기법은 Remotion·HyperFrames와 같아 새롭지 않고, 새로운 쪽은 스타일과 연출을 문서로 굳혀 에이전트에게 넘긴 제품입니다. '스톡 영상 없음'은 공공 기록 영상을 쓰는 8개 스타일이 있어 조건부이고, '한 편 30~60분'은 측정 근거가 없습니다. Opus 5.5 전제이며 다른 모델과 비교한 결과는 없습니다.",
+   "summary": "Claude Code가 영상 모델 없이 웹 페이지 코드로 그림·음성·음악을 만들어 짧은 영화를 완성하게 하는 스타일 묶음입니다. 스타일 66개마다 STYLE.md와 데모 영화 소스가 있고, 연출 지침과 납품 전 검사가 함께 들어 있습니다. 2026년 9월 26일에 나와 6주 만에 GitHub 별 1만 3천 개를 넘었습니다.",
+   "facts": [
+    {
+     "claim": "바로 쓸 스타일 66개",
+     "result": "styles/ 폴더가 66개이고, 모두 STYLE.md와 데모 소스가 있습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "영상 생성도, 스톡 영상도 없다",
+     "result": "영상 모델 호출은 코드에 없습니다. 다만 Edit & Documentary 8개는 공공 기록 영상을 잘라 쓰고, 3D 데모는 Poly Haven CC0 에셋을 씁니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "모든 프레임을 Claude Opus 5.5가 코드로 썼다",
+     "result": "66개 데모 소스는 있습니다. 'Opus 5.5가 썼다'는 작성자의 말이고 기록은 없습니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "음악은 무료 샘플 라이브러리로 만든 창작곡",
+     "result": "샘플러 코드와 악기 라이브러리 5종을 받는 스크립트가 있습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "음성은 TTS 내레이션",
+     "result": "기본은 오프라인 Kokoro입니다. 데모 6편은 온라인 TTS(Edge TTS·Doubao)라 CC BY에서 빠진다고 README가 밝힙니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "한 편에 30~60분, 토큰은 꽤 든다",
+     "result": "측정 기록이나 토큰 수가 레포에 없습니다.",
+     "v": "no"
+    },
+    {
+     "claim": "Opus 5.5에 맞췄고, 다른 모델은 못 따라 할 수 있다",
+     "result": "다른 모델과 비교한 결과가 없습니다. 경고로 받아들이면 됩니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "OPUSCAR 98: 2D 77 · 2.5D 4 · 3D 17",
+     "result": "데이터 파일의 98개와 맞습니다. 다만 81개는 화면에 2.5초씩만 나옵니다(합 약 286초).",
+     "v": "ok"
+    },
+    {
+     "claim": "코드 MIT, 데모 영화 CC BY 4.0",
+     "result": "LICENSE는 MIT입니다. 외부 에셋은 각 CREDITS를 따릅니다.",
+     "v": "ok"
+    }
+   ]
+  }
+ },
+ {
   "id": "cliproxyapi",
   "date": "2026-11-04",
   "sourceDate": "2026-11-04",
