@@ -1,5 +1,128 @@
 [
  {
+  "id": "inkling-2-small",
+  "date": "2026-11-08",
+  "sourceDate": "2026-11-05",
+  "video": true,
+  "source": "https://thinkingmachines.ai/news/inkling-2-small/",
+  "repo": null,
+  "related": [
+   "harness-engineering",
+   "harness2",
+   "strata"
+  ],
+  "en": {
+   "title": "Inkling 2 Small: A 594B Model That Opened a Fine-Tuning API Before Its Weights",
+   "short": "Inkling 2 Small",
+   "field": "Language models",
+   "type": "Official announcement",
+   "verdict": "The training techniques already existed; the new parts are the 'API first, weights later' release order and a lower price than the first generation. An independent index (AA 31 vs 12) confirms the gain, but the weights, 1M context, and 'doubled' autoresearch claim are still conditional.",
+   "summary": "Thinking Machines Lab announced Inkling 2 Small on November 5, 2026. It is a 594B-total, 17B-active MoE model with image input, available today only through the Tinker fine-tuning service. The lab plans to release the weights under Apache 2.0 after outside safety testing.",
+   "facts": [
+    {
+     "claim": "AA Index 31, far above earlier models",
+     "result": "AA v5.0.1: 31 vs 12 (Inkling) and 13 (Inkling Small)",
+     "v": "ok"
+    },
+    {
+     "claim": "594B total, 17B active",
+     "result": "The model card, Tinker docs, and cookbook code all agree",
+     "v": "ok"
+    },
+    {
+     "claim": "Apache 2.0 weights next week",
+     "result": "As of Nov 8, no Hugging Face repo; license is Tinker Terms of Use",
+     "v": "cond"
+    },
+    {
+     "claim": "1M-token context",
+     "result": "Model card says 1M; Tinker offers up to 256K",
+     "v": "cond"
+    },
+    {
+     "claim": "More than doubled the forecast score in 4.5 hours for $426",
+     "result": "Published numbers go from 0.191 to 0.289, about 1.5×",
+     "v": "cond"
+    },
+    {
+     "claim": "Set to be the top open-weights model on DesignArena",
+     "result": "1,340 vs Kimi K3 at 1,328; weights not yet out",
+     "v": "cond"
+    },
+    {
+     "claim": "Kernel autoresearch",
+     "result": "Its own chart puts it third at 6.02×",
+     "v": "ok"
+    },
+    {
+     "claim": "Named 3 wines in 19 of 20 trials, better than researchers",
+     "result": "95% is correct, but no researcher score is given",
+     "v": "cond"
+    },
+    {
+     "claim": "Misbehavior 14.9, down from 66.8 in the first generation",
+     "result": "Internal evaluation; no independent check",
+     "v": "cond"
+    }
+   ]
+  },
+  "ko": {
+   "title": "Inkling 2 Small: 가중치보다 파인튜닝 API를 먼저 연 594B 모델",
+   "short": "Inkling 2 Small",
+   "field": "언어 모델",
+   "type": "공식 발표",
+   "verdict": "학습 기법은 있던 것의 조합이고, 새로운 것은 'API 먼저, 가중치는 나중' 출시 순서와 1세대보다 싼 가격입니다. 독립 지수(AA 31점, 1세대 12점)로 성능 향상은 확인되지만, 가중치·1M 컨텍스트·'2배' 자동 연구는 아직 조건부입니다.",
+   "summary": "Thinking Machines Lab이 2026년 11월 5일 Inkling 2 Small을 발표했습니다. 전체 594B·활성 17B MoE에 이미지 입력을 받고, 지금은 파인튜닝 서비스 Tinker에서만 씁니다. 가중치는 외부 안전 시험 뒤 Apache 2.0으로 공개할 예정입니다.",
+   "facts": [
+    {
+     "claim": "AA Index 31점, 이전 모델을 크게 넘었다",
+     "result": "AA v5.0.1에서 31 대 12(Inkling), 13(Inkling Small)",
+     "v": "ok"
+    },
+    {
+     "claim": "전체 594B, 활성 17B",
+     "result": "모델 카드, Tinker 문서, cookbook 코드가 같습니다",
+     "v": "ok"
+    },
+    {
+     "claim": "다음 주 Apache 2.0 가중치 공개",
+     "result": "11월 8일 기준 HF 레포 없음, 라이선스는 Tinker 약관",
+     "v": "cond"
+    },
+    {
+     "claim": "1M 토큰 컨텍스트",
+     "result": "모델 카드는 1M, Tinker 상품은 최대 256K",
+     "v": "cond"
+    },
+    {
+     "claim": "4.5시간, $426로 예측 점수 2배 이상",
+     "result": "공개 수치는 0.191 → 0.289, 약 1.5배",
+     "v": "cond"
+    },
+    {
+     "claim": "DesignArena 최고 공개 가중치 모델 예정",
+     "result": "1,340 대 Kimi K3 1,328. 가중치 공개 전",
+     "v": "cond"
+    },
+    {
+     "claim": "커널 자동 연구",
+     "result": "자사 표에서도 6.02배로 3위",
+     "v": "ok"
+    },
+    {
+     "claim": "와인 3잔을 20번 중 19번 맞혀 연구원보다 낫다",
+     "result": "95%는 맞지만 연구원 점수가 없습니다",
+     "v": "cond"
+    },
+    {
+     "claim": "잘못된 행동 14.9, 1세대 66.8",
+     "result": "내부 평가라 독립 확인 불가",
+     "v": "cond"
+    }
+   ]
+  }
+ },
+ {
   "id": "open-notebook",
   "date": "2026-11-08",
   "sourceDate": "2026-11-04",
