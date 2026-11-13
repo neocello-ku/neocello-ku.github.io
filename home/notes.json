@@ -1,5 +1,116 @@
 [
  {
+  "id": "onejev",
+  "date": "2026-11-13",
+  "sourceDate": "2026-10-17",
+  "video": true,
+  "source": "https://github.com/OmniJev/OneJev",
+  "repo": "https://github.com/OmniJev/OneJev",
+  "related": [
+   "jev-local"
+  ],
+  "en": {
+   "title": "OneJev: an open decision model that answers about screens, photos and video with probabilities",
+   "short": "OneJev",
+   "field": "Local inference",
+   "type": "GitHub repo",
+   "verdict": "The method is old, and the product and inference server are moderately new. On an independent board its calibration beats Jev (ECE 0.025 vs 0.080), but its full score on private questions is far below the public-part score in the README.",
+   "summary": "OneJev is an open decision model that looks at screens, photos, video or text and returns one probability per option for fixed questions. It ships four fine-tuned Qwen sizes (0.8B, 4B, 9B, 27B) under Apache 2.0, with training code and the first release's data. It moves the category of Jev, which is closed and reads text only, to open weights and images.",
+   "facts": [
+    {
+     "claim": "Four sizes: 0.8B, 4B, 9B, 27B",
+     "result": "All four are on Hugging Face. The 31B model from 8 November is not in the README.",
+     "v": "ok"
+    },
+    {
+     "claim": "Answers in a single forward pass",
+     "result": "One question takes one pass. Several take one prefix pass and one branch pass. No tokens are generated.",
+     "v": "ok"
+    },
+    {
+     "claim": "Calibrated probabilities",
+     "result": "Independent board ECE: 0.025 for 4B, 0.080 for Jev 1.14.",
+     "v": "ok"
+    },
+    {
+     "claim": "Public Decision Index, 4B at 62.01",
+     "result": "Board raw data shows 61.95 for the public part. All four sizes differ by 0.07 or less.",
+     "v": "ok"
+    },
+    {
+     "claim": "Gains over 1.5: +6.1, +7.1, +6.3, +5.8",
+     "result": "My own arithmetic gives 6.11, 7.12, 6.28 and 5.85.",
+     "v": "ok"
+    },
+    {
+     "claim": "First in class (0.8B, 4B, 9B)",
+     "result": "Public-part rank on 16 October. On the 12 November data: 17th, 9th and 9th. The 4B full score is 48.88.",
+     "v": "cond"
+    },
+    {
+     "claim": "4B at 64 ms on an H200, 10.4 ms per question",
+     "result": "104 ms ÷ 10 = 10.4 ms holds. It is a self-measurement.",
+     "v": "ok"
+    },
+    {
+     "claim": "Training data released",
+     "result": "94,707 questions (95.5%) is correct, but that is the first release's data. Version 1.6 trained on about 440,000 questions.",
+     "v": "cond"
+    }
+   ]
+  },
+  "ko": {
+   "title": "OneJev: 화면·사진·영상에 확률로 답하는 공개 결정 모델",
+   "short": "OneJev",
+   "field": "로컬 추론",
+   "type": "GitHub 레포",
+   "verdict": "기법은 오래됐고 제품과 추론 서버가 중간 정도로 새롭습니다. 독립 보드에서 확률 보정은 Jev보다 좋았지만(ECE 0.025 대 0.080), 비공개 문항으로 낸 전체 점수는 README의 공개 부분 점수보다 크게 낮았습니다.",
+   "summary": "OneJev는 화면, 사진, 영상, 글을 보고 정해진 질문에 보기마다 확률로 답하는 공개 결정 모델입니다. Qwen을 미세 조정한 0.8B·4B·9B·27B 네 크기를 Apache 2.0으로 냈고, 학습 코드와 첫 판 데이터도 공개했습니다. 비공개이고 글만 읽는 Jev의 범주를 공개 가중치와 멀티모달로 옮겼습니다.",
+   "facts": [
+    {
+     "claim": "0.8B·4B·9B·27B 네 크기",
+     "result": "Hugging Face에 4종이 있습니다. 11월 8일 31B는 README에 없습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "한 번의 forward로 답한다",
+     "result": "질문 1개는 1번, 여러 개는 공통 앞부분 1번과 분기 1번입니다. 토큰을 생성하지 않습니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "보정된 확률",
+     "result": "독립 보드 ECE 4B 0.025, Jev 1.14 0.080입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "공개 Decision Index 4B 62.01",
+     "result": "보드 원자료 공개 부분 61.95. 네 크기 모두 차이 0.07 이하입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "1.5보다 +6.1, +7.1, +6.3, +5.8",
+     "result": "직접 계산 6.11, 7.12, 6.28, 5.85입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "체급 1위 (0.8B·4B·9B)",
+     "result": "10월 16일 공개 부분 기준입니다. 11월 12일 원자료로는 17위, 9위, 9위입니다. 전체 점수로 4B는 48.88입니다.",
+     "v": "cond"
+    },
+    {
+     "claim": "H200에서 4B 64ms, 질문당 10.4ms",
+     "result": "104ms ÷ 10 = 10.4ms로 맞습니다. 자기 측정입니다.",
+     "v": "ok"
+    },
+    {
+     "claim": "학습 데이터 공개",
+     "result": "94,707문항(95.5%)은 맞지만 첫 판 학습분입니다. 1.6은 약 44만 문항으로 학습했습니다.",
+     "v": "cond"
+    }
+   ]
+  }
+ },
+ {
   "id": "inkling-2-small",
   "date": "2026-11-08",
   "sourceDate": "2026-11-05",
